@@ -1,15 +1,12 @@
-var app = require('app');  // Module to control application life.
-var BrowserWindow = require('browser-window');  // Module to create native browser window.
 var menubar = require('menubar');
-var mb = menubar();
 
-
-// Report crashes to our server.
-require('crash-reporter').start();
-
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-var mainWindow = null;
+var mb = menubar({
+  dir: './app',
+  width: 600,
+  height: 370,
+  'always-on-top': true
+});
+var app = mb.app;
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
@@ -23,8 +20,5 @@ app.on('window-all-closed', function() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
-  mb.on('ready', function ready () {
-    console.log('app is ready')
-    // your app code here
-  })
+
 });
