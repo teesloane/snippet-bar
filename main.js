@@ -1,4 +1,5 @@
 var menubar = require('menubar');
+var ipc = require('ipc');
 
 var mb = menubar({
   dir: './app',
@@ -20,5 +21,13 @@ app.on('window-all-closed', function() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
+  // close app
+  ipc.on('asynchronous-message', function(event, arg) {
+    console.log(arg);  // prints "ping"
+    if (arg === "quit") {
+      app.quit();
+    }
+    // event.sender.send('asynchronous-reply', 'pong');
+  });
 
 });

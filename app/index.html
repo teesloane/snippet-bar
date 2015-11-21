@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello Nodeschool!</title>
+    <title>Gimme snippets</title>
   </head>
   <body>
-    <h1>Hello Nodeschool!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>snptr</h1>
+    <button onclick="closeApp()">Quit</button>
+
+    <script>
+      var ipc = require('ipc');
+      
+      function closeApp() {
+        ipc.send('asynchronous-message', 'quit');
+      };
+
+    </script>
+
   </body>
 </html>
