@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Gimme snippets</title>
-  </head>
-  <body>
-    <h1>snptr</h1>
-    <button onclick="closeApp()">Quit</button>
+<head>
+  <title>Gimme snippets</title>
+</head>
+<body>
+  <h1>snptr</h1>
 
-    <script>
-      var ipc = require('ipc');
-      
-      function closeApp() {
-        ipc.send('asynchronous-message', 'quit');
-      };
+  <button onclick="app.quit()">Quit</button>
 
-    </script>
-
-  </body>
+  <script>
+    var app = require('./app');
+  </script>
+</body>
 </html>
