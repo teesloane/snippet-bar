@@ -1,0 +1,2 @@
+# sniptor
+Menubar Snippet App
