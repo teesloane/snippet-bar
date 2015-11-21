@@ -1,0 +1,25 @@
+{
+  "name": "sniptor",
+  "version": "1.0.0",
+  "description": "build a menubar app!",
+  "main": "index.js",
+  "scripts": {
+		"start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teesloane/sniptor.git"
+  },
+  "author": "Tees and Bronek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teesloane/sniptor/issues"
+  },
+  "homepage": "https://github.com/teesloane/sniptor#readme",
+  "dependencies": {
+    "electron": "^0.4.1"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^0.35.1"
+  }
+}
