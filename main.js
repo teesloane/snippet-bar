@@ -1,4 +1,4 @@
-var ipc = require('ipc');
+var ipcMain = require('electron').ipcMain;
 var menubar = require('menubar');
 
 var config = {
@@ -24,7 +24,7 @@ mb.app.on('window-all-closed', function() {
 // initialization and is ready to create browser windows.
 mb.app.on('ready', function() {
 
-  ipc.on('mb-app', function(event, arg) {
+  ipcMain.on('mb-app', function(event, arg) {
     if (arg === "quit") {
       console.log('goodbye!');
       mb.app.quit();

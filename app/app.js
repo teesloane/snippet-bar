@@ -1,7 +1,7 @@
-var ipc = require('ipc');
+var ipcRenderer = require('electron').ipcRenderer;
 
 function quit() {
-  ipc.send('mb-app', 'quit');
+  ipcRenderer.send('mb-app', 'quit');
 }
 
 module.exports = {
