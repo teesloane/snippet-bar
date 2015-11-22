@@ -1,12 +1,15 @@
 var ipc = require('ipc');
 var menubar = require('menubar');
 
-var mb = menubar({
+var config = {
   dir: './app',
+  icon: './app/static/img/brackets.png',
   width: 600,
   height: 370,
   'always-on-top': true
-});
+};
+
+var mb = menubar(config);
 
 // Quit when all windows are closed.
 mb.app.on('window-all-closed', function() {
@@ -21,11 +24,14 @@ mb.app.on('window-all-closed', function() {
 // initialization and is ready to create browser windows.
 mb.app.on('ready', function() {
 
-  ipc.on('mb.app', function(event, arg) {
+  ipc.on('mb-app', function(event, arg) {
     if (arg === "quit") {
       console.log('goodbye!');
       mb.app.quit();
+    } else if (arg === "config") {
+      // send config
     }
+
     // event.sender.send('asynchronous-reply', 'pong');
   });
 });
