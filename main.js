@@ -22,6 +22,8 @@ mb.app.on('window-all-closed', function() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 mb.app.on('ready', function() {
+  mb.tray.setToolTip('snippets');
+
   ipcMain.on('mb-app', function(event, arg) {
     if (arg === "quit") {
       console.log('goodbye!');
