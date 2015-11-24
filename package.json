@@ -17,11 +17,15 @@
   },
   "homepage": "https://github.com/teesloane/sniptor#readme",
   "dependencies": {
+    "font-awesome": "^4.4.0",
     "menubar": "^2.3.0",
     "normalize.css": "^3.0.3",
-    "font-awesome": "^4.4.0"
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
     "electron-prebuilt": "^0.35.1",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",

@@ -12,6 +12,7 @@ var mb = menubar({
   icon: config.icon,
   width: 600,
   height: 370,
+  preloadWindow: true,
   'always-on-top': true
 });
 

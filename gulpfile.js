@@ -1,11 +1,17 @@
 var gulp    = require('gulp');
 var plumber = require('gulp-plumber');
-// var babel   = require('gulp-babel');
+var babel   = require('gulp-babel');
 var concat  = require('gulp-concat');
 var uglify  = require('gulp-uglify');
 var minify  = require('gulp-minify-css');
 var sass    = require('gulp-sass');
 
+gulp.task('js', function() {
+  gulp.src('src/**/*.js')
+    .pipe(plumber())
+    .pipe(babel())
+    .pipe(gulp.dest('app/js/'))
+});
 
 gulp.task('sass', function() {
   gulp.src('sass/main.scss')
@@ -13,7 +19,7 @@ gulp.task('sass', function() {
     .pipe(sass({
       outputStyle: 'compressed'
     }))
-    .pipe(gulp.dest('app/static/css/'));
+    .pipe(gulp.dest('./app/static/css/'));
 });
 
 gulp.task('normalize', function() {
@@ -33,11 +39,12 @@ gulp.task('fontfiles', function() {
 });
 
 gulp.task('default', [
+  'js',
   'sass',
   'normalize',
   'fontstyles',
   'fontfiles'
 ], function() {
-  // gulp.watch(['app/**/*.js'], ['scripts']);
+  gulp.watch(['src/**/*.js'], ['js']);
   gulp.watch(['sass/**/*.scss'], ['sass']);
 });
