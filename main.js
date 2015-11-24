@@ -10,9 +10,7 @@ var mb = menubar({
 });
 
 // prevent window resizing
-mb.on('after-create-window', function() {
-  mb.window.setResizable(false);
-});
+mb.setOption('resizable', false);
 
 // Quit when all windows are closed.
 mb.app.on('window-all-closed', function() {
