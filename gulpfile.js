@@ -1,8 +1,6 @@
 var gulp    = require('gulp');
 var plumber = require('gulp-plumber');
 var babel   = require('gulp-babel');
-var concat  = require('gulp-concat');
-var uglify  = require('gulp-uglify');
 var minify  = require('gulp-minify-css');
 var sass    = require('gulp-sass');
 

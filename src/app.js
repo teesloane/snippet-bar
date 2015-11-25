@@ -1,9 +1,11 @@
-let React = require('react');
-let ReactDOM = require('react-dom');
-let ipcRenderer = require('electron').ipcRenderer;
+const React = require('react');
+const ReactDOM = require('react-dom');
+const ipcRenderer = require('electron').ipcRenderer;
+
+const HelloWorld = require('./HelloWorld');
 
 ReactDOM.render(
-  <h1>Hello World</h1>,
+  <HelloWorld />,
   document.getElementById('react-mount')
 );
 
