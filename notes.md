@@ -12,3 +12,19 @@ var data = [
   }
   
 ]
+
+
+var data = [
+
+  {
+    id: 1,
+    title: '',
+    text: '',
+    history: [],
+    tags: [],
+    rank: 0,
+    created: Date,
+    updated: Date
+  }
+  
+]
