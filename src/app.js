@@ -1,8 +1,12 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const ipcRenderer = require('electron').ipcRenderer;
+const model = require('./data.json');
 
 const HelloWorld = require('./HelloWorld');
+
+
+
 
 ReactDOM.render(
   <HelloWorld />,
