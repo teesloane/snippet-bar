@@ -1,21 +1,6 @@
-Possible ways to structure the data of the snippets
+#Model Notes
 
 var data = [
-
-  {
-    id: 1,
-    dateCreated: '',
-    snippetTitle: '',
-    snippetText: '',
-    tags: [],
-    timesClicked: 0,
-  }
-  
-]
-
-
-var data = [
-
   {
     id: 1,
     title: '',
@@ -25,6 +10,12 @@ var data = [
     rank: 0,
     created: Date,
     updated: Date
-  }
-  
+  } 
 ]
+
+
+# Electron Notes:
+
+https://github.com/atom/electron/blob/master/docs/api/dialog.md
+
+^ this is for accessing system dialogue boxes (like 'open file' or 'save file')
