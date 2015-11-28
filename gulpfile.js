@@ -8,7 +8,7 @@ gulp.task('js', function() {
   gulp.src('src/**/*.js')
     .pipe(plumber())
     .pipe(babel())
-    .pipe(gulp.dest('app/js/'))
+    .pipe(gulp.dest('app/'))
 });
 
 gulp.task('sass', function() {
