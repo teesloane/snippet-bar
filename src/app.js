@@ -14,9 +14,9 @@ var snippets;
 fs.readFile(__dirname + '/data.json', 'utf8', function (err, data) {
   if (err) throw err;
   snippets = JSON.parse(data);
-
-  console.log(snippets);
 });
+
+console.log(snippets);
 
 
 //Render some React!
