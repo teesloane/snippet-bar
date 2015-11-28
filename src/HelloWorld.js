@@ -1,5 +1,6 @@
 const React = require('react');
 
+
 class HelloWorld extends React.Component {
   // temporary work-around for babel bug
   constructor(props) {
@@ -9,6 +10,8 @@ class HelloWorld extends React.Component {
   state = {
     message: 'Hello World'
   }
+
+
 
   render() {
     return <h1>{this.state.message}</h1>;
