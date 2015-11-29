@@ -2,29 +2,35 @@
 React Parent App
 *******************/
 
-const React          = require('react');
-const mb             = require('../mb');
-const SnippetList    = require('./SnippetList');
+const React = require('react');
 
-class App extends React.Component {
-  // temporary work-around for babel bug
-  constructor(props) {
-    super(props);
-  }
+const mb         = require('../mb');
+const data       = require('../data');
+const SearchList = require('./SearchList');
 
-  state = {
-    message: 'Hello World'
-  }
+const App = React.createClass({
+  getInitialState() {
+    return {
+      snippets: []
+    }
+  },
+
+  componentDidMount() {
+    data.read(snippets => {
+      this.setState({
+        snippets
+      });
+    });
+  },
 
   render() {
     return (
       <div>
-        <h1>{this.state.message}</h1>
         <button onClick={mb.quit}>Quit</button>
-        <SnippetList />
+        <SearchList items={this.state.snippets} />
       </div>
     );
   }
-}
+});
 
 module.exports = App;
