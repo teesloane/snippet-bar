@@ -15,9 +15,9 @@ ReactDOM.render(
 // testing data stuff
 //
 
-var data = require('./data');
+// var data = require('./data');
 
-data.readFile(snippets => {
-  console.log(snippets[0].text);
-});
+// data.readFile(snippets => {
+//   console.log(snippets[0].text);
+// });
 
