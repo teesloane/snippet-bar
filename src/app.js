@@ -2,10 +2,9 @@
 Render React Components to page
 *******************************/
 
-const React = require('react');
+const React    = require('react');
 const ReactDOM = require('react-dom');
-
-const App = require('./components/App');
+const App      = require('./components/App');
 
 ReactDOM.render(
   <App />,
@@ -19,5 +18,6 @@ ReactDOM.render(
 var data = require('./data');
 
 data.readFile(snippets => {
-  console.log(snippets[0].title);
+  console.log(snippets[0].text);
 });
+

@@ -2,9 +2,9 @@
 React Parent App
 *******************/
 
-const React = require('react');
-
-const mb = require('../mb');
+const React          = require('react');
+const mb             = require('../mb');
+const SnippetList    = require('./SnippetList');
 
 class App extends React.Component {
   // temporary work-around for babel bug
@@ -20,8 +20,8 @@ class App extends React.Component {
     return (
       <div>
         <h1>{this.state.message}</h1>
-        <button onClick={mb.quit}>Quit</button> 
-
+        <button onClick={mb.quit}>Quit</button>
+        <SnippetList />
       </div>
     );
   }
