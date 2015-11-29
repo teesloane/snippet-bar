@@ -5,7 +5,7 @@ var data = [
     id: 1,
     title: '',
     text: '',
-    history: [],
+    history: [], // <- for storing previous iterations of the text
     tags: [],
     rank: 0,
     created: Date,

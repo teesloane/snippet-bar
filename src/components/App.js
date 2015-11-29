@@ -1,3 +1,7 @@
+/******************
+React Parent App
+*******************/
+
 const React = require('react');
 
 const mb = require('../mb');
@@ -16,7 +20,8 @@ class App extends React.Component {
     return (
       <div>
         <h1>{this.state.message}</h1>
-        <button onClick={mb.quit}>Quit</button>
+        <button onClick={mb.quit}>Quit</button> 
+
       </div>
     );
   }
