@@ -2,11 +2,12 @@
 React Parent App
 *******************/
 
-const React = require('react');
+const React      = require('react');
 
 const mb         = require('../mb');
 const data       = require('../data');
 const SearchList = require('./SearchList');
+const Preview    = require('./Preview');
 
 const App = React.createClass({
   getInitialState() {
@@ -25,10 +26,14 @@ const App = React.createClass({
 
   render() {
     return (
-      <div>
-        <button onClick={mb.quit}>Quit</button>
+      <div className="container">
         <SearchList items={this.state.snippets} />
+        <Preview />
+        
       </div>
+
+      // <button onClick={mb.quit}>Quit</button>
+
     );
   }
 });

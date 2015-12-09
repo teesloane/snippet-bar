@@ -1,9 +1,11 @@
 /************************************
-Displays the database of
-snippets in a scrollable list.
+List Pane is the box that contains:
+The Search Component, the List Component
 *************************************/
 
 const React = require('react');
+
+const Search = require('./Search.js')
 
 const SearchList = React.createClass({
   propTypes: {
@@ -13,12 +15,16 @@ const SearchList = React.createClass({
   render() {
     let items = this.props.items.map((item, index) => {
       return (
+
         <li key={index}>{item.title}</li>
       );
     });
 
     return (
-      <ul>{items}</ul>
+      <div className="list-container">
+        <Search />
+        <ul>{items}</ul>
+      </div>
     );
   }
 });
