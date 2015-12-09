@@ -1,6 +1,13 @@
 .list-container {
 
   width: 40%;
-  border: 1px solid black;
+  border-right: 1px solid black;
+
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 
 }

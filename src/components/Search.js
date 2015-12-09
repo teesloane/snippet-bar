@@ -8,8 +8,14 @@ const Search = React.createClass({
   render() {
     return(
       <div className="search-bar">
-        <input type="text" placeholder="Search..." />
+
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          onChange={this.props.filter}
+        />
       </div>
+
 
     );
   }

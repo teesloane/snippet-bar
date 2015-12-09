@@ -27,7 +27,7 @@ const App = React.createClass({
   render() {
     return (
       <div className="container">
-        <SearchList items={this.state.snippets} />
+        <SearchList snippets={this.state.snippets} />
         <Preview />
         
       </div>
