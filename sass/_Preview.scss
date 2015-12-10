@@ -8,18 +8,6 @@
   background: #38393A;
 }
 
-.preview-mode {
-  flex-grow: 1;
-
-}
-
-.preview-mode {
-  display: flex;
-  height: 90vh;
-  justify-content: center;
-  align-items: center;
-}
-
 .preview-controls {
   display: flex;
   width: 100%;
@@ -33,18 +21,54 @@
     border: none;
     color: white;
     font-size: 7px;
-    transition: all 0.1s ease 0s;
-    outline: none;
+   
   }
 
-  button:hover {
+  i {
+   transition: all 0.1s ease 0s;
+  }
+
+  i:hover {
     color: #6CBEFF;
   }
 
-  button:active {
+  i:active {
     color: #FFA63E;
 
   }
 
 }
 
+
+.preview-mode {
+  flex-grow: 1;
+  display: flex;
+  height: 90vh;
+  width: 100%;
+
+  .empty-mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .new-mode {
+    display: flex;
+    flex-direction: column;
+
+
+    input {
+      height: 10.5vh;
+      outline: none;
+      border: 0;
+      border-bottom: 1px solid black;
+      padding-left: 10px;
+      background: #2F3132;
+  
+    }
+
+  }
+
+
+}

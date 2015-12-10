@@ -62,14 +62,24 @@ const SearchList = React.createClass({
     let snippets = filteredList.map((item, index) => {
       return (
 
-        <li className="single-snippet" key={index}>{item.title}</li>
+        <li 
+          className="single-snippet" 
+          key={index}>
+
+            <div className="single-snippet-content">
+              <h2>{item.title}</h2>
+              <p>{item.text}</p>
+            </div>
+
+
+        </li>
       );
     });
 
     return (
       <div className="list-container">
         <Search filter={this.filterSnippets} />
-        <ul>{snippets}</ul>
+        <ul className="snippet-ul">{snippets}</ul>
       </div>
     );
   }

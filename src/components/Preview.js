@@ -10,6 +10,7 @@ const Preview = React.createClass({
   getInitialState() {
     return {
 
+      selectedMode: <EmptyMode />,
     // these are temporary ways to display the modes while developing
       modes: {
         emptyMode: <EmptyMode />,
@@ -19,18 +20,25 @@ const Preview = React.createClass({
     }
   },
 
+  createSnippetMode() {
+
+    this.setState({
+      selectedMode: <NewMode />
+    });
+    
+  },
+
   render() {
 
     return(
       <div className="preview-container"> 
         <div className="preview-mode">
-          {this.state.modes.emptyMode}
+          {this.state.selectedMode}
         </div>
         
         <div className="preview-controls">
-          
           <button><i className="fa fa-clone fa-2x"></i></button>
-          <button><i className="fa fa-plus fa-2x"></i></button>
+          <button id="newSnippet" onClick={this.createSnippetMode}><i className="fa fa-plus fa-2x"></i></button>
         </div>
       </div>
     );
@@ -42,8 +50,8 @@ const Preview = React.createClass({
 const EmptyMode = React.createClass({
   render() {
     return(
-      <div className="preview-mode">
-        <p>"What's up? You should make a snippet or something!"</p>
+      <div className="preview-mode empty-mode">
+        <span>"What's up? You should make a snippet or something!"</span>
       </div>
     );
   }
@@ -64,7 +72,9 @@ const EditMode = React.createClass({
 const NewMode = React.createClass({
   render() {
     return(
-      <div className="preview-mode">
+      <div className="preview-mode new-mode">
+        <input className="search-bar" type="text" placeholder="Title" />
+        <input className="search-bar" type="tags" placeholder="Tags" />
       </div>
     );
   }
