@@ -10,6 +10,7 @@ const Preview = React.createClass({
   getInitialState() {
     return {
 
+      faEditSave: false,
       selectedMode: <EmptyMode />,
     // these are temporary ways to display the modes while developing
       modes: {
@@ -28,7 +29,22 @@ const Preview = React.createClass({
     
   },
 
+  editSave(e) {
+    this.setState({
+      faEditSave: !this.state.faEditSave
+    });
+  },
+
   render() {
+
+    var EditSaveBtn = this.state.faEditSave ? 
+      <button onClick={this.editSave} id="save-snippet">
+        <i className="fa fa-floppy-o fa-2x"></i>
+      </button> : 
+
+      <button onClick={this.editSave} id="edit-snippet">
+        <i className="fa fa-pencil fa-2x"></i>
+      </button>;
 
     return(
       <div className="preview-container"> 
@@ -37,8 +53,10 @@ const Preview = React.createClass({
         </div>
         
         <div className="preview-controls">
-          <button><i className="fa fa-clone fa-2x"></i></button>
-          <button id="newSnippet" onClick={this.createSnippetMode}><i className="fa fa-plus fa-2x"></i></button>
+          <button id="copy-snippet"><i className="fa fa-clone fa-2x"></i></button>
+          <button id="edit-snippet" >{EditSaveBtn}
+          <button id="new-snippet" onClick={this.createSnippetMode}><i className="fa fa-plus fa-2x"></i></button>
+          <button id="settings"><i className="fa fa-cog fa-2x"></i></button>
         </div>
       </div>
     );
