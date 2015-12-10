@@ -21,7 +21,7 @@ var PanelControls = React.createClass({
   render() {
     return(
 
-      <div className="preview-controls">
+      <div className="panel-controls">
           <button id="copy-snippet">
             <i className="fa fa-clone fa-2x"></i>
           </button>

@@ -1,0 +1,30 @@
+.panel-controls {
+  display: flex;
+  width: 100%;
+  background: #2C2D2E;
+  justify-content: space-between;
+  height: 10vh;
+
+  button {
+    padding: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 7px;
+   
+  }
+
+  i {
+   transition: all 0.1s ease 0s;
+  }
+
+  i:hover {
+    color: #6CBEFF;
+  }
+
+  i:active {
+    color: #FFA63E;
+
+  }
+
+}
