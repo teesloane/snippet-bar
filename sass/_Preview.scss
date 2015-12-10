@@ -1,3 +1,45 @@
 .preview-container {
+  display: flex; 
+  flex-direction: column;
   width: 60%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview-mode {
+  flex-grow: 1;
+
+}
+
+.preview-controls {
+  display: flex;
+  width: 100%;
+  background: #38393A;
+  justify-content: space-between;
+
+  button {
+    padding: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 7px;
+    transition: all 0.1s ease 0s;
+  }
+
+  button:hover {
+    color: #6CBEFF;
+  }
+
+  button:active {
+    color: #FFA63E;
+
+  }
+
+}
+
+
+.preview-empty-mode {
+  display: flex;
+
 }
