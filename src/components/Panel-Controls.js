@@ -19,24 +19,18 @@ var PanelControls = React.createClass({
   
 
   render() {
+
+    let icons = this.props.icons;
+
     return(
 
       <div className="panel-controls">
-          <button id="copy-snippet">
-            <i className="fa fa-clone fa-2x"></i>
-          </button>
 
-          <button id="edit-snippet" title="edit">
-            <i className="fa fa-pencil fa-2x"></i>
-          </button>
+          {icons.empty}
+          {icons.empty}
+          {icons.add}
+          {icons.settings}
 
-          <button id="new-snippet"  title="add">
-            <i className="fa fa-plus fa-2x"></i>
-          </button>
-
-          <button id="settings">
-            <i className="fa fa-cog fa-2x"></i>
-          </button>
       </div>
     );
   }
