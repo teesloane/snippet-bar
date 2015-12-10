@@ -17,7 +17,7 @@ const Panel = React.createClass({
           <button 
             onClick={this.props.setMode.bind(null, 'add')} 
             id="new-snippet"  
-            title="add">
+            title="New Snippet">
               <i className="fa fa-plus fa-2x"></i>
           </button>,
 
@@ -25,19 +25,19 @@ const Panel = React.createClass({
 
           <button 
             onClick={this.props.setMode.bind('null', 'edit')}
-            id="edit-snippet" title="edit">
+            id="edit-snippet" title="Edit Snippet">
             <i className="fa fa-pencil fa-2x"></i>
           </button>,
 
         settings:           
 
-          <button id="settings">
+          <button title="Settings" id="settings">
             <i className="fa fa-cog fa-2x"></i>
           </button>,
 
         copy: 
 
-          <button id="copy-snippet">
+          <button title="Copy Snippet" id="copy-snippet">
             <i className="fa fa-clone fa-2x"></i>
           </button>,
 
@@ -45,7 +45,9 @@ const Panel = React.createClass({
 
           <button 
             onClick={this.props.setMode.bind(null, 'empty')}
-            id="save-snippet">
+            id="save-snippet"
+            title="Save"
+            >
             <i className="fa fa-floppy-o fa-2x"></i>
           </button>,
 
@@ -88,8 +90,6 @@ const Panel = React.createClass({
     return(
       <div className="panel-container">
         <div className="panel-mode">{panelContent}</div>
-        
-
       </div>
     );
   }
