@@ -7,12 +7,19 @@ const React      = require('react');
 const mb         = require('../mb');
 const data       = require('../data');
 const SearchList = require('./SearchList');
-const Preview    = require('./Preview');
+const Panel      = require('./Panel');
 
 const App = React.createClass({
   getInitialState() {
     return {
-      snippets: []
+      snippets: [],
+      activeSnippet: null,
+      activeMode: 'empty',
+      modes: {
+        empty: 'empty',
+        edit:  'edit',
+        add:   'add'
+      }
     }
   },
 
@@ -24,16 +31,25 @@ const App = React.createClass({
     });
   },
 
+  setMode(mode) {
+    // check if mode is a property of modes object
+    let availableMode = this.state.modes[mode];
+
+    if (availableMode) {
+      this.setState({
+        activeMode: availableMode
+      });
+    }
+  },
+
   render() {
     return (
       <div className="container">
         <SearchList snippets={this.state.snippets} />
-        <Preview />
-        
+        <Panel activeMode={this.state.activeMode} modes={this.state.modes} setMode={this.setMode} />
       </div>
 
       // <button onClick={mb.quit}>Quit</button>
-
     );
   }
 });

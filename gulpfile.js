@@ -46,3 +46,11 @@ gulp.task('default', [
   gulp.watch(['src/**/*.js'], ['js']);
   gulp.watch(['sass/**/*.scss'], ['sass']);
 });
+
+gulp.task('compile', [
+  'js',
+  'sass',
+  'normalize',
+  'fontstyles',
+  'fontfiles'
+]);
