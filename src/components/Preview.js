@@ -42,7 +42,8 @@ const Preview = React.createClass({
 const EmptyMode = React.createClass({
   render() {
     return(
-      <div className="preview-empty-mode">
+      <div className="preview-mode">
+        <p>"What's up? You should make a snippet or something!"</p>
       </div>
     );
   }
@@ -51,7 +52,7 @@ const EmptyMode = React.createClass({
 const EditMode = React.createClass({
   render() {
     return(
-      <div className="preview-preview-mode">
+      <div className="preview-mode">
         <div>
         </div>
       </div>
@@ -63,7 +64,7 @@ const EditMode = React.createClass({
 const NewMode = React.createClass({
   render() {
     return(
-      <div className="preview-empty">
+      <div className="preview-mode">
       </div>
     );
   }
