@@ -9,7 +9,7 @@ buttons change mode / etc
 
 / for later button bind shit:
 onClick={this.props.setMode.bind(null, 'edit')}
-onClick={this.props.setMode.bind(null, 'add')}
+onClick={this.props.setMode.bind(null, 'add')}e
  
 */
 

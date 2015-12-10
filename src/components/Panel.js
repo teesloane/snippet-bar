@@ -5,7 +5,7 @@ Empty, Edit, Add
 
 const React = require('react');
 
-const PanelControls = require('./panel-controls')
+const PanelControls = require('./Panel-Controls')
 
 const Panel = React.createClass({
   propTypes: {
@@ -45,7 +45,7 @@ const Panel = React.createClass({
       <div className="preview-container">
         <div className="preview-mode">{panelContent}</div>
         <PanelControls />
-        
+
       </div>
     );
   }
