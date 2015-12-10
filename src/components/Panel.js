@@ -30,20 +30,12 @@ const Panel = React.createClass({
   },
 
   render() {
-    // var EditSaveBtn = this.state.faEditSave ?
-    //   <button onClick={this.editSave} id="save-snippet">
-    //     <i className="fa fa-floppy-o fa-2x"></i>
-    //   </button> :
-    //
-    //   <button onClick={this.editSave} id="edit-snippet">
-    //     <i className="fa fa-pencil fa-2x"></i>
-    //   </button>;
 
     let panelContent = this.setContent();
 
     return(
-      <div className="preview-container">
-        <div className="preview-mode">{panelContent}</div>
+      <div className="panel-container">
+        <div className="panel-mode">{panelContent}</div>
         
 
       </div>
@@ -56,15 +48,15 @@ const Panel = React.createClass({
 const EmptyMode = React.createClass({
   render() {
     return(
-      <div className="preview-mode">
 
-        <div className="empty-mode">
-          <span>"What's up? You should make a snippet or something!"</span>
+      <div className="panel-mode">
 
-        </div>
+        <div className="selected-mode">
+         <span>"What's up? You should make a snippet or something!"</span>
+       </div>
 
-      <PanelControls />
-      
+       <PanelControls />
+
       </div>
 
 
