@@ -26,10 +26,10 @@ var PanelControls = React.createClass({
 
       <div className="panel-controls">
 
-          {icons.empty}
-          {icons.empty}
-          {icons.add}
-          {icons.settings}
+          {icons.icon1}
+          {icons.icon2}
+          {icons.icon3}
+          {icons.icon4}
 
       </div>
     );

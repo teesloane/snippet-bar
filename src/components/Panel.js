@@ -92,17 +92,16 @@ const Panel = React.createClass({
 
 const EmptyMode = React.createClass({
 
-
-
   getInitialState() {
 
     let icon = this.props.icons;
 
     return {
       icons: {
-        empty: icon.empty,
-        add: icon.add,
-        settings: icon.settings
+        icon1: icon.copy,
+        icon2: icon.edit,
+        icon3: icon.add,
+        icon4: icon.settings
       }
     }
   },
@@ -113,9 +112,10 @@ const EmptyMode = React.createClass({
     return(
 
       <div className="panel-mode">
-
         <div className="selected-mode">
-         <span>"What's up? You should make a snippet or something!"</span>
+          <div className="empty-snippet-mode">
+           <span>"What's up? You should make a snippet or something!"</span>
+           </div>
        </div>
 
        <PanelControls icons={icons} />
@@ -128,12 +128,36 @@ const EmptyMode = React.createClass({
 });
 
 const EditMode = React.createClass({
+
+  getInitialState() {
+
+    let icon = this.props.icons;
+
+    return {
+      icons: {
+        icon1: icon.copy,
+        icon2: icon.save,
+        icon3: icon.add,
+        icon4: icon.settings
+      }
+    }
+  },
+
   render() {
+    let icons = this.state.icons;
+
     return(
-      <div className="preview-mode">
-        <div>
-          Edit Exclaim
-        </div>
+
+      <div className="panel-mode">
+
+        <div className="selected-mode">
+          <div className="edit-snippet-mode">
+            <span>"This is the temporary edit mode"</span>
+          </div>
+       </div>
+
+       <PanelControls icons={icons} />
+
       </div>
     );
   }
@@ -141,11 +165,39 @@ const EditMode = React.createClass({
 
 
 const AddMode = React.createClass({
+
+  getInitialState() {
+
+    let icon = this.props.icons;
+
+    return {
+      icons: {
+        icon1: icon.copy,
+        icon2: icon.save,
+        icon3: icon.add,
+        icon4: icon.settings
+      }
+    }
+  },
+
+
   render() {
+    let icons = this.state.icons;
+
     return(
-      <div className="preview-mode new-mode">
-        <input className="search-bar" type="text" placeholder="Title" />
-        <input className="search-bar" type="tags" placeholder="Tags" />
+
+      <div className="panel-mode">
+        <div className="selected-mode">
+          <div className="add-snippet-mode">
+          <input className="search-bar" type="text" placeholder="Title" />
+          <input className="search-bar" type="tags" placeholder="Tags" />
+          <textarea> Put snippets here.  </textarea>
+          </div>
+          
+        </div>
+
+        <PanelControls icons={icons} />
+
       </div>
     );
   }

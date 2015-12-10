@@ -16,16 +16,42 @@
   width: 100%;
 
   .selected-mode {
-    flex-grow: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-grow: 1;
   }
 
+}
 
-  .new-mode {
+
+///////////////
+// Panel Modes
+///////////////
+
+
+// EMPTY Mode
+
+.empty-snippet-mode {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// EDIT Mode
+
+.edit-snippet-mode {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// ADD mode!
+
+.add-snippet-mode {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
 
     input {
@@ -34,11 +60,17 @@
       border: 0;
       border-bottom: 1px solid black;
       padding-left: 10px;
-      background: #2F3132;
-  
+      background: #2F3132;  
+    }
+
+    textarea {
+      flex-grow: 1;
+      background: #2A2B2C;  
+      border: 0;
+      resize: none;
     }
 
   }
 
 
-}
+
