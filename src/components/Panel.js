@@ -1,9 +1,11 @@
 /************************************
-Panel with 4 modeS:
+Panel with 3 modes:
 Empty, Edit, Add
 *************************************/
 
 const React = require('react');
+
+const PanelControls = require('./panel-controls')
 
 const Panel = React.createClass({
   propTypes: {
@@ -42,24 +44,8 @@ const Panel = React.createClass({
     return(
       <div className="preview-container">
         <div className="preview-mode">{panelContent}</div>
-
-        <div className="preview-controls">
-          <button id="copy-snippet">
-            <i className="fa fa-clone fa-2x"></i>
-          </button>
-
-          <button id="edit-snippet" onClick={this.props.setMode.bind(null, 'edit')} title="edit">
-            <i className="fa fa-pencil fa-2x"></i>
-          </button>
-
-          <button id="new-snippet" onClick={this.props.setMode.bind(null, 'add')} title="add">
-            <i className="fa fa-plus fa-2x"></i>
-          </button>
-
-          <button id="settings">
-            <i className="fa fa-cog fa-2x"></i>
-          </button>
-        </div>
+        <PanelControls />
+        
       </div>
     );
   }
