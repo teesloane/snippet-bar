@@ -14,13 +14,18 @@ const Panel = React.createClass({
       icons: {
         add:           
 
-          <button id="new-snippet"  title="add">
-            <i className="fa fa-plus fa-2x"></i>
+          <button 
+            onClick={this.props.setMode.bind(null, 'add')} 
+            id="new-snippet"  
+            title="add">
+              <i className="fa fa-plus fa-2x"></i>
           </button>,
 
         edit:           
 
-          <button id="edit-snippet" title="edit">
+          <button 
+            onClick={this.props.setMode.bind('null', 'edit')}
+            id="edit-snippet" title="edit">
             <i className="fa fa-pencil fa-2x"></i>
           </button>,
 
@@ -38,7 +43,9 @@ const Panel = React.createClass({
 
         save:    
 
-          <button id="save-snippet">
+          <button 
+            onClick={this.props.setMode.bind(null, 'empty')}
+            id="save-snippet">
             <i className="fa fa-floppy-o fa-2x"></i>
           </button>,
 
