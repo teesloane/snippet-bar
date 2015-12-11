@@ -70,12 +70,12 @@ const Panel = React.createClass({
   },
 
   newSnippet() {
-    let newTitle = document.getElementById('new-snippet-title');
-    let newText = document.getElementById('new-snippet-text');
-    // let newTagString = document.getElementById('new-snippet-tags').value;
-    // let newTagArray = newTags.split(',');
-    console.log('ew snipetsdf test ');
-    // data.snippetModel();
+    let newTitle = document.getElementById('new-snippet-title').value;
+    let newText = document.getElementById('new-snippet-text').value;
+    let newTagString = document.getElementById('new-snippet-tags').value;
+    let newTagArray = newTagString.split(',');
+
+    data.snippetModel(newTitle, newText, newTagArray);
 
   },
 

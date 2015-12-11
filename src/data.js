@@ -28,22 +28,23 @@ function snippetModel(newTitle, newText, newTagArray) {
 
 
   console.log('this is snippet model');
-  // if (!newTitle || !newText) return null;
+  if (!newTitle || !newText) return null;
 
-  // let now = Date.now();
+  let now = Date.now();
 
-  // let snippet = {
-  //   id:      now,
-  //   title:   newTitle,
-  //   text:    newText,
-  //   tags:    newTags,
-  //   history: [],
-  //   rank:    0,
-  //   created: now,
-  //   updated: now
-  // };
+  let snippet = {
+    id:      now,
+    title:   newTitle,
+    text:    newText,
+    tags:    newTagArray,
+    history: [],
+    rank:    0,
+    created: now,
+    updated: now
+  };
 
-  // return snippet;
+  console.log(snippet);
+  return snippet;
 }
 
 
