@@ -196,8 +196,8 @@ const AddMode = React.createClass({
       <div className="panel-mode">
         <div className="selected-mode">
           <div className="add-snippet-mode">
-          <input className="search-bar" type="text" placeholder="Title" />
-          <input className="search-bar" type="tags" placeholder="Tags" />
+          <input className="" type="text" placeholder="Title" />
+          <input className="" type="tags" placeholder="Tags" />
           <textarea> Put snippets here.  </textarea>
           </div>
           
