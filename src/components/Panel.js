@@ -76,7 +76,7 @@ const Panel = React.createClass({
       return <EmptyMode icons={this.state.icons} />;
     }
     else if (activeMode === modes.edit) {
-      return <EditMode icons={this.state.icons} />;
+      return <EditMode icons={this.state.icons} activeSnippet={this.props.activeSnippet} />;
     }
     else if (activeMode === modes.add){
       return <AddMode icons={this.state.icons} />;
@@ -152,6 +152,8 @@ const EditMode = React.createClass({
 
   render() {
     let icons = this.state.icons;
+    let activeSnippet = this.props.activeSnippet;
+    console.log(activeSnippet);
 
     return(
 
@@ -159,7 +161,7 @@ const EditMode = React.createClass({
 
         <div className="selected-mode">
           <div className="edit-snippet-mode">
-            <span>"This is the temporary edit mode"</span>
+            <span>{activeSnippet.title}</span>
           </div>
        </div>
 

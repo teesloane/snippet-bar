@@ -18,7 +18,7 @@ const App = React.createClass({
       modes: {
         empty: 'empty',
         edit:  'edit',
-        add:   'add'
+        add:   'add'  
       }
     }
   },
@@ -29,6 +29,35 @@ const App = React.createClass({
         snippets
       });
     });
+  },
+  
+  getSnippetById(id, snippets) {
+
+    let len = snippets.length;
+    console.log("id: " + id);
+    let snippet = null;
+    let i;
+
+    for ( i = 0; i < len; i++) {
+      if (snippets[i].id === id) {
+        snippet = snippets[i];
+        break;
+      }
+    }
+
+    return snippet;
+
+  },
+
+  setActive(id, snippets) {
+    let activeSnippet = this.getSnippetById(id, snippets);
+
+
+    this.setState({
+      activeSnippet: activeSnippet,
+      activeMode: 'edit'
+    });
+
   },
 
   setMode(mode) {
@@ -45,8 +74,18 @@ const App = React.createClass({
   render() {
     return (
       <div className="container">
-        <SearchList snippets={this.state.snippets} />
-        <Panel activeMode={this.state.activeMode} modes={this.state.modes} setMode={this.setMode} />
+        <SearchList 
+          snippets={this.state.snippets} 
+          setMode={this.setMode} 
+          activeSnippet={this.state.activeSnippet}
+          setActive={this.setActive} />
+
+        <Panel 
+          activeMode={this.state.activeMode} 
+          modes={this.state.modes} 
+          activeSnippet={this.state.activeSnippet}
+          setMode={this.setMode} />
+
       </div>
 
       // <button onClick={mb.quit}>Quit</button>

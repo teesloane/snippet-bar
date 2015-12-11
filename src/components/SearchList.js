@@ -57,18 +57,23 @@ const SearchList = React.createClass({
 
 
   render() {
+
     let filteredList = this.state.filtered ? this.state.filtered: this. state.snippets;
 
-    let snippets = filteredList.map((item, index) => {
+    let snippets = filteredList.map((snippet, index) => {
+      let id = snippet.id;
+      let snippets = this.state.snippets;
+
       return (
 
         <li 
           className="single-snippet" 
-          key={index}>
+          key={index}
+          onClick={this.props.setActive.bind(null, id, snippets)} >
 
             <div className="single-snippet-content">
-              <h2>{item.title}</h2>
-              <p>{item.text}</p>
+              <h2>{snippet.title}</h2>
+              <p>{snippet.text}</p>
             </div>
 
 
