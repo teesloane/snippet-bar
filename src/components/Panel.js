@@ -161,7 +161,7 @@ const EditMode = React.createClass({
 
         <div className="selected-mode">
           <div className="edit-snippet-mode">
-            <span>{activeSnippet.title}</span>
+            <textarea value={active.Snippet.text></textarea>
           </div>
        </div>
 

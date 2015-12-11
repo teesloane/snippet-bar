@@ -1,0 +1,91 @@
+.panel-container {
+	display: flex; 
+	flex-direction: column;
+	width: 60%;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	background: #38393A;
+}
+
+.panel-mode {
+	
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+
+	.selected-mode {
+		display: flex;
+		flex-grow: 1;
+	}
+
+}
+
+
+///////////////
+// Panel Modes
+///////////////
+
+
+// EMPTY Mode
+
+.empty-snippet-mode {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// EDIT Mode
+
+.edit-snippet-mode {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+
+	textarea {
+
+		flex-grow: 1;
+		padding: 0 20px;
+		padding-top: 10vh;
+		background: #2A2B2C;  
+		border: 0;
+		resize: none;
+		height: 90vh;
+	}
+
+
+}
+
+// ADD mode!
+
+.add-snippet-mode {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+
+
+		input {
+			height: 10.5vh;
+			outline: none;
+			border: 0;
+			border-bottom: 1px solid black;
+			padding-left: 10px;
+			background: #2F3132;  
+		}
+
+		textarea {
+			flex-grow: 1;
+			background: #2A2B2C;  
+			border: 0;
+			resize: none;
+		}
+
+	}
+
+
+
