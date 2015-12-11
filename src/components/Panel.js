@@ -5,7 +5,8 @@ Empty, Edit, Add
 
 const React = require('react');
 
-const PanelControls = require('./Panel-Controls')
+const PanelControls = require('./Panel-Controls');
+const data = require('../data');
 
 const Panel = React.createClass({
 
@@ -44,7 +45,8 @@ const Panel = React.createClass({
         save:    
 
           <button 
-            onClick={this.props.setMode.bind(null, 'empty')}
+            // onClick={this.props.setMode.bind(null, 'empty')}
+            onClick={this.newSnippet}
             id="save-snippet"
             title="Save"
             >
@@ -61,12 +63,22 @@ const Panel = React.createClass({
 
   },
 
-
   propTypes: {
     activeMode: React.PropTypes.string.isRequired,
     setMode:    React.PropTypes.func.isRequired,
     modes:      React.PropTypes.object.isRequired
   },
+
+  newSnippet() {
+    let newTitle = document.getElementById('new-snippet-title');
+    let newText = document.getElementById('new-snippet-text');
+    // let newTagString = document.getElementById('new-snippet-tags').value;
+    // let newTagArray = newTags.split(',');
+    console.log('ew snipetsdf test ');
+    // data.snippetModel();
+
+  },
+
 
   setContent() {
     let activeMode = this.props.activeMode;
@@ -200,16 +212,18 @@ const AddMode = React.createClass({
   render() {
     let icons = this.state.icons;
 
+    //onClick={newSnippet(newTitle, newText, newTagArray, )} < this goes on the save button.
+
     return(
 
       <div className="panel-mode">
+
         <div className="selected-mode">
           <div className="add-snippet-mode">
-          <input className="" type="text" placeholder="Title" />
-          <input className="" type="tags" placeholder="Tags" />
-          <textarea> Put snippets here.  </textarea>
-          </div>
-          
+          <input id="new-snippet-title" className="" type="text" placeholder="Title" />
+          <input id="new-snippet-tags" className="" type="tags" placeholder="Tags" />
+          <textarea id="new-snippet-text"> Put snippets here.  </textarea>
+          </div>    
         </div>
 
         <PanelControls icons={icons} />
