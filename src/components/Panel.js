@@ -105,8 +105,8 @@ const EmptyMode = React.createClass({
 
     return {
       icons: {
-        icon1: icon.copy,
-        icon2: icon.edit,
+        icon1: icon.empty,
+        icon2: icon.empty,
         icon3: icon.add,
         icon4: icon.settings
       }
@@ -151,9 +151,16 @@ const EditMode = React.createClass({
   },
 
   render() {
+
     let icons = this.state.icons;
     let activeSnippet = this.props.activeSnippet;
     console.log(activeSnippet);
+    let text = null;
+
+    if ( activeSnippet ) {
+      text = activeSnippet.text
+    }
+
 
     return(
 
@@ -161,7 +168,7 @@ const EditMode = React.createClass({
 
         <div className="selected-mode">
           <div className="edit-snippet-mode">
-            <textarea value={active.Snippet.text></textarea>
+            <textarea value={text}></textarea>
           </div>
        </div>
 

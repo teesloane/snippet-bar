@@ -52,7 +52,6 @@ const App = React.createClass({
   setActive(id, snippets) {
     let activeSnippet = this.getSnippetById(id, snippets);
 
-
     this.setState({
       activeSnippet: activeSnippet,
       activeMode: 'edit'
