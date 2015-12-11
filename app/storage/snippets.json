@@ -58,5 +58,17 @@
     "rank": 0,
     "created": "",
     "updated": ""
+  },
+
+  {
+    "id": 7,
+    "title": "I'm the seventh sniippet",
+    "text": "What happens now?",
+    "history": [],
+    "tags": [],
+    "rank": 0,
+    "created": "",
+    "updated": ""
   }
+
 ]
