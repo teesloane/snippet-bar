@@ -34,11 +34,12 @@ const AddMode = React.createClass({
             <input id="new-snippet-tags" className="" type="tags" ref="tags" placeholder="Tags" />
             <textarea id="new-snippet-text" placeholder="put your snipz here" ref="text"></textarea>
           
-            <button type="submit">save</button>
+
+            <PanelControls mode="add" createSnippet={this.createSnippet} />
           </form>  
         </div>
 
-        <PanelControls mode="add" createSnippet={this.createSnippet} />
+        
       </div>
     );
   }
