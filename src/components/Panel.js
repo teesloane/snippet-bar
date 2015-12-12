@@ -40,6 +40,14 @@ const Panel = React.createClass({
             <i className="fa fa-pencil fa-2x"></i>
           </button>,
 
+        deleteSnippet:
+
+          <button
+            id="delete-snippet"  
+            title="delete Snippet">
+            <i className="fa fa-trash fa-2x"></i>
+          </button>,
+
         settings:           
 
           <button title="Settings" id="settings">
@@ -148,7 +156,7 @@ const EditMode = React.createClass({
     return {
       icons: {
         icon1: icon.copy,
-        icon2: icon.save,
+        icon2: icon.deleteSnippet,
         icon3: icon.add,
         icon4: icon.settings
       }
