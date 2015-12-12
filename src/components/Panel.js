@@ -27,7 +27,7 @@ const Panel = React.createClass({
         edit:           
 
           <button 
-            onClick={this.props.setMode.bind('null', 'edit')}
+            onClick={this.props.setMode.bind(null, 'edit')}
             id="edit-snippet" title="Edit Snippet">
             <i className="fa fa-pencil fa-2x"></i>
           </button>,
@@ -83,11 +83,13 @@ const Panel = React.createClass({
 
 // trying to write to snippets.json.
 
-    // data.write(newSnippet, function() {
-    //   this.setState({
-    //     snippets: snippets
-    //   });
-    // });
+    data.write(newSnippet, function() {
+
+      console.log('data.write log')
+      // this.setState({
+      //   snippets: snippets
+      // });
+    });
     
   },
 
