@@ -24,16 +24,19 @@ function write(data, callback) {
   });
 }
 
-function snippetModel(title = "untitled", text, tags = []) {
-  if (!text) return null;
+function snippetModel(newTitle, newText, newTagArray) {
+
+
+  console.log('this is snippet model');
+  if (!newTitle || !newText) return null;
 
   let now = Date.now();
 
   let snippet = {
     id:      now,
-    title:   title,
-    text:    text,
-    tags:    tags,
+    title:   newTitle,
+    text:    newText,
+    tags:    newTagArray,
     history: [],
     rank:    0,
     created: now,

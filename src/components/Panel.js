@@ -5,12 +5,22 @@ Empty, Edit, Add
 
 const React = require('react');
 
-const PanelControls = require('./Panel-Controls')
+const PanelControls = require('./Panel-Controls');
+const data = require('../data');
 
 const Panel = React.createClass({
 
+  propTypes: {
+    activeMode   :     React.PropTypes.string.isRequired,
+    setMode      :     React.PropTypes.func.isRequired,
+    modes        :     React.PropTypes.object.isRequired,
+    activeSnippet:     React.PropTypes.object.isRequired
+  },
+
   getInitialState() {
     return {
+
+      snippets: this.props.snippets,
       icons: {
         add:           
 
@@ -24,7 +34,7 @@ const Panel = React.createClass({
         edit:           
 
           <button 
-            onClick={this.props.setMode.bind('null', 'edit')}
+            onClick={this.props.setMode.bind(null, 'edit')}
             id="edit-snippet" title="Edit Snippet">
             <i className="fa fa-pencil fa-2x"></i>
           </button>,
@@ -44,7 +54,7 @@ const Panel = React.createClass({
         save:    
 
           <button 
-            onClick={this.props.setMode.bind(null, 'empty')}
+            onClick={this.newSnippet}
             id="save-snippet"
             title="Save"
             >
@@ -62,10 +72,27 @@ const Panel = React.createClass({
   },
 
 
-  propTypes: {
-    activeMode: React.PropTypes.string.isRequired,
-    setMode:    React.PropTypes.func.isRequired,
-    modes:      React.PropTypes.object.isRequired
+
+  newSnippet() {
+    let newTitle = document.getElementById('new-snippet-title').value;
+    let newText = document.getElementById('new-snippet-text').value;
+    let newTagString = document.getElementById('new-snippet-tags').value;
+    let newTagArray = newTagString.split(',');
+
+    let newSnippet = data.snippetModel(newTitle, newText, newTagArray);
+
+    console.log(newSnippet);
+
+// trying to write to snippets.json.
+
+    data.write(newSnippet, function() {
+
+      console.log('data.write log')
+      // this.setState({
+      //   snippets: snippets
+      // });
+    });
+    
   },
 
   setContent() {
@@ -200,16 +227,18 @@ const AddMode = React.createClass({
   render() {
     let icons = this.state.icons;
 
+    //onClick={newSnippet(newTitle, newText, newTagArray, )} < this goes on the save button.
+
     return(
 
       <div className="panel-mode">
+
         <div className="selected-mode">
           <div className="add-snippet-mode">
-          <input className="" type="text" placeholder="Title" />
-          <input className="" type="tags" placeholder="Tags" />
-          <textarea> Put snippets here.  </textarea>
-          </div>
-          
+          <input id="new-snippet-title" className="" type="text" placeholder="Title" />
+          <input id="new-snippet-tags" className="" type="tags" placeholder="Tags" />
+          <textarea id="new-snippet-text"> Put snippets here.  </textarea>
+          </div>    
         </div>
 
         <PanelControls icons={icons} />

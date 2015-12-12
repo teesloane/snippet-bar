@@ -1,16 +1,21 @@
-.list-container {
 
+.searchlist-container {
   width: 40%;
-  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
   background: #38393A;
-  overflow-y: scroll;
+  border-right: 1px solid black;
 
+}
+
+.list-container {
+ 
+  overflow-y: scroll;
 
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    margin-top: 11vh;
   }
 
 }

@@ -16,24 +16,19 @@ const SearchList = React.createClass({
 
   getInitialState() {
     return {
-      snippets: this.props.snippets,
+      snippets: [],
       filtered: null
 
     }
   },
 //This was in App.js originall but it seems to be necessary in both.
-   componentDidMount() {
-    data.read(snippets => {
-      this.setState({
-        snippets
-      });
+ componentWillReceiveProps(nextProps) {
+    this.setState({
+      snippets: nextProps.snippets 
     });
-  },
-
-
+ },
+   
   filterSnippets(e) {
-    console.log('trying to filter');
-    console.log(this.state.snippets);
     let searchValue       = e.target.value.toLowerCase();
     let searchValueLength = searchValue.length;
 
@@ -58,7 +53,7 @@ const SearchList = React.createClass({
 
   render() {
 
-    let filteredList = this.state.filtered ? this.state.filtered: this. state.snippets;
+    let filteredList = this.state.filtered ? this.state.filtered: this.state.snippets;
 
     let snippets = filteredList.map((snippet, index) => {
       let id = snippet.id;
@@ -82,10 +77,15 @@ const SearchList = React.createClass({
     });
 
     return (
-      <div className="list-container">
+
+      <div className="searchlist-container">
         <Search filter={this.filterSnippets} />
-        <ul className="snippet-ul">{snippets}</ul>
-      </div>
+
+        <div className="list-container">  
+          <ul className="snippet-ul">{snippets}</ul>
+        </div>
+
+      </div>  
     );
   }
 });
