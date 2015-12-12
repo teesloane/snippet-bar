@@ -16,21 +16,18 @@ const SearchList = React.createClass({
 
   getInitialState() {
     return {
-      snippets: this.props.snippets,
+      snippets: [],
       filtered: null
 
     }
   },
 //This was in App.js originall but it seems to be necessary in both.
-   componentDidMount() {
-    data.read(snippets => {
-      this.setState({
-        snippets
-      });
+ componentWillReceiveProps(nextProps) {
+    this.setState({
+      snippets: nextProps.snippets 
     });
-  },
-
-
+ },
+   
   filterSnippets(e) {
     console.log('trying to filter');
     console.log(this.state.snippets);
