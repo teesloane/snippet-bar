@@ -43,7 +43,6 @@ function snippetModel(newTitle, newText, newTagArray) {
     updated: now
   };
 
-  console.log(snippet);
   return snippet;
 }
 

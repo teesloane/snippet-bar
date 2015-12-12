@@ -12,6 +12,8 @@ const Panel = React.createClass({
 
   getInitialState() {
     return {
+
+      snippets: this.props.snippets,
       icons: {
         add:           
 
@@ -75,10 +77,19 @@ const Panel = React.createClass({
     let newTagString = document.getElementById('new-snippet-tags').value;
     let newTagArray = newTagString.split(',');
 
-    data.snippetModel(newTitle, newText, newTagArray);
+    let newSnippet = data.snippetModel(newTitle, newText, newTagArray);
 
+    console.log(newSnippet);
+
+// trying to write to snippets.json.
+
+    // data.write(newSnippet, function() {
+    //   this.setState({
+    //     snippets: snippets
+    //   });
+    // });
+    
   },
-
 
   setContent() {
     let activeMode = this.props.activeMode;
