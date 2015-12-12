@@ -10,6 +10,13 @@ const data = require('../data');
 
 const Panel = React.createClass({
 
+  propTypes: {
+    activeMode   :     React.PropTypes.string.isRequired,
+    setMode      :     React.PropTypes.func.isRequired,
+    modes        :     React.PropTypes.object.isRequired,
+    activeSnippet:     React.PropTypes.object.isRequired
+  },
+
   getInitialState() {
     return {
 
@@ -47,7 +54,6 @@ const Panel = React.createClass({
         save:    
 
           <button 
-            // onClick={this.props.setMode.bind(null, 'empty')}
             onClick={this.newSnippet}
             id="save-snippet"
             title="Save"
@@ -65,11 +71,7 @@ const Panel = React.createClass({
 
   },
 
-  propTypes: {
-    activeMode: React.PropTypes.string.isRequired,
-    setMode:    React.PropTypes.func.isRequired,
-    modes:      React.PropTypes.object.isRequired
-  },
+
 
   newSnippet() {
     let newTitle = document.getElementById('new-snippet-title').value;

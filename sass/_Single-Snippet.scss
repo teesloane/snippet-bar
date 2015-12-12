@@ -1,28 +1,23 @@
 .single-snippet {
   display: flex;
   align-items: center;
-  height: 15vh;
+  height: 13vh;
   border-bottom: 1px solid black;
-
 
 }
 
 .single-snippet-content {
-
   margin-left: 5%;
 
   h2 {
     font-size: 12px;
     font-weight: 400;
-
   }
 
   p {
-
     line-height: 0;
     font-size: 10px;
     color: #7B7E82;
     overflow: visible;
   }
-
 }
