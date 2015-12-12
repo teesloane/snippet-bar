@@ -100,7 +100,6 @@ const App = React.createClass({
           setActive={this.setActive} />
 
         <Panel 
-          snippets={this.state.snippets}
           activeMode={this.state.activeMode} 
           modes={this.state.modes} 
           activeSnippet={this.state.activeSnippet}

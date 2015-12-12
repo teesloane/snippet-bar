@@ -5,23 +5,21 @@ Empty, Edit, Add
 
 const React = require('react');
 
-const PanelControls = require('./Panel-Controls');
+const PanelControls = require('./PanelControls');
 const data = require('../data');
 
 const Panel = React.createClass({
 
   propTypes: {
-    activeMode   :     React.PropTypes.string.isRequired,
-    setMode      :     React.PropTypes.func.isRequired,
-    modes        :     React.PropTypes.object.isRequired,
-    activeSnippet:     React.PropTypes.object.isRequired,
-    saveSnippet  :     React.PropTypes.func.isRequired
+    activeMode    :     React.PropTypes.string.isRequired,
+    setMode       :     React.PropTypes.func.isRequired,
+    modes         :     React.PropTypes.object.isRequired,
+    activeSnippet :     React.PropTypes.object,
+    saveSnippet   :     React.PropTypes.func.isRequired
   },
 
   getInitialState() {
     return {
-
-      snippets: this.props.snippets,
       icons: {
         add:           
 
@@ -111,18 +109,26 @@ const Panel = React.createClass({
 // Preview Pane Modes
 
 const EmptyMode = React.createClass({
+  propTypes: {
+    icons: React.PropTypes.object.isRequired
+  },
 
   getInitialState() {
-
-    let icon = this.props.icons;
-
     return {
-      icons: {
-        icon1: icon.empty,
-        icon2: icon.empty,
-        icon3: icon.add,
-        icon4: icon.settings
-      }
+      icons: {}
+    }
+  },
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.icons) {
+      this.setState({
+        icons: {
+          icon1: nextProps.icons.empty,
+          icon2: nextProps.icons.empty,
+          icon3: nextProps.icons.add,
+          icon4: nextProps.icons.settings
+        }
+      });
     }
   },
 
@@ -148,18 +154,26 @@ const EmptyMode = React.createClass({
 });
 
 const EditMode = React.createClass({
+  propTypes: {
+    icons: React.PropTypes.object.isRequired
+  },
 
   getInitialState() {
-
-    let icon = this.props.icons;
-
     return {
-      icons: {
-        icon1: icon.copy,
-        icon2: icon.deleteSnippet,
-        icon3: icon.add,
-        icon4: icon.settings
-      }
+      icons: {}
+    }
+  },
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.icons) {
+      this.setState({
+        icons: {
+          icon1: nextProps.icons.copy,
+          icon2: nextProps.icons.deleteSnippet,
+          icon3: nextProps.icons.add,
+          icon4: nextProps.icons.settings
+        }
+      });
     }
   },
 
@@ -195,20 +209,26 @@ const EditMode = React.createClass({
 const AddMode = React.createClass({
 
   propTypes: {
-    saveSnippet: React.PropTypes.func.isRequired
+    saveSnippet: React.PropTypes.func.isRequired,
+    icons: React.PropTypes.object.isRequired
   },
 
   getInitialState() {
-
-    let icon = this.props.icons;
-
     return {
-      icons: {
-        icon1: icon.copy,
-        icon2: icon.save,
-        icon3: icon.add,
-        icon4: icon.settings
-      }
+      icons: {}
+    }
+  },
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.icons) {
+      this.setState({
+        icons: {
+          icon1: nextProps.icons.copy,
+          icon2: nextProps.icons.save,
+          icon3: nextProps.icons.add,
+          icon4: nextProps.icons.settings
+        }
+      });
     }
   },
 
