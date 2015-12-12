@@ -1,85 +1,26 @@
 [
   {
-    "id": 1,
-    "title": "Woah hello",
-    "text": "lorem lorem hey i said lorem",
+    "id": "ID1449946644779",
+    "title": "test",
+    "text": "test",
+    "tags": [
+      "test"
+    ],
     "history": [],
-    "tags": [],
     "rank": 0,
-    "created": "",
-    "updated": ""
+    "created": 1449946644779,
+    "updated": 1449946644779
   },
   {
-    "id": 2,
-    "title": "I'm a snippet",
-    "text": "go for it snippet!",
+    "id": "ID1449946809965",
+    "title": "vfsd",
+    "text": "fds",
+    "tags": [
+      "fds"
+    ],
     "history": [],
-    "tags": [],
     "rank": 0,
-    "created": "",
-    "updated": ""
-  },
-  {
-    "id": 3,
-    "title": "no one knows",
-    "text": "Help I'm a person trapped in a snippet",
-    "history": [],
-    "tags": [],
-    "rank": 0,
-    "created": "",
-    "updated": ""
-  },
-  {
-    "id": 4,
-    "title": "Billboards for bills",
-    "text": "post your board and fight amongst yourselves",
-    "history": [],
-    "tags": [],
-    "rank": 0,
-    "created": "",
-    "updated": ""
-  },
-  {
-    "id": 5,
-    "title": "Horror story theme park party",
-    "text": "hello? who's there? Show yourselves!",
-    "history": [],
-    "tags": [],
-    "rank": 0,
-    "created": "",
-    "updated": ""
-  },
-  {
-    "id": 6,
-    "title": "jeronimo",
-    "text": "Watch out here goes the wagon!",
-    "history": [],
-    "tags": [],
-    "rank": 0,
-    "created": "",
-    "updated": ""
-  },
-
-  {
-    "id": 7,
-    "title": "I'm the seventh sniippet",
-    "text": "What happens now?",
-    "history": [],
-    "tags": [],
-    "rank": 0,
-    "created": "",
-    "updated": ""
-  },
-
-    {
-    "id": 8,
-    "title": "Watch out for big hats",
-    "text": "Balloons aren't meant to be tied down",
-    "history": [],
-    "tags": [],
-    "rank": 0,
-    "created": "",
-    "updated": ""
+    "created": 1449946809965,
+    "updated": 1449946809965
   }
-
 ]

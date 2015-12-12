@@ -15,7 +15,9 @@ function read(callback) {
 }
 
 function write(data, callback) {
-  let jData = JSON.parse(data);
+  if (!data) return;
+
+  let jData = JSON.stringify(data, null, 2);
 
   fs.writeFile(snippetsPath, jData, 'utf8', (err) => {
     if (err) throw err;
@@ -24,19 +26,16 @@ function write(data, callback) {
   });
 }
 
-function snippetModel(newTitle, newText, newTagArray) {
-
-
-  console.log('this is snippet model');
-  if (!newTitle || !newText) return null;
+function snippetModel(title = "untitled", text, tags = []) {
+  if (!text) return null;
 
   let now = Date.now();
 
   let snippet = {
-    id:      now,
-    title:   newTitle,
-    text:    newText,
-    tags:    newTagArray,
+    id:      "ID" + now,
+    title:   title,
+    text:    text,
+    tags:    tags,
     history: [],
     rank:    0,
     created: now,

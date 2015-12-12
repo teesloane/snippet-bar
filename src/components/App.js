@@ -2,7 +2,8 @@
 React Parent App
 *******************/
 
-const React      = require('react');
+const React  = require('react');
+const update = require('react-addons-update');
 
 const mb         = require('../mb');
 const data       = require('../data');
@@ -70,6 +71,25 @@ const App = React.createClass({
     }
   },
 
+  saveSnippet(values) {
+    let snippet = data.snippetModel(values.title, values.text, values.tags);
+    
+    if (snippet) {
+      this.setState({
+        snippets: update(
+          this.state.snippets,
+          {
+            $push: [snippet]
+          }
+        )
+      }, () => {
+        data.write(this.state.snippets, () => {
+          console.log('snippet saved');
+        });
+      });
+    }
+  },
+
   render() {
     return (
       <div className="container">
@@ -84,7 +104,9 @@ const App = React.createClass({
           activeMode={this.state.activeMode} 
           modes={this.state.modes} 
           activeSnippet={this.state.activeSnippet}
-          setMode={this.setMode} />
+          setMode={this.setMode} 
+          saveSnippet={this.saveSnippet} />
+
 
       </div>
 

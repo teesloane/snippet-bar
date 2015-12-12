@@ -14,7 +14,8 @@ const Panel = React.createClass({
     activeMode   :     React.PropTypes.string.isRequired,
     setMode      :     React.PropTypes.func.isRequired,
     modes        :     React.PropTypes.object.isRequired,
-    activeSnippet:     React.PropTypes.object.isRequired
+    activeSnippet:     React.PropTypes.object.isRequired,
+    saveSnippet  :     React.PropTypes.func.isRequired
   },
 
   getInitialState() {
@@ -72,29 +73,6 @@ const Panel = React.createClass({
   },
 
 
-
-  newSnippet() {
-    let newTitle = document.getElementById('new-snippet-title').value;
-    let newText = document.getElementById('new-snippet-text').value;
-    let newTagString = document.getElementById('new-snippet-tags').value;
-    let newTagArray = newTagString.split(',');
-
-    let newSnippet = data.snippetModel(newTitle, newText, newTagArray);
-
-    console.log(newSnippet);
-
-// trying to write to snippets.json.
-
-    data.write(newSnippet, function() {
-
-      console.log('data.write log')
-      // this.setState({
-      //   snippets: snippets
-      // });
-    });
-    
-  },
-
   setContent() {
     let activeMode = this.props.activeMode;
     let modes      = this.props.modes;
@@ -106,7 +84,7 @@ const Panel = React.createClass({
       return <EditMode icons={this.state.icons} activeSnippet={this.props.activeSnippet} />;
     }
     else if (activeMode === modes.add){
-      return <AddMode icons={this.state.icons} />;
+      return <AddMode icons={this.state.icons} saveSnippet={this.props.saveSnippet} />;
     }
   },
 
@@ -188,7 +166,6 @@ const EditMode = React.createClass({
       text = activeSnippet.text
     }
 
-
     return(
 
       <div className="panel-mode">
@@ -209,6 +186,10 @@ const EditMode = React.createClass({
 
 const AddMode = React.createClass({
 
+  propTypes: {
+    saveSnippet: React.PropTypes.func.isRequired
+  },
+
   getInitialState() {
 
     let icon = this.props.icons;
@@ -223,22 +204,44 @@ const AddMode = React.createClass({
     }
   },
 
+  createSnippet(event) {
+    event.preventDefault();
+
+    let title = this.refs.title.value.trim();
+
+    let tags = this.refs.tags.value
+      .split(',')
+      .filter(tag => tag.length)
+      .map(tag => tag.trim().toLowerCase());
+
+    let text = this.refs.text.value;
+
+    let values = {};
+
+    if (title)       values.title = title;
+    if (tags.length) values.tags  = tags;
+    if (text)        values.text  = text;
+
+    this.props.saveSnippet(values);
+  },
+
 
   render() {
     let icons = this.state.icons;
-
-    //onClick={newSnippet(newTitle, newText, newTagArray, )} < this goes on the save button.
 
     return(
 
       <div className="panel-mode">
 
         <div className="selected-mode">
-          <div className="add-snippet-mode">
-          <input id="new-snippet-title" className="" type="text" placeholder="Title" />
-          <input id="new-snippet-tags" className="" type="tags" placeholder="Tags" />
-          <textarea id="new-snippet-text"> Put snippets here.  </textarea>
-          </div>    
+
+          <form className="add-snippet-mode" onSubmit={this.createSnippet}>
+          <input id="new-snippet-title" className="" type="text" ref="title" placeholder="Title" />
+          <input id="new-snippet-tags" className="" type="tags" ref="tags" placeholder="Tags" />
+          <textarea id="new-snippet-text" placeholder="put your snipz here" ref="text"></textarea>
+          
+          <button type="submit">save</button>
+          </form>  
         </div>
 
         <PanelControls icons={icons} />
