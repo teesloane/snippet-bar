@@ -1,6 +1,6 @@
 .add-snippet-mode {
-    // display: flex;
-    // flex-direction: column;
+    display: flex;
+    flex-direction: column;
     width: 100%;
 
     .add-field {
@@ -13,7 +13,7 @@
     }
 
     .add-textarea {
-      // flex-grow: 1;
+      flex-grow: 1;
       background: #2A2B2C;
       border: 0;
       resize: none;

@@ -27,7 +27,7 @@ const AddMode = React.createClass({
           <form className="add-snippet-mode" onSubmit={this.createSnippet}>
             <input id="new-snippet-title" className="add-field" type="text" ref="title" placeholder="Title" />
 
-            <Tags ref="tags" />
+            <Tags max="5" ref="tags" />
 
             <textarea id="new-snippet-text" className="add-textarea" placeholder="put your snipz here" ref="text"></textarea>
 

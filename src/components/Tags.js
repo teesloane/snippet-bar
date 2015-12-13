@@ -22,7 +22,8 @@ const Tags = React.createClass({
         tab:       9,
         enter:     13
       },
-      INVALID_CHARS: /[^a-zA-Z0-9]/g
+      // only allow letters, numbers and spaces inbetween words
+      INVALID_CHARS: /[^a-zA-Z0-9 ]/g
     };
   },
 
