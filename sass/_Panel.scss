@@ -60,32 +60,8 @@
 
 }
 
-// ADD mode!
-
-.add-snippet-mode {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
 
 
-
-		input {
-			height: 10.5vh;
-			outline: none;
-			border: 0;
-			border-bottom: 1px solid black;
-			padding-left: 10px;
-			background: #2F3132;  
-		}
-
-		textarea {
-			flex-grow: 1;
-			background: #2A2B2C;  
-			border: 0;
-			resize: none;
-		}
-
-	}
 
 
 
