@@ -4,7 +4,10 @@ const update = require('react-addons-update');
 const Tags = React.createClass({
   propTypes: {
     tags:        React.PropTypes.array,
-    max:         React.PropTypes.number,
+    max:         React.PropTypes.oneOfType([
+      React.PropTypes.number,
+      React.PropTypes.string
+    ]),
     placeholder: React.PropTypes.string
   },
 
@@ -28,8 +31,6 @@ const Tags = React.createClass({
   },
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-
     if (nextProps.tags) {
       this.setState({
         tags: nextProps.tags
@@ -63,7 +64,7 @@ const Tags = React.createClass({
 
   updateTags(event) {
     if (!this.props.max ||
-        this.state.tags.length < this.props.max) {
+        this.state.tags.length < parseInt(this.props.max)) {
       let value = event.target.value;
 
       if (!value) return;
