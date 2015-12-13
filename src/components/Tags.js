@@ -62,23 +62,24 @@ const Tags = React.createClass({
   },
 
   updateTags(event) {
-    if (this.props.max && this.state.tags.length >= this.props.max) return;
+    if (!this.props.max ||
+        this.state.tags.length < this.props.max) {
+      let value = event.target.value;
 
-    let value = event.target.value;
+      if (!value) return;
 
-    if (!value) return;
+      let tag = value.trim().toLowerCase();
 
-    let tag = value.trim().toLowerCase();
-
-    if (tag && this.state.tags.indexOf(tag) < 0) {
-      this.setState({
-        tags: update(
-          this.state.tags,
-          {
-            $push: [tag]
-          }
-        )
-      });
+      if (tag && this.state.tags.indexOf(tag) < 0) {
+        this.setState({
+          tags: update(
+            this.state.tags,
+            {
+              $push: [tag]
+            }
+          )
+        });
+      }
     }
 
     event.target.value = '';
