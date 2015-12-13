@@ -1,0 +1,63 @@
+$tag-y-spacing: 10px;
+$tag-x-spacing: 5px;
+$tag-button-width: 12px + $tag-x-spacing * 2;
+$tag-border-radius: 15px;
+$tag-background: #fff;
+$tag-color: #000;
+$tag-min-height: 31px;
+
+.tags {
+  background: #2F3132;
+  min-height: $tag-min-height;
+  line-height: 1;
+  font-size: 0.9em;
+  // flex: grow;
+}
+
+.tags-input {
+  display: inline-block;
+  width: 33%;
+  line-height: 1;
+  min-height: $tag-min-height;
+  margin-left: $tag-x-spacing * 2;
+  border: 0;
+  outline: none;
+  background: none;
+  color: #fff;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: $tag-x-spacing;
+  margin-bottom: $tag-x-spacing;
+  margin-left: $tag-x-spacing;
+  margin-right: $tag-button-width;
+  position: relative;
+
+  .tag-value {
+    display: inline-block;
+    padding: $tag-x-spacing;
+    padding-left: $tag-y-spacing;
+    padding-right: $tag-y-spacing;
+    background: $tag-background;
+    color: $tag-color;
+    font-weight: bold;
+    border-radius: $tag-border-radius 0 0 $tag-border-radius;
+  }
+
+  .tag-delete-button {
+    background: $tag-background;
+    color: $tag-color;
+    border: 0;
+    border-left: 1px solid $tag-color;
+    border-radius: 0 $tag-border-radius $tag-border-radius 0;
+    padding: $tag-x-spacing $tag-x-spacing * 2;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -$tag-button-width;
+    line-height: 0.5;
+    font-weight: bold;
+  }
+}
