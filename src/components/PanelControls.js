@@ -1,51 +1,105 @@
-/************************************
-Adds buttons to the bottom of panel:
-buttons change mode / etc
-*************************************/
-/*
- Add Buttons
- Add Classes
-
-
-/ for later button bind shit:
-onClick={this.props.setMode.bind(null, 'edit')}
-onClick={this.props.setMode.bind(null, 'add')}
- 
-*/
-
-
+const React = require('react');
 
 var PanelControls = React.createClass({
   propTypes: {
-    icons: React.PropTypes.object.isRequired
+    mode:          React.PropTypes.string.isRequired,
+    setMode:       React.PropTypes.func,
+    createSnippet: React.PropTypes.func
+  },
+
+  showButtons() {
+    let mode = this.props.mode;
+
+    if (mode === 'edit') {
+      let copy = (
+        <button 
+          key="1"
+          id="copy-snippet"
+          title="Copy Snippet"> 
+          <i className="fa fa-clone fa-2x"></i>
+        </button>
+      );
+
+      let save = (
+        <button 
+          key="2"
+          id="save-snippet"
+          title="Save">
+            <i className="fa fa-floppy-o fa-2x"></i>
+        </button>
+      );
+
+      let del = (
+        <button
+          key="3"
+          id="delete-snippet"  
+          title="delete Snippet">
+          <i className="fa fa-trash fa-2x"></i>
+        </button>
+      );
+
+      let add = (
+        <button 
+          key="4"
+          id="new-snippet"  
+          title="New Snippet"
+          onClick={this.props.setMode.bind(null, 'add')}>
+              <i className="fa fa-plus fa-2x"></i>
+          </button>
+      );
+
+      return [
+        copy,
+        save,
+        del,
+        add
+      ];
+
+    } else if (mode === 'empty') {
+      let add = (
+        <button 
+          key="1"
+          id="new-snippet"  
+          title="New Snippet"
+          onClick={this.props.setMode.bind(null, 'add')}>
+              <i className="fa fa-plus fa-2x"></i>
+          </button>
+      );
+
+      return add;
+
+    } else if (mode === 'add') {
+      let copy = (
+        <button 
+          key="1"
+          id="copy-snippet"
+          title="Copy Snippet"> 
+          <i className="fa fa-clone fa-2x"></i>
+        </button>
+      );
+
+      let save = (
+        <button 
+          type="submit"
+          key="2"
+          id="save-snippet"
+          title="Save"
+          onClick={this.createSnippet}>
+            <i className="fa fa-floppy-o fa-2x"></i>
+        </button>
+      );
+
+      return [
+        copy,
+        save
+      ];
+    }
   },
 
   render() {
-    let icons = this.props.icons;
-
-    let icon1 = null;
-    let icon2 = null;
-    let icon3 = null;
-    let icon4 = null;
-
-    if (Object.keys(icons).length) {
-      icon1 = icons.icon1;
-      icon2 = icons.icon2;
-      icon3 = icons.icon3;
-      icon4 = icons.icon4;
-    }
-
-    console.log(this.props.icons);
-
     return(
-
       <div className="panel-controls">
-
-          {icon1}
-          {icon2}
-          {icon3}
-          {icon4}
-
+        {this.showButtons()}
       </div>
     );
   }

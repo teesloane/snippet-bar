@@ -15,6 +15,7 @@ const Search = React.createClass({
       <div className="search-bar">
 
         <input 
+          className="search-snippets"
           type="text" 
           placeholder="Search..." 
           onChange={this.props.filter}
