@@ -7,11 +7,13 @@ $tag-color: #000;
 $tag-min-height: 31px;
 
 .tags {
+  display: flex;
+  align-content: center;
   background: #2F3132;
-  min-height: $tag-min-height;
+  min-height: $tag-min-height + 5px;
   line-height: 1;
-  font-size: 0.9em;
-  // flex: grow;
+  font-size: 1em;
+  border-bottom: $thin-black-border
 }
 
 .tags-input {
@@ -19,7 +21,7 @@ $tag-min-height: 31px;
   width: 33%;
   line-height: 1;
   min-height: $tag-min-height;
-  margin-left: $tag-x-spacing * 2;
+  margin-left: $input-padding;
   border: 0;
   outline: none;
   background: none;
@@ -55,7 +57,7 @@ $tag-min-height: 31px;
     cursor: pointer;
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 3px;
     right: -$tag-button-width;
     line-height: 0.5;
     font-weight: bold;

@@ -1,7 +1,7 @@
 .search-bar {
   display: flex;
   height: 11vh;
-  border-bottom: 1px solid black;
+  border-bottom: $thin-black-border;
   align-items: center;
 
   .search-bar-field {
@@ -9,7 +9,7 @@
     height: 100%;
     outline: none;
     border: 0;
-    border-bottom: 1px solid black;
+    border-bottom: $thin-black-border;
     padding-left: 5%;
     background: #2F3132;
   }

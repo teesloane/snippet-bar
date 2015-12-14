@@ -5,11 +5,11 @@
   flex-grow: 1;
 
   .add-field {
-    height: 10.5vh;
+    height: $input-height;
     outline: none;
     border: 0;
     border-bottom: 1px solid black;
-    padding-left: 5%;
+    padding-left: $input-padding;
     background: #2F3132;
   }
 
@@ -18,6 +18,6 @@
     background: #2A2B2C;
     border: 0;
     resize: none;
-    padding: 5%;
+    padding: $input-padding;
   }
 }

@@ -1,7 +1,7 @@
 .search-item {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: $thin-black-border;
 
   .search-item-body {
     margin-left: 5%;
