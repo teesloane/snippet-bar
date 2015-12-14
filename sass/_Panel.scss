@@ -9,7 +9,6 @@
 }
 
 .panel-mode {
-	
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
@@ -17,48 +16,13 @@
 
 	.selected-mode {
 		display: flex;
+		flex-direction: column;
 		flex-grow: 1;
 	}
-
 }
 
 
-///////////////
-// Panel Modes
-///////////////
 
-
-// EMPTY Mode
-
-.empty-snippet-mode {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-// EDIT Mode
-
-.edit-snippet-mode {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-
-	textarea {
-
-		flex-grow: 1;
-		padding: 0 20px;
-		padding-top: 10vh;
-		background: #2A2B2C;  
-		border: 0;
-		resize: none;
-		height: 90vh;
-	}
-
-
-}
 
 
 

@@ -1,22 +1,23 @@
 .add-snippet-mode {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
 
-    .add-field {
-      height: 10.5vh;
-      outline: none;
-      border: 0;
-      border-bottom: 1px solid black;
-      padding-left: 5%;
-      background: #2F3132;
-    }
-
-    .add-textarea {
-      flex-grow: 1;
-      background: #2A2B2C;
-      border: 0;
-      resize: none;
-      padding: 5%;
-    }
+  .add-field {
+    height: 10.5vh;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid black;
+    padding-left: 5%;
+    background: #2F3132;
   }
+
+  .add-textarea {
+    flex-grow: 2;
+    background: #2A2B2C;
+    border: 0;
+    resize: none;
+    padding: 5%;
+  }
+}

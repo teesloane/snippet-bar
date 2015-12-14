@@ -22,9 +22,12 @@ const EditMode = React.createClass({
           <div className="edit-snippet-mode">
             <textarea value={text}></textarea>
           </div>
+
+        <PanelControls mode="edit" setMode={this.props.setMode} />
+
        </div>
 
-       <PanelControls mode="edit" setMode={this.props.setMode} />
+       
       </div>
     );
   }
