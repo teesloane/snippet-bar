@@ -19,7 +19,7 @@ const App = React.createClass({
       modes: {
         empty: 'empty',
         edit:  'edit',
-        add:   'add'  
+        add:   'add'
       }
     }
   },
@@ -31,31 +31,28 @@ const App = React.createClass({
       });
     });
   },
-  
-  getSnippetById(id, snippets) {
 
-    let len = snippets.length;
-    console.log("id: " + id);
+  getSnippetById(id) {
     let snippet = null;
+    let len     = this.state.snippets.length;
     let i;
 
     for ( i = 0; i < len; i++) {
-      if (snippets[i].id === id) {
-        snippet = snippets[i];
+      if (this.state.snippets[i].id === id) {
+        snippet = this.state.snippets[i];
         break;
       }
     }
 
     return snippet;
-
   },
 
-  setActive(id, snippets) {
-    let activeSnippet = this.getSnippetById(id, snippets);
+  setActive(id) {
+    let activeSnippet = this.getSnippetById(id);
 
     this.setState({
       activeSnippet: activeSnippet,
-      activeMode: 'edit'
+      activeMode:    'edit'
     });
 
   },
@@ -73,7 +70,7 @@ const App = React.createClass({
 
   saveSnippet(values) {
     let snippet = data.snippetModel(values.title, values.text, values.tags);
-    
+
     if (snippet) {
       this.setState({
         snippets: update(
@@ -93,23 +90,19 @@ const App = React.createClass({
   render() {
     return (
       <div className="container">
-        <SearchList 
-          snippets={this.state.snippets} 
-          setMode={this.setMode} 
+        <SearchList
+          snippets={this.state.snippets}
+          setMode={this.setMode}
           activeSnippet={this.state.activeSnippet}
           setActive={this.setActive} />
 
-        <Panel 
-          activeMode={this.state.activeMode} 
-          modes={this.state.modes} 
+        <Panel
+          activeMode={this.state.activeMode}
+          modes={this.state.modes}
           activeSnippet={this.state.activeSnippet}
-          setMode={this.setMode} 
+          setMode={this.setMode}
           saveSnippet={this.saveSnippet} />
-
-
       </div>
-
-      // <button onClick={mb.quit}>Quit</button>
     );
   }
 });
