@@ -1,40 +1,14 @@
 [
   {
-    "id": "ID1450099473581",
-    "title": "hello",
-    "text": "We know we’re meant to think that Ancient Greece was a cradle of civilisation; but what exactly did the Greeks contribute to humanity? Here is a list of some of their greatest and most relevant achievements.",
+    "id": "ID1450120504589",
+    "title": "Delete Github Branch from CLI",
+    "text": "git push origin --delete <branchName>",
     "tags": [
-      "one",
-      "two",
-      "three"
+      "git"
     ],
     "history": [],
     "rank": 0,
-    "created": 1450099473581,
-    "updated": 1450099473581
-  },
-  {
-    "id": "ID1450099557457",
-    "title": "hi hello",
-    "text": "With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's Atom editor, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.",
-    "tags": [
-      "two"
-    ],
-    "history": [],
-    "rank": 0,
-    "created": 1450099557457,
-    "updated": 1450099557457
-  },
-  {
-    "id": "ID1450099584678",
-    "title": "one more",
-    "text": "Get started with Electron",
-    "tags": [
-      "yellow"
-    ],
-    "history": [],
-    "rank": 0,
-    "created": 1450099584678,
-    "updated": 1450099584678
+    "created": 1450120504589,
+    "updated": 1450120504589
   }
 ]

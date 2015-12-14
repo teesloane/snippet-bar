@@ -12,7 +12,7 @@ const EmptyMode = React.createClass({
       <div className="panel-mode">
         <div className="selected-mode">
           <div className="empty-snippet-mode">
-           <span>"What's up? You should make a snippet or something!"</span>
+           <span className="empty-greeting">"Random Classic Movie Quote Here."</span>
            </div>
        </div>
 
