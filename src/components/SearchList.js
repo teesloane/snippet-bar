@@ -30,17 +30,19 @@ const SearchList = React.createClass({
       return;
     }
 
-    let searchValues = searchValue.split(' ');
-
     let filtered = this.state.snippets.filter(snippet => {
+      // joined by a character unlikely to be inputted by the user
       let tagsString = snippet.tags.join('|');
 
-      return searchValues.every(value => {
-        let titleMatch = snippet.title.toLowerCase().search(value) > -1;
-        let tagsMatch  = tagsString.search(value) > -1;
+      let titleMatch = snippet.title.toLowerCase().indexOf(searchValue) > -1;
+      let tagsMatch  = null;
+      let textMatch  = null;
 
-        return titleMatch || tagsMatch;
-      });
+      if (!titleMatch) tagsMatch = tagsString.indexOf(searchValue) > -1;
+      if (!titleMatch && !tagsMatch) textMatch = snippet.text.toLowerCase().indexOf(searchValue) > -1;
+
+      // order of importance
+      return titleMatch || tagsMatch || textMatch;
     });
 
     this.setState({

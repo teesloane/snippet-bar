@@ -13,7 +13,7 @@ const SearchItem = React.createClass({
       <li className="single-snippet" onClick={this.props.setActive.bind(null, snippet.id)}>
           <div className="single-snippet-content">
             <h2>{snippet.title}</h2>
-            <p>{snippet.text}</p>
+            <p>{snippet.tags.join(', ')}</p>
           </div>
       </li>
     );
