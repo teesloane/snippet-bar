@@ -1,15 +1,9 @@
-/************************************
-List Pane is the box that contains:
-The Search Component, the List Component
-*************************************/
-
 const React = require('react');
 
-const Search = require('./Search.js');
-const data       = require('../data');
+const SearchBar  = require('./SearchBar');
+const SearchItem = require('./SearchItem');
 
 const SearchList = React.createClass({
-  
   propTypes: {
     snippets: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
   },
@@ -18,25 +12,38 @@ const SearchList = React.createClass({
     return {
       snippets: [],
       filtered: null
-
     }
   },
-//This was in App.js originall but it seems to be necessary in both.
- componentWillReceiveProps(nextProps) {
-    this.setState({
-      snippets: nextProps.snippets 
-    });
- },
-   
-  filterSnippets(e) {
-    let searchValue       = e.target.value.toLowerCase();
-    let searchValueLength = searchValue.length;
 
-    if ( !searchValue ) this.clearFilter();
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.snippets) {
+      this.setState({
+        snippets: nextProps.snippets
+      });
+    }
+  },
 
-    let filtered = this.state.snippets.filter((snippet, index) => {
-      let fragment = snippet.title.slice(0, searchValueLength).toLowerCase();
-      return fragment === searchValue;
+  filterSnippets(event) {
+    let searchValue = event ? event.target.value.toLowerCase().trim() : null;
+
+    if (!searchValue) {
+      this.clearFilter();
+      return;
+    }
+
+    let filtered = this.state.snippets.filter(snippet => {
+      // joined by a character unlikely to be inputted by the user
+      let tagsString = snippet.tags.join('|');
+
+      let titleMatch = snippet.title.toLowerCase().indexOf(searchValue) > -1;
+      let tagsMatch  = null;
+      let textMatch  = null;
+
+      if (!titleMatch) tagsMatch = tagsString.indexOf(searchValue) > -1;
+      if (!titleMatch && !tagsMatch) textMatch = snippet.text.toLowerCase().indexOf(searchValue) > -1;
+
+      // order of importance
+      return titleMatch || tagsMatch || textMatch;
     });
 
     this.setState({
@@ -50,42 +57,26 @@ const SearchList = React.createClass({
     });
   },
 
-
   render() {
-
-    let filteredList = this.state.filtered ? this.state.filtered: this.state.snippets;
+    let filteredList = this.state.filtered ? this.state.filtered : this.state.snippets;
 
     let snippets = filteredList.map((snippet, index) => {
-      let id = snippet.id;
-      let snippets = this.state.snippets;
-
       return (
-
-        <li 
-          className="single-snippet" 
+        <SearchItem
           key={index}
-          onClick={this.props.setActive.bind(null, id, snippets)} >
-
-            <div className="single-snippet-content">
-              <h2>{snippet.title}</h2>
-              <p>{snippet.text}</p>
-            </div>
-
-
-        </li>
+          snippet={snippet}
+          setActive={this.props.setActive} />
       );
     });
 
     return (
-
       <div className="searchlist-container">
-        <Search filter={this.filterSnippets} />
+        <SearchBar filterSnippets={this.filterSnippets} />
 
-        <div className="list-container">  
+        <div className="list-container">
           <ul className="snippet-ul">{snippets}</ul>
         </div>
-
-      </div>  
+      </div>
     );
   }
 });

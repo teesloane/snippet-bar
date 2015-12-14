@@ -1,0 +1,26 @@
+.search-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+
+  .search-item-body {
+    margin-left: 5%;
+  }
+
+  .search-item-title {
+    font-size: 12px;
+    font-weight: 400;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .search-item-tags {
+    font-size: 10px;
+    color: #7B7E82;
+    text-overflow: ellpisis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
