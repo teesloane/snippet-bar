@@ -10,10 +10,13 @@ const SearchItem = React.createClass({
     let snippet = this.props.snippet;
 
     return (
-      <li className="single-snippet" onClick={this.props.setActive.bind(null, snippet.id)}>
-          <div className="single-snippet-content">
-            <h2>{snippet.title}</h2>
-            <p>{snippet.tags.join(', ')}</p>
+      <li className="search-item" onClick={this.props.setActive.bind(null, snippet.id)}>
+          <div className="search-item-body">
+            <h2 className="search-item-title">
+              <a href="javascript:;">{snippet.title}</a>
+            </h2>
+            
+            <p className="search-item-tags">{snippet.tags.join(', ')}</p>
           </div>
       </li>
     );

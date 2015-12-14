@@ -1,5 +1,6 @@
 const React = require('react');
 
+const SearchBar  = require('./SearchBar');
 const SearchItem = require('./SearchItem');
 
 const SearchList = React.createClass({
@@ -23,7 +24,7 @@ const SearchList = React.createClass({
   },
 
   filterSnippets(event) {
-    let searchValue = event.target.value.toLowerCase().trim();
+    let searchValue = event ? event.target.value.toLowerCase().trim() : null;
 
     if (!searchValue) {
       this.clearFilter();
@@ -70,13 +71,7 @@ const SearchList = React.createClass({
 
     return (
       <div className="searchlist-container">
-        <div className="search-bar">
-          <input
-            type="text"
-            className="search-snippets"
-            placeholder="Search..."
-            onChange={this.filterSnippets} />
-        </div>
+        <SearchBar filterSnippets={this.filterSnippets} />
 
         <div className="list-container">
           <ul className="snippet-ul">{snippets}</ul>
