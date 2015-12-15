@@ -4,6 +4,10 @@ const Tags          = require('./Tags');
 const PanelControls = require('./PanelControls');
 
 const AddMode = React.createClass({
+  propTypes: {
+    setMode: React.PropTypes.func.isRequired
+  },
+
   createSnippet(event) {
     event.preventDefault();
 
@@ -31,7 +35,7 @@ const AddMode = React.createClass({
 
             <textarea id="new-snippet-text" className="add-textarea copy-text" placeholder="put your snipz here" ref="text"></textarea>
 
-            <PanelControls mode="add" createSnippet={this.createSnippet} />
+            <PanelControls mode="add" createSnippet={this.createSnippet} setMode={this.props.setMode} />
           </form>
         </div>
 

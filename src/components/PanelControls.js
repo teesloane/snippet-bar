@@ -1,62 +1,40 @@
 const React = require('react');
 const Clipboard = require('clipboard');
 
-const Btn = require('./PanelButtons');
+const PanelButton = require('./PanelButton');
 
 const PanelControls = React.createClass({
   propTypes: {
     mode:          React.PropTypes.string.isRequired,
-    setMode:       React.PropTypes.func,
+    setMode:       React.PropTypes.func.isRequired,
     createSnippet: React.PropTypes.func
   },
 
-  copyFn() {
+  copySnippet(event) {
     console.log('placeholder: this fn will copy snippet text');
-    let clipboard = new Clipboard('.copy-btn');
-
+    // let clipboard = new Clipboard('.copy-btn');
   },
 
-  editFn() {
+  editSnippet() {
     alert('placeholder: this function will make the text area editable');
   },
 
-  deleteFn() {
+  deleteSnippet() {
     alert('placeholder: this function will delete a snippet');
   },
 
   showButtons() {
     let mode = this.props.mode;
 
-    if (mode === 'edit') {
+    let copy = <PanelButton kind="copy" click={this.copySnippet} key="1"/>;
+    let edit = <PanelButton kind="edit" click={this.editSnippet} key="2"/>;
+    let del  = <PanelButton kind="del" click={this.deleteSnippet} key="3"/>;
+    let add  = <PanelButton kind="add" click={this.props.setMode.bind(null, 'add')} key="4"/>;
+    let save = <PanelButton kind="save" type="submit" click={this.createSnippet} key="5" />;
 
-      let copy = <Btn kind="copy" onClick={this.copyFn}  />
-      let edit = <Btn kind="edit" onClick={this.editFn}/>
-      let del  = <Btn kind="del"  onClick={this.deleteFn}/>
-      let add  = <Btn kind="add" onClick={this.props.setMode.bind(null,'add')} />
-
-      return [
-        copy,
-        edit,
-        del,
-        add
-      ];
-
-    } else if (mode === 'empty') {
-        let add  = <Btn kind="add" onClick={this.props.setMode.bind(null,'add')} />
-
-      return add;
-
-    } else if (mode === 'add') {
-       // let copy = <Btn kind="copy" onClick={this.copyFn}  />
-       
-       let save = <Btn kind="save" type="submit" onClick={this.createSnippet}  />
-
-
-      return [
-        // copy,
-        save
-      ];
-    }
+    if (mode === 'empty')      return add;
+    else if (mode === 'edit')  return [copy, edit, del, add];
+    else if (mode === 'add')   return [copy, save];
   },
 
   render() {

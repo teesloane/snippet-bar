@@ -20,6 +20,11 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./app/static/css/'));
 });
 
+gulp.task('clipboard', function() {
+  gulp.src('node_modules/clipboard/dist/clipboard.min.js')
+    .pipe(gulp.dest('app/lib/'));
+});
+
 gulp.task('normalize', function() {
   gulp.src('node_modules/normalize.css/normalize.css')
     .pipe(minify())
@@ -39,6 +44,7 @@ gulp.task('fontfiles', function() {
 gulp.task('default', [
   'js',
   'sass',
+  'clipboard',
   'normalize',
   'fontstyles',
   'fontfiles'
@@ -50,6 +56,7 @@ gulp.task('default', [
 gulp.task('compile', [
   'js',
   'sass',
+  'clipboard',
   'normalize',
   'fontstyles',
   'fontfiles'

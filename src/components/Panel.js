@@ -30,12 +30,10 @@ const Panel = React.createClass({
       return <EmptyMode setMode={this.props.setMode} />;
     }
     else if (activeMode === modes.edit) {
-      return <EditMode 
-        activeSnippet={this.props.activeSnippet}
-        setMode={this.props.setMode} />;
+      return <EditMode activeSnippet={this.props.activeSnippet} setMode={this.props.setMode} />;
     }
     else if (activeMode === modes.add){
-      return <AddMode saveSnippet={this.props.saveSnippet} />;
+      return <AddMode saveSnippet={this.props.saveSnippet} setMode={this.props.setMode} />;
     }
   },
 

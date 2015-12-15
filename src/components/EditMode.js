@@ -20,14 +20,11 @@ const EditMode = React.createClass({
       <div className="panel-mode">
         <div className="selected-mode">
           <div className="edit-snippet-mode">
-            <textarea className="copy-text" value={text}></textarea>
+            <textarea className="copy-text" value={text} readOnly="true"></textarea>
           </div>
 
-        <PanelControls mode="edit" setMode={this.props.setMode} />
-
+          <PanelControls mode="edit" setMode={this.props.setMode} />
        </div>
-
-       
       </div>
     );
   }
