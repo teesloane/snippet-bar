@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/teesloane/sniptor#readme",
   "dependencies": {
+    "clipboard": "^1.5.5",
     "font-awesome": "^4.4.0",
     "menubar": "^2.3.0",
     "normalize.css": "^3.0.3",
