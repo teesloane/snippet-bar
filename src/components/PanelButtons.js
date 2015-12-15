@@ -39,7 +39,7 @@ const Button = React.createClass({
           },          
 
           del: {
-            text: 'delete',
+            text: 'trash',
             icon: 'fa fa-trash fa-2x',
             title: 'Delete Snippet'
           }
