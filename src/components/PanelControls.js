@@ -2,7 +2,6 @@ const React = require('react');
 
 const Btn = require('./PanelButtons');
 
-
 const PanelControls = React.createClass({
   propTypes: {
     mode:          React.PropTypes.string.isRequired,
@@ -10,8 +9,16 @@ const PanelControls = React.createClass({
     createSnippet: React.PropTypes.func
   },
 
-  someFunction() {
-    alert('working');
+  copyFn() {
+    alert('placeholder: this fn will copy snippet text');
+  },
+
+  editFn() {
+    alert('placeholder: this function will make the text area editable');
+  },
+
+  deleteFn() {
+    alert('placeholder: this function will delete a snippet');
   },
 
   showButtons() {
@@ -19,54 +26,27 @@ const PanelControls = React.createClass({
 
     if (mode === 'edit') {
 
-      let copy = <Btn kind="copy" onClick={this.someFunction}  />
-
-      let save = <Btn kind="save" />
-
-      let del = <Btn kind="del" />
-
-      let add = <Btn kind ="add" />
+      let copy = <Btn kind="copy" onClick={this.copyFn}  />
+      let edit = <Btn kind="edit" onClick={this.editFn}/>
+      let del  = <Btn kind="del"  onClick={this.deleteFn}/>
+      let add  = <Btn kind="add" onClick={this.props.setMode.bind(null,'add')} />
 
       return [
         copy,
-        save,
+        edit,
         del,
         add
       ];
 
     } else if (mode === 'empty') {
-      let add = (
-        <button 
-          key="1"
-          id="new-snippet"  
-          title="New Snippet"
-          onClick={this.props.setMode.bind(null, 'add')}>
-              <i className="fa fa-plus fa-2x"></i>
-          </button>
-      );
+        let add  = <Btn kind="add" onClick={this.props.setMode.bind(null,'add')} />
 
       return add;
 
     } else if (mode === 'add') {
-      let copy = (
-        <button 
-          key="1"
-          id="copy-snippet"
-          title="Copy Snippet"> 
-          <i className="fa fa-clone fa-2x"></i>
-        </button>
-      );
+       let copy = <Btn kind="copy" onClick={this.copyFn}  />
+       let save = <Btn kind="save" type="submit" onClick={this.createSnippet}  />
 
-      let save = (
-        <button 
-          type="submit"
-          key="2"
-          id="save-snippet"
-          title="Save"
-          onClick={this.createSnippet}>
-            <i className="fa fa-floppy-o fa-2x"></i>
-        </button>
-      );
 
       return [
         copy,
