@@ -91,6 +91,8 @@ const Button = React.createClass({
     return (
 
       <button 
+        data-clipboard-action="copy"
+        data-clipboard-target=".copy-text"
         type={type}
         className={kind + "-btn"}
         title={title}

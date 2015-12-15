@@ -29,7 +29,7 @@ const AddMode = React.createClass({
 
             <Tags max="5" ref="tags" />
 
-            <textarea id="new-snippet-text" className="add-textarea" placeholder="put your snipz here" ref="text"></textarea>
+            <textarea id="new-snippet-text" className="add-textarea copy-text" placeholder="put your snipz here" ref="text"></textarea>
 
             <PanelControls mode="add" createSnippet={this.createSnippet} />
           </form>

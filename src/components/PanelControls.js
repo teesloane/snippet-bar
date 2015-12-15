@@ -1,4 +1,5 @@
 const React = require('react');
+const Clipboard = require('clipboard');
 
 const Btn = require('./PanelButtons');
 
@@ -10,7 +11,9 @@ const PanelControls = React.createClass({
   },
 
   copyFn() {
-    alert('placeholder: this fn will copy snippet text');
+    console.log('placeholder: this fn will copy snippet text');
+    let clipboard = new Clipboard('.copy-btn');
+
   },
 
   editFn() {
@@ -45,6 +48,7 @@ const PanelControls = React.createClass({
 
     } else if (mode === 'add') {
        let copy = <Btn kind="copy" onClick={this.copyFn}  />
+       
        let save = <Btn kind="save" type="submit" onClick={this.createSnippet}  />
 
 
