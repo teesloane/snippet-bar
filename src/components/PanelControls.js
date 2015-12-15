@@ -47,13 +47,13 @@ const PanelControls = React.createClass({
       return add;
 
     } else if (mode === 'add') {
-       let copy = <Btn kind="copy" onClick={this.copyFn}  />
+       // let copy = <Btn kind="copy" onClick={this.copyFn}  />
        
        let save = <Btn kind="save" type="submit" onClick={this.createSnippet}  />
 
 
       return [
-        copy,
+        // copy,
         save
       ];
     }
