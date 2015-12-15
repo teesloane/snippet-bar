@@ -38,7 +38,6 @@ npm-debug.log
 app/static/css
 app/static/fonts
 app/js
-app/lib
 app/components
 app/*.js
 app/storage/*.json
