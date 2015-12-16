@@ -63,22 +63,29 @@ const PanelButton = React.createClass({
   },
 
   render() {
-    let kind  = this.getKind();
-    let text  = 'standard';
-    let icon  = 'standard-icon';
-    let title = '';
-    let type  = this.props.type === 'submit' ? 'submit' : 'button';
+    let kind          = this.getKind();
+    let text          = 'standard';
+    let icon          = 'standard-icon';
+    let title         = '';
+    let type          = this.props.type === 'submit' ? 'submit' : 'button';
+    let dataClipboard = {};
 
     if (kind !== this.state.defaultKind) {
-      let kindObj = this.state.kinds[kind];
+      let kindObj = this.state.kinds[kind]; 
 
       text  = kindObj.text;
       icon  = kindObj.icon;
       title = kindObj.title;
+
+      if (kind === 'copy') {
+        dataClipboard['data-clipboard-action'] = 'copy';
+        dataClipboard['data-clipboard-target'] = '.copy-text';
+      }
     }
 
     return (
       <button
+        {...dataClipboard}
         type={type}
         className={kind + "-btn"}
         title={title}

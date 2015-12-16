@@ -10,9 +10,8 @@ const PanelControls = React.createClass({
     createSnippet: React.PropTypes.func
   },
 
-  copySnippet(event) {
-    console.log('placeholder: this fn will copy snippet text');
-    // let clipboard = new Clipboard('.copy-btn');
+  componentDidUpdate(){
+    new Clipboard('.copy-btn');
   },
 
   editSnippet() {
