@@ -23,7 +23,7 @@ const EditMode = React.createClass({
             <textarea className="copy-text" value={text} readOnly="true"></textarea>
           </div>
 
-          <PanelControls mode="edit" setMode={this.props.setMode} />
+          <PanelControls mode="edit" setMode={this.props.setMode} showNotification={this.props.showNotification} />
        </div>
       </div>
     );

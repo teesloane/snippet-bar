@@ -87,9 +87,29 @@ const App = React.createClass({
     }
   },
 
+  showNotification(message) {
+
+    let overlay      = this.refs.overlay;
+    let notification = this.refs.notification;
+
+    overlay.style.zIndex = 10;
+    notification.style.zIndex= 11;
+    notification.textContent = message;
+    
+    setTimeout(() => {
+      overlay.style.zIndex = -10;
+      notification.style.zIndex= -11;
+      
+    }, 1000)
+  },
+
   render() {
     return (
       <div className="container">
+
+        <div id="overlay" ref="overlay"></div>
+        <div id="notification" ref="notification"></div>
+
         <SearchList
           snippets={this.state.snippets}
           setMode={this.setMode}
@@ -101,7 +121,8 @@ const App = React.createClass({
           modes={this.state.modes}
           activeSnippet={this.state.activeSnippet}
           setMode={this.setMode}
-          saveSnippet={this.saveSnippet} />
+          saveSnippet={this.saveSnippet} 
+          showNotification={this.showNotification} />
       </div>
     );
   }

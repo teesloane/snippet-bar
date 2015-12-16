@@ -14,12 +14,18 @@ const PanelControls = React.createClass({
     new Clipboard('.copy-btn');
   },
 
+  copySnippet() {
+    this.props.showNotification("Snippet Copied!");
+  },
+
   editSnippet() {
-    alert('placeholder: this function will make the text area editable');
+    console.log('placeholder: this function will make the text area editable');
+    this.props.showNotification("YOU ");
   },
 
   deleteSnippet() {
-    alert('placeholder: this function will delete a snippet');
+    console.log('placeholder: this function will delete a snippet');
+    this.props.showNotification("Snippet Deleted!");
   },
 
   showButtons() {
