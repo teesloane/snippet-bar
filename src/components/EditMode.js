@@ -5,7 +5,8 @@ const PanelControls = require('./PanelControls');
 const EditMode = React.createClass({
   propTypes: {
     activeSnippet: React.PropTypes.object,
-    setMode:       React.PropTypes.func.isRequired
+    setMode:       React.PropTypes.func.isRequired,
+    deleteSnippet: React.PropTypes.func
   },
 
   render() {
@@ -23,7 +24,10 @@ const EditMode = React.createClass({
             <textarea className="copy-text" value={text} readOnly="true"></textarea>
           </div>
 
-          <PanelControls mode="edit" setMode={this.props.setMode} showNotification={this.props.showNotification} />
+          <PanelControls mode="edit" 
+            setMode={this.props.setMode} 
+            showNotification={this.props.showNotification} 
+            deleteSnippet={this.props.deleteSnippet}/>
        </div>
       </div>
     );

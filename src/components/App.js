@@ -87,6 +87,36 @@ const App = React.createClass({
     }
   },
 
+  deleteSnippet(e) {
+    console.log(this.state.activeSnippet);   
+    let activeSnippet = this.state.activeSnippet;
+    let snippets = this.state.snippets;
+    let i = 0;
+
+    for (i; i < snippets.length; i++) {
+      if (snippets[i].id === activeSnippet.id) {
+        this.setState({
+          snippets: update(
+            snippets, 
+            { 
+              $splice: [[i, 1]] 
+            }
+          ),
+
+          activeSnippet: null,
+          activeMode: 'empty'
+
+        }, () => {
+        //2nd parameter of this.setState
+          data.write(this.state.snippets, () => {
+            console.log('snippet deleted');
+            this.showNotification("Snippet Deleted");
+          });
+        });
+      }
+    }
+  },
+
   showNotification(message) {
 
     let overlay      = this.refs.overlay;
@@ -122,7 +152,9 @@ const App = React.createClass({
           activeSnippet={this.state.activeSnippet}
           setMode={this.setMode}
           saveSnippet={this.saveSnippet} 
-          showNotification={this.showNotification} />
+          showNotification={this.showNotification} 
+          deleteSnippet={this.deleteSnippet} />
+
       </div>
     );
   }

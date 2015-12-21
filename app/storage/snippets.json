@@ -10,39 +10,5 @@
     "rank": 0,
     "created": 1450120504589,
     "updated": 1450120504589
-  },
-  {
-    "id": "ID1450148980579",
-    "title": "test",
-    "text": "test",
-    "tags": [],
-    "history": [],
-    "rank": 0,
-    "created": 1450148980579,
-    "updated": 1450148980579
-  },
-  {
-    "id": "ID1450191075634",
-    "title": "fdsfdsf",
-    "text": "hello there",
-    "tags": [],
-    "history": [],
-    "rank": 0,
-    "created": 1450191075634,
-    "updated": 1450191075634
-  },
-  {
-    "id": "ID1450232109442",
-    "title": "helooooooo",
-    "text": "make a snippet happen",
-    "tags": [
-      "test",
-      "goodstuff",
-      "yeeeee"
-    ],
-    "history": [],
-    "rank": 0,
-    "created": 1450232109442,
-    "updated": 1450232109442
   }
 ]

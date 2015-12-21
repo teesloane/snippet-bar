@@ -20,7 +20,8 @@ const Panel = React.createClass({
     modes           :     React.PropTypes.object.isRequired,
     activeSnippet   :     React.PropTypes.object,
     saveSnippet     :     React.PropTypes.func.isRequired,
-    showNotification:     React.PropTypes.func
+    showNotification:     React.PropTypes.func,
+    deleteSnippet   :     React.PropTypes.func
   },
 
   setContent() {
@@ -31,7 +32,11 @@ const Panel = React.createClass({
       return <EmptyMode setMode={this.props.setMode} />;
     }
     else if (activeMode === modes.edit) {
-      return <EditMode activeSnippet={this.props.activeSnippet} setMode={this.props.setMode} showNotification={this.props.showNotification} />;
+      return <EditMode 
+        activeSnippet={this.props.activeSnippet} 
+        setMode={this.props.setMode} 
+        showNotification={this.props.showNotification} 
+        deleteSnippet={this.props.deleteSnippet} />;
     }
     else if (activeMode === modes.add){
       return <AddMode saveSnippet={this.props.saveSnippet} setMode={this.props.setMode} />;
