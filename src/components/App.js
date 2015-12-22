@@ -54,7 +54,6 @@ const App = React.createClass({
       activeSnippet: activeSnippet,
       activeMode:    'edit'
     });
-
   },
 
   setMode(mode) {
@@ -87,20 +86,54 @@ const App = React.createClass({
     }
   },
 
+  deleteSnippet(e) { 
+
+    let activeSnippet = this.state.activeSnippet;
+    let snippets = this.state.snippets;
+    let i = 0;
+
+    for (i; i < snippets.length; i++) {
+      if (snippets[i].id === activeSnippet.id) {
+
+        this.setState({
+          snippets: update(
+            snippets, 
+            { 
+              $splice: [[i, 1]] 
+            }
+          ),
+
+          activeSnippet: null,
+          activeMode: 'empty'
+
+        }, () => {
+        //2nd parameter of this.setState - this updates state with one less snippet.
+          data.write(this.state.snippets, () => {
+            console.log('snippet deleted');
+            this.showNotification("Snippet Deleted");
+          });
+        });
+        
+        break;
+      }
+    }
+  },
+
   showNotification(message) {
 
     let overlay      = this.refs.overlay;
     let notification = this.refs.notification;
 
-    overlay.style.zIndex = 10;
-    notification.style.zIndex= 11;
-    notification.textContent = message;
-    
-    setTimeout(() => {
-      overlay.style.zIndex = -10;
-      notification.style.zIndex= -11;
-      
-    }, 1000)
+
+      overlay.style.zIndex      = 10;
+      notification.style.zIndex = 11;
+
+      notification.textContent  = message;
+
+      setTimeout(() => {
+        overlay.style.zIndex = -1;
+        notification.style.zIndex= -2;
+      }, 1000)
   },
 
   render() {
@@ -109,6 +142,10 @@ const App = React.createClass({
 
         <div id="overlay" ref="overlay"></div>
         <div id="notification" ref="notification"></div>
+        <div id="confirmation-buttons" ref="confirmationButtons">
+          <button> Cancel </button>
+          <button> You Sure? </button>
+        </div>
 
         <SearchList
           snippets={this.state.snippets}
@@ -122,7 +159,9 @@ const App = React.createClass({
           activeSnippet={this.state.activeSnippet}
           setMode={this.setMode}
           saveSnippet={this.saveSnippet} 
-          showNotification={this.showNotification} />
+          showNotification={this.showNotification} 
+          deleteSnippet={this.deleteSnippet} />
+
       </div>
     );
   }

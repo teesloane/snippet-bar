@@ -2,12 +2,14 @@ const React = require('react');
 const Clipboard = require('clipboard');
 
 const PanelButton = require('./PanelButton');
+const InlineConfirmButton = require('react-inline-confirm');
 
 const PanelControls = React.createClass({
   propTypes: {
     mode:          React.PropTypes.string.isRequired,
     setMode:       React.PropTypes.func.isRequired,
-    createSnippet: React.PropTypes.func
+    createSnippet: React.PropTypes.func,
+    deleteSnippet: React.PropTypes.func
   },
 
   componentDidUpdate(){
@@ -23,17 +25,18 @@ const PanelControls = React.createClass({
     this.props.showNotification("YOU ");
   },
 
-  deleteSnippet() {
-    console.log('placeholder: this function will delete a snippet');
-    this.props.showNotification("Snippet Deleted!");
+  confirmDelete() {
+    if (confirm("You sure you want to delete this?")) {
+      this.props.deleteSnippet();
+    }
   },
-
+  
   showButtons() {
     let mode = this.props.mode;
 
     let copy = <PanelButton kind="copy" click={this.copySnippet} key="1"/>;
     let edit = <PanelButton kind="edit" click={this.editSnippet} key="2"/>;
-    let del  = <PanelButton kind="del" click={this.deleteSnippet} key="3"/>;
+    let del  = <PanelButton kind="del" click={this.confirmDelete} key="3"/>;
     let add  = <PanelButton kind="add" click={this.props.setMode.bind(null, 'add')} key="4"/>;
     let save = <PanelButton kind="save" type="submit" click={this.createSnippet} key="5" />;
 
