@@ -2,7 +2,6 @@ const React = require('react');
 const Clipboard = require('clipboard');
 
 const PanelButton = require('./PanelButton');
-const InlineConfirmButton = require('react-inline-confirm');
 
 const PanelControls = React.createClass({
   propTypes: {

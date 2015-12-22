@@ -57,7 +57,6 @@ const App = React.createClass({
   },
 
   setMode(mode) {
-    // check if mode is a property of modes object
     let availableMode = this.state.modes[mode];
 
     if (availableMode) {
@@ -142,10 +141,6 @@ const App = React.createClass({
 
         <div id="overlay" ref="overlay"></div>
         <div id="notification" ref="notification"></div>
-        <div id="confirmation-buttons" ref="confirmationButtons">
-          <button> Cancel </button>
-          <button> You Sure? </button>
-        </div>
 
         <SearchList
           snippets={this.state.snippets}

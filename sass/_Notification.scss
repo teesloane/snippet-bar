@@ -21,22 +21,3 @@
   z-index: -1;
   border-radius: 2px;
 }
-
-#confirmation-buttons {
-  z-index: -1;
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-
-
-  button {
-    padding: 10px;
-    border: 0;
-    background: teal;
-    
-  }
-}
