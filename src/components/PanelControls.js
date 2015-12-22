@@ -5,10 +5,11 @@ const PanelButton = require('./PanelButton');
 
 const PanelControls = React.createClass({
   propTypes: {
-    mode:          React.PropTypes.string.isRequired,
-    setMode:       React.PropTypes.func.isRequired,
-    createSnippet: React.PropTypes.func,
-    deleteSnippet: React.PropTypes.func
+    mode             : React.PropTypes.string.isRequired,
+    setMode          : React.PropTypes.func.isRequired,
+    createSnippet    : React.PropTypes.func,
+    showNotification : React.PropTypes.func,
+    deleteSnippet    : React.PropTypes.func
   },
 
   componentDidUpdate(){

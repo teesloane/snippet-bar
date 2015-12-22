@@ -47,8 +47,6 @@ const PanelButton = React.createClass({
       return kindProp;
     }
 
-    // if the "kind" of button is not specified via props
-    // set it to the default kind
     return this.state.defaultKind;
   },
 
