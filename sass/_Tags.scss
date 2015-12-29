@@ -1,9 +1,9 @@
 $tag-y-spacing: 10px;
 $tag-x-spacing: 5px;
-$tag-button-width: 12px + $tag-x-spacing * 2;
+$tag-button-width: 12px + $tag-x-spacing;
 $tag-border-radius: 15px;
-$tag-background: rgb(40, 40, 40);
-$tag-color: rgb(199, 199, 199);
+$tag-background: #ccc;
+$tag-color: black;
 $tag-min-height: 31px;
 
 .tags {
@@ -44,15 +44,18 @@ $tag-min-height: 31px;
 
   .tag-value {
     background: $tag-background;
+    color: $tag-color;
     border-radius: $tag-border-radius 0 0 $tag-border-radius;
-    padding: 6px 0px 6px 10px;
+    padding: 6px 0 6px 10px;
+    letter-spacing: 1px;
   }
 
   .tag-delete-button {
     text-align: center;
     border: 0;
     background: $tag-background;
-    padding: 6px 16px 6px 10px;
+    color: $tag-color;
+    padding: 6px 10px;
     border-radius: 0 $tag-border-radius $tag-border-radius 0;
     outline: none;
     margin-right: 10px;

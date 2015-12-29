@@ -4,6 +4,7 @@
   background: #2C2D2E;
   justify-content: space-between;
   height: 10vh;
+  border-top: 1px solid #38393A;
 
   button {
     width: 100%;
@@ -12,6 +13,10 @@
     border: none;
     color: white;
     font-size: 7px;
+
+    & + button {
+      border-left: 1px solid #38393A;
+    }
   }
 
   i {

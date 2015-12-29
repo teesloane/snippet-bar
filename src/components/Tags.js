@@ -125,10 +125,12 @@ const Tags = React.createClass({
       );
     });
 
+    let placeholder = tags.length < this.props.max ? this.props.placeholder : '';
+
     return (
       <div className="tags" onClick={this.focusInput}>
         {tags}
-        <input type="text" className="tags-input" placeholder={this.props.placeholder} onKeyDown={this.onKeyDown} onKeyUp={this.clearInvalidChars} />
+        <input type="text" className="tags-input" placeholder={placeholder} onKeyDown={this.onKeyDown} onKeyUp={this.clearInvalidChars} />
       </div>
     );
   }

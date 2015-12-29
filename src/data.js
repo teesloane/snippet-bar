@@ -1,7 +1,3 @@
-/******************
-Data CRUD
-*******************/
-
 const fs = require('fs');
 
 const snippetsPath = __dirname + '/storage/snippets.json';
@@ -32,11 +28,10 @@ function snippetModel(title = 'untitled', text, tags = []) {
   let now = Date.now();
 
   let snippet = {
-    id:      'ID' + now,
-    title:   title,
-    text:    text,
-    tags:    tags,
-    created: now
+    id:    'ID' + now,
+    title: title,
+    text:  text,
+    tags:  tags
   };
 
   return snippet;

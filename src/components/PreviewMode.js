@@ -3,6 +3,14 @@ const hljs  = require('highlight.js');
 
 const PanelControls = require('./PanelControls');
 
+hljs.configure({
+  languages: [
+    'xml', 'bash', 'clojure', 'coffeescript', 'cpp', 'cs', 'markdown', 'dart', 'django', 'dockerfile', 'elixir', 'elm', 'ruby', 'erlang', 'fsharp', 'go', 'groovy', 'haml', 'handlebars',
+    'haskell', 'java', 'javascript', 'json', 'julia', 'less', 'lisp', 'lua', 'makefile', 'perl', 'objectivec', 'ocaml', 'php', 'processing', 'prolog', 'python', 'r', 'rust', 'scala', 'scheme',
+    'scss', 'sql', 'swift', 'typescript', 'vim', 'yaml'
+  ]
+});
+
 const EditMode = React.createClass({
   propTypes: {
     activeSnippet: React.PropTypes.object,
@@ -13,16 +21,18 @@ const EditMode = React.createClass({
   render() {
     let activeSnippet = this.props.activeSnippet;
     let text          = null;
+    let language      = '';
 
     if ( activeSnippet ) {
-      text = activeSnippet.text;
+      text     = activeSnippet.text;
+      language = ' ' + hljs.highlightAuto(activeSnippet.text).language;
     }
 
     return(
       <div className="panel-mode">
         <div className="selected-mode">
           <div className="preview-snippet-mode">
-            <pre className="snippet-text copy-text" ref={
+            <pre className={"snippet-text copy-text" + language}  ref={
               code => {
                 if (code) hljs.highlightBlock(code);
               }
