@@ -114,6 +114,9 @@ const App = React.createClass({
         });
       });
     }
+
+    this.setMode('empty');
+
   },
 
   deleteSnippet(e) {

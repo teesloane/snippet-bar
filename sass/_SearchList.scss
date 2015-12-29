@@ -1,15 +1,12 @@
-
 .searchlist-container {
   width: 40%;
   display: flex;
   flex-direction: column;
   background: #38393A;
   border-right: $thin-black-border;
-
 }
 
 .list-container {
- 
   overflow-y: scroll;
 
   ul {
@@ -17,5 +14,4 @@
     margin: 0;
     padding: 0;
   }
-
 }

@@ -22,3 +22,7 @@
     padding: $input-padding;
   }
 }
+
+textarea:focus {
+  outline: none;
+}

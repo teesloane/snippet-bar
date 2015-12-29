@@ -1,7 +1,12 @@
+// CHANGED: min Height per snippet
+// TODO: Style active snippet
+
+
 .search-item {
   display: flex;
   align-items: center;
   border-bottom: $thin-black-border;
+  height: 13vh;
 
   .search-item-body {
     margin-left: 5%;

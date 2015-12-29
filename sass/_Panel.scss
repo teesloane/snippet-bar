@@ -1,5 +1,5 @@
 .panel-container {
-	display: flex; 
+	display: flex;
 	flex-direction: column;
 	width: 60%;
 	height: 100vh;
@@ -14,18 +14,10 @@
 	height: 100vh;
 	width: 100%;
 
+
 	.selected-mode {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
 	}
 }
-
-
-
-
-
-
-
-
-
