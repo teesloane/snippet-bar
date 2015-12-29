@@ -86,7 +86,12 @@ const App = React.createClass({
                 tags:  { $set: userValues.tags }
               }
             }
-          )
+          ),
+
+
+          activeMode: 'preview',
+          activeSnippet: activeSnippet
+
         }, () => {
           data.write(this.state.snippets, () => {
             this.showNotification("Snippet Updated");
@@ -107,15 +112,20 @@ const App = React.createClass({
           {
             $push: [snippet]
           }
-        )
-      }, () => {
+        ),
+
+        activeSnippet: null,
+        activeMode: 'empty'
+
+      },
+       () => {
         data.write(this.state.snippets, () => {
           this.showNotification("Snippet Saved");
         });
       });
     }
 
-    this.setMode('empty');
+
 
   },
 

@@ -9,6 +9,7 @@ $tag-min-height: 31px;
 .tags {
   display: flex;
   flex-wrap: wrap;
+  height: 10.5vh;
   align-content: center;
   background: #2F3132;
   min-height: $tag-min-height + 5px;
