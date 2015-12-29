@@ -30,12 +30,16 @@ const Tags = React.createClass({
     };
   },
 
+  componentDidMount() {
+    this.setTags(this.props.tags);
+  },
+
   componentWillReceiveProps(nextProps) {
-    if (nextProps.tags) {
-      this.setState({
-        tags: nextProps.tags
-      });
-    }
+    this.setTags(nextProps.tags);
+  },
+
+  setTags(tags) {
+    if (tags.length) this.setState({ tags });
   },
 
   onKeyDown(event) {

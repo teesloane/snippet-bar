@@ -30,18 +30,19 @@ const PanelControls = React.createClass({
       this.props.deleteSnippet();
     }
   },
-  
+
   showButtons() {
     let mode = this.props.mode;
 
     let copy = <PanelButton kind="copy" click={this.copySnippet} key="1"/>;
-    let edit = <PanelButton kind="edit" click={this.editSnippet} key="2"/>;
+    let edit = <PanelButton kind="edit" click={this.props.setMode.bind(null, 'edit')} key="2"/>;
     let del  = <PanelButton kind="del" click={this.confirmDelete} key="3"/>;
     let add  = <PanelButton kind="add" click={this.props.setMode.bind(null, 'add')} key="4"/>;
     let save = <PanelButton kind="save" type="submit" click={this.createSnippet} key="5" />;
 
     if (mode === 'empty')      return add;
     else if (mode === 'edit')  return [copy, edit, del, add];
+    else if (mode === 'preview') return [copy, edit, del];
     else if (mode === 'add')   return [copy, save];
   },
 

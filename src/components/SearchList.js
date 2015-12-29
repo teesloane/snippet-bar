@@ -5,7 +5,10 @@ const SearchItem = require('./SearchItem');
 
 const SearchList = React.createClass({
   propTypes: {
-    snippets: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+    snippets: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    setMode:  React.PropTypes.func.isRequired,
+    activeSnippet: React.PropTypes.object,
+    setActive: React.PropTypes.func
   },
 
   getInitialState() {
@@ -65,7 +68,8 @@ const SearchList = React.createClass({
         <SearchItem
           key={index}
           snippet={snippet}
-          setActive={this.props.setActive} />
+          setActive={this.props.setActive}
+          setMode={this.props.setMode}/>
       );
     });
 

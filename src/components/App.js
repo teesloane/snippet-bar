@@ -18,8 +18,9 @@ const App = React.createClass({
       activeMode: 'empty',
       modes: {
         empty: 'empty',
-        edit:  'edit',
-        add:   'add'
+        preview:  'preview',
+        add:   'add',
+        edit:  'edit'
       }
     }
   },
@@ -52,7 +53,7 @@ const App = React.createClass({
 
     this.setState({
       activeSnippet: activeSnippet,
-      activeMode:    'edit'
+      activeMode:    'preview'
     });
   },
 
@@ -85,7 +86,7 @@ const App = React.createClass({
     }
   },
 
-  deleteSnippet(e) { 
+  deleteSnippet(e) {
 
     let activeSnippet = this.state.activeSnippet;
     let snippets = this.state.snippets;
@@ -96,9 +97,9 @@ const App = React.createClass({
 
         this.setState({
           snippets: update(
-            snippets, 
-            { 
-              $splice: [[i, 1]] 
+            snippets,
+            {
+              $splice: [[i, 1]]
             }
           ),
 
@@ -112,7 +113,7 @@ const App = React.createClass({
             this.showNotification("Snippet Deleted");
           });
         });
-        
+
         break;
       }
     }
@@ -153,8 +154,8 @@ const App = React.createClass({
           modes={this.state.modes}
           activeSnippet={this.state.activeSnippet}
           setMode={this.setMode}
-          saveSnippet={this.saveSnippet} 
-          showNotification={this.showNotification} 
+          saveSnippet={this.saveSnippet}
+          showNotification={this.showNotification}
           deleteSnippet={this.deleteSnippet} />
 
       </div>
