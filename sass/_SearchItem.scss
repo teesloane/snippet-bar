@@ -3,15 +3,21 @@
   align-items: center;
   border-bottom: $thin-black-border;
   height: 13vh;
+  overflow: hidden;
+
 
   .search-item-body {
     margin-left: 5%;
   }
 
   .search-item-title {
+    width: 200px;
     font-size: 12px;
     font-weight: 400;
     margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     a {
       text-decoration: none;
