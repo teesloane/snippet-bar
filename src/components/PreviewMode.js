@@ -1,4 +1,3 @@
-// CHANGED: Add padding for preview mode.
 // TODO: Add syntax highlighting
 
 const React = require('react');

@@ -1,14 +1,16 @@
 [
   {
     "id": "ID1451364846867",
-    "title": "Test Snippet 1",
-    "text": "WOUJIDL IT WORK?",
-    "tags": []
+    "title": "anaother thing",
+    "text": "give me the money!",
+    "tags": [
+      "tag"
+    ]
   },
   {
     "id": "ID1451405145514",
     "title": "moar snippets",
-    "text": "Will it get smaller?",
+    "text": "Will it get smaller? nopedfdfdfd",
     "tags": [
       "tag1",
       "dfkljdklfj"
@@ -43,6 +45,23 @@
     "text": "this is for testing setmode in save snippet in App.js",
     "tags": [
       "hell"
+    ]
+  },
+  {
+    "id": "ID1451410955335",
+    "title": "thing",
+    "text": "kdjfalkdfjkladjflkdjf",
+    "tags": [
+      "dlkfjdlkfj"
+    ]
+  },
+  {
+    "id": "ID1451411060704",
+    "title": "here's a new one",
+    "text": "it works!",
+    "tags": [
+      "lets",
+      "hope"
     ]
   }
 ]

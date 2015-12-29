@@ -1,6 +1,3 @@
-// CHANGED: Save Snippet - Change mode back to preview?
-//CHANGED: Refactored panelControls (got rid of function editSnippet())
-
 const React = require('react');
 const Clipboard = require('clipboard');
 

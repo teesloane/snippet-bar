@@ -18,7 +18,7 @@ const App = React.createClass({
       activeMode: 'empty',
       modes: {
         empty: 'empty',
-        preview:  'preview',
+        preview: 'preview',
         add:   'add',
         edit:  'edit'
       }
@@ -86,15 +86,15 @@ const App = React.createClass({
                 tags:  { $set: userValues.tags }
               }
             }
-          ),
-
-
-          activeMode: 'preview',
-          activeSnippet: activeSnippet
-
+          )
         }, () => {
           data.write(this.state.snippets, () => {
             this.showNotification("Snippet Updated");
+
+            this.setState({
+              activeSnippet: this.getSnippetById(activeSnippet.id),
+              activeMode: 'preview'
+            });
           });
         });
         break;
@@ -112,15 +112,16 @@ const App = React.createClass({
           {
             $push: [snippet]
           }
-        ),
-
-        activeSnippet: null,
-        activeMode: 'empty'
-
+        )
       },
        () => {
         data.write(this.state.snippets, () => {
           this.showNotification("Snippet Saved");
+
+          this.setState({
+            activeSnippet: this.getSnippetById(snippet.id),
+            activeMode: 'preview'
+          });
         });
       });
     }
