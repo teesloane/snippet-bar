@@ -2,7 +2,7 @@ const ipcMain = require('electron').ipcMain;
 const menubar = require('menubar');
 
 const config = {
-  openDevTools: true,
+  openDevTools: false,
   title:        'snippets',
   icon:         './app/static/img/brackets.png',
   iconAlt:      './app/static/img/brackets-alt.png'

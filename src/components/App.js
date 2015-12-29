@@ -5,6 +5,10 @@ React Parent App
 const React  = require('react');
 const update = require('react-addons-update');
 
+const remote   = require('electron').remote;
+const Menu     = remote.Menu;
+const MenuItem = remote.MenuItem;
+
 const mb         = require('../mb');
 const data       = require('../data');
 const SearchList = require('./SearchList');
@@ -26,11 +30,28 @@ const App = React.createClass({
   },
 
   componentDidMount() {
+    this.createElectronMenu();
+
     data.read(snippets => {
       this.setState({
         snippets
       });
     });
+  },
+
+  createElectronMenu() {
+    let menu = new Menu();
+    let quit = new MenuItem({
+      label: 'Quit',
+      click: mb.quit
+    });
+
+    menu.append(quit);
+
+    window.addEventListener('contextmenu', event => {
+      event.preventDefault();
+      menu.popup(remote.getCurrentWindow());
+    }, false);
   },
 
   getSnippetById(id) {
@@ -97,6 +118,7 @@ const App = React.createClass({
             });
           });
         });
+
         break;
       }
     }
@@ -161,18 +183,17 @@ const App = React.createClass({
     overlay.style.zIndex      = 10;
     notification.style.zIndex = 11;
 
-    notification.textContent  = message;
+    notification.textContent = message;
 
     setTimeout(() => {
-      overlay.style.zIndex = -1;
-      notification.style.zIndex= -2;
-    }, 500)
+      overlay.style.zIndex      = -1;
+      notification.style.zIndex = -2;
+    }, 1000)
   },
 
   render() {
     return (
       <div className="container">
-
         <div id="overlay" ref="overlay"></div>
         <div id="notification" ref="notification"></div>
 

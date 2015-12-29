@@ -24,9 +24,14 @@
     "id": "ID1451416607771",
     "title": "javascript",
     "text": "import {x, y} as p from 'point';\nconst ANSWER = 42;\n\nclass Car extends Vehicle {\n  constructor(speed, cost) {\n    super(speed);\n\n    var c = Symbol('cost');\n    this[c] = cost;\n\n    this.intro = `This is a car runs at\n      ${speed}.`;\n  }\n}\n\nfor (let num of [1, 2, 3]) {\n  console.log(num + 0b111110111);\n}\n\nfunction $initHighlight(block, flags) {\n  try {\n    if (block.className.search(/\\bno\\-highlight\\b/) != -1)\n      return processBlock(block.function, true, 0x0F) + ' class=\"\"';\n  } catch (e) {\n    /* handle exception */\n    var e4x =\n        <div>Example\n            <p>1234</p></div>;\n  }\n\n  for (var i = 0 / 2; i < classes.length; i++) { // \"0 / 2\" should not be parsed as regexp\n    if (checkCondition(classes[i]) === undefined)\n      return /\\d+[\\s/]/g;\n  }\n  console.log(Array.every(classes, Boolean));\n}\n\nexport  $initHighlight;",
-    "tags": [
-      "javascript"
-    ],
+    "tags": [],
     "created": 1451416607771
+  },
+  {
+    "id": "ID1451428901862",
+    "title": "untitled",
+    "text": "$hello = 'hello';",
+    "tags": [],
+    "created": 1451428901862
   }
 ]

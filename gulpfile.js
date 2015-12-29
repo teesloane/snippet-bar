@@ -1,7 +1,7 @@
 var gulp    = require('gulp');
 var plumber = require('gulp-plumber');
 var babel   = require('gulp-babel');
-var minify  = require('gulp-minify-css');
+var nano    = require('gulp-cssnano');
 var sass    = require('gulp-sass');
 
 gulp.task('js', function() {
@@ -22,7 +22,7 @@ gulp.task('sass', function() {
 
 gulp.task('normalize', function() {
   gulp.src('node_modules/normalize.css/normalize.css')
-    .pipe(minify())
+    .pipe(nano())
     .pipe(gulp.dest('app/static/css/'));
 });
 
