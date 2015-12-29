@@ -1,15 +1,18 @@
 .preview-snippet-mode {
   font-size: 1em;
   font-family: "Monaco", Arial;
-  width: 92%;
+  width: 100%;
+  height: 90vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   flex-wrap: wrap;
-  padding: 5% 0;
 
-  .copy-text {
-    line-height: 1.5;
+  .snippet-text {
+    margin: 0;
+    padding: 3%;
+    height: 90vh;
+    // white-space: pre-wrap;
   }
 }

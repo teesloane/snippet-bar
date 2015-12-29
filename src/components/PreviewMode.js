@@ -10,25 +10,25 @@ const EditMode = React.createClass({
     deleteSnippet: React.PropTypes.func
   },
 
-  createText() {
-    return {
-      __html: hljs.highlightAuto(this.props.activeSnippet.text).value
-    };
-  },
-
   render() {
     let activeSnippet = this.props.activeSnippet;
     let text          = null;
 
     if ( activeSnippet ) {
-      text = this.createText();
+      text = activeSnippet.text;
     }
 
     return(
       <div className="panel-mode">
         <div className="selected-mode">
           <div className="preview-snippet-mode">
-            <div className="copy-text" dangerouslySetInnerHTML={text}></div>
+            <pre className="snippet-text copy-text" ref={
+              code => {
+                if (code) hljs.highlightBlock(code);
+              }
+            }>
+              <code>{text}</code>
+            </pre>
           </div>
 
           <PanelControls

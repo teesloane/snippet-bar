@@ -166,7 +166,7 @@ const App = React.createClass({
     setTimeout(() => {
       overlay.style.zIndex = -1;
       notification.style.zIndex= -2;
-    }, 1000)
+    }, 500)
   },
 
   render() {

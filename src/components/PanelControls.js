@@ -35,10 +35,10 @@ const PanelControls = React.createClass({
     let save = <PanelButton kind="save" type="submit" click={this.saveSnippet} key="5" />;
     let update = <PanelButton kind="update" type="submit" key="6" />;
 
-    if (mode === 'empty')      return add;
+    if (mode === 'empty')        return add;
+    else if (mode === 'add')     return save;
     else if (mode === 'preview') return [copy, edit, del, add];
-    else if (mode === 'edit')  return [update, add];
-    else if (mode === 'add')   return [save, copy];
+    else if (mode === 'edit')    return [update, add];
   },
 
   render() {
