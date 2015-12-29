@@ -54,6 +54,8 @@ const App = React.createClass({
     this.setState({
       activeSnippet: activeSnippet,
       activeMode:    'preview'
+    }, function() {
+      console.log('app: ' + this.state.activeMode);
     });
   },
 
@@ -120,20 +122,18 @@ const App = React.createClass({
   },
 
   showNotification(message) {
-
     let overlay      = this.refs.overlay;
     let notification = this.refs.notification;
 
+    overlay.style.zIndex      = 10;
+    notification.style.zIndex = 11;
 
-      overlay.style.zIndex      = 10;
-      notification.style.zIndex = 11;
+    notification.textContent  = message;
 
-      notification.textContent  = message;
-
-      setTimeout(() => {
-        overlay.style.zIndex = -1;
-        notification.style.zIndex= -2;
-      }, 1000)
+    setTimeout(() => {
+      overlay.style.zIndex = -1;
+      notification.style.zIndex= -2;
+    }, 1000)
   },
 
   render() {
@@ -145,7 +145,6 @@ const App = React.createClass({
 
         <SearchList
           snippets={this.state.snippets}
-          setMode={this.setMode}
           activeSnippet={this.state.activeSnippet}
           setActive={this.setActive} />
 

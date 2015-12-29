@@ -15,7 +15,7 @@ const SearchItem = React.createClass({
             <h2 className="search-item-title">
               <a href="javascript:;">{snippet.title}</a>
             </h2>
-            
+
             <p className="search-item-tags">{snippet.tags.join(', ')}</p>
           </div>
       </li>

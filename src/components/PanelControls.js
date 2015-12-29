@@ -40,9 +40,11 @@ const PanelControls = React.createClass({
     let add  = <PanelButton kind="add" click={this.props.setMode.bind(null, 'add')} key="4"/>;
     let save = <PanelButton kind="save" type="submit" click={this.createSnippet} key="5" />;
 
+    console.log('panelControls: ' + mode);
+
     if (mode === 'empty')      return add;
-    else if (mode === 'edit')  return [copy, edit, del, add];
-    else if (mode === 'preview') return [copy, edit, del];
+    else if (mode === 'preview') return [copy, edit, del, add];
+    else if (mode === 'edit')  return [copy, save, del, add];
     else if (mode === 'add')   return [copy, save];
   },
 

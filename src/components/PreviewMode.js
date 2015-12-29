@@ -24,7 +24,7 @@ const EditMode = React.createClass({
             <div className="copy-text">{text}</div>
           </div>
 
-          <PanelControls mode="edit"
+          <PanelControls mode="preview"
             setMode={this.props.setMode}
             showNotification={this.props.showNotification}
             deleteSnippet={this.props.deleteSnippet}/>
