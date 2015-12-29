@@ -39,7 +39,7 @@ const Tags = React.createClass({
   },
 
   setTags(tags) {
-    if (tags.length) this.setState({ tags });
+    if (tags && tags.length) this.setState({ tags });
   },
 
   onKeyDown(event) {

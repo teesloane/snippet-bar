@@ -8,6 +8,7 @@ $tag-min-height: 31px;
 
 .tags {
   display: flex;
+  flex-wrap: wrap;
   align-content: center;
   background: #2F3132;
   min-height: $tag-min-height + 5px;
@@ -40,7 +41,7 @@ $tag-min-height: 31px;
     display: inline-block;
     padding: $tag-x-spacing;
     padding-left: $tag-y-spacing;
-    padding-right: $tag-y-spacing;
+    padding-right: $tag-y-spacing / 2;
     background: $tag-background;
     color: $tag-color;
     font-weight: bold;
@@ -51,9 +52,10 @@ $tag-min-height: 31px;
     background: $tag-background;
     color: $tag-color;
     border: 0;
-    border-left: 1px solid $tag-color;
+    // border-left: 1px solid $tag-color;
     border-radius: 0 $tag-border-radius $tag-border-radius 0;
     padding: $tag-x-spacing $tag-x-spacing * 2;
+    padding-left: $tag-x-spacing;
     cursor: pointer;
     position: absolute;
     top: 0;

@@ -32,7 +32,8 @@ const Panel = React.createClass({
         activeSnippet={this.props.activeSnippet}
         setMode={this.props.setMode}
         showNotification={this.props.showNotification}
-        deleteSnippet={this.props.deleteSnippet} />;
+        deleteSnippet={this.props.deleteSnippet}
+        saveSnippet={this.props.saveSnippet} />;
     }
     else if (activeMode === 'preview') {
       return <PreviewMode
