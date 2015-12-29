@@ -5,16 +5,16 @@
   height: 13vh;
   overflow: hidden;
   cursor: pointer;
+  position: relative;
 
-  .search-item-body {
-    position: relative;
+  .search-item-body {    
     margin-left: 5%;
   }
 
-  &.is-active .search-item-body:before {
+  &.is-active:before {
     content: '';
     position: absolute;
-    left: -10px;
+    left: 0;
     top: 0;
     bottom: 0;
     width: 3px;

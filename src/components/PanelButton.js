@@ -32,9 +32,9 @@ const PanelButton = React.createClass({
           title: 'Edit Snippet'
         },
         add: {
-          text: 'add',
+          text: 'new',
           icon: 'fa fa-plus fa-2x',
-          title: 'Edit Snippet'
+          title: 'New Snippet'
         },
         del: {
           text: 'delete',
