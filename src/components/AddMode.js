@@ -45,8 +45,6 @@ const AddMode = React.createClass({
               showNotification={this.props.showNotification} />
           </form>
         </div>
-
-
       </div>
     );
   }

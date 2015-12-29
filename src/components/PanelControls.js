@@ -38,7 +38,7 @@ const PanelControls = React.createClass({
     if (mode === 'empty')      return add;
     else if (mode === 'preview') return [copy, edit, del, add];
     else if (mode === 'edit')  return [update, add];
-    else if (mode === 'add')   return [copy, save];
+    else if (mode === 'add')   return [save, copy];
   },
 
   render() {

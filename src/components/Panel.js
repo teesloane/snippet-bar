@@ -14,7 +14,6 @@ const AddMode     = require('./AddMode');
 const EditMode    = require('./EditMode');
 
 const Panel = React.createClass({
-
   propTypes: {
     activeMode:       React.PropTypes.string.isRequired,
     setMode:          React.PropTypes.func.isRequired,
@@ -52,7 +51,6 @@ const Panel = React.createClass({
   },
 
   render() {
-
     let panelContent = this.setContent();
 
     return(

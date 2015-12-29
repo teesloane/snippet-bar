@@ -4,10 +4,21 @@
   border-bottom: $thin-black-border;
   height: 13vh;
   overflow: hidden;
-
+  cursor: pointer;
 
   .search-item-body {
+    position: relative;
     margin-left: 5%;
+  }
+
+  &.is-active .search-item-body:before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #eee;
   }
 
   .search-item-title {

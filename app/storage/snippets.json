@@ -1,58 +1,32 @@
 [
   {
-    "id": "ID1451364846867",
-    "title": "anaother thing",
-    "text": "give me the money!",
+    "id": "ID1451414873923",
+    "title": "javascript iffe",
+    "text": "(function() {\n    // code goes here\n   var i = 0;\n})();",
     "tags": [
-      "tag"
-    ]
+      "javascript",
+      "advanced"
+    ],
+    "created": 1451414873923
   },
   {
-    "id": "ID1451364846867",
-    "title": "Test Snippet 1",
-    "text": "TEST",
-    "tags": []
+    "id": "ID1451415369457",
+    "title": "good movies",
+    "text": "- a very murray christmas\n- letters to santa",
+    "tags": [
+      "movies",
+      "2015",
+      "comedy"
+    ],
+    "created": 1451415369457
   },
   {
-    "id": "ID1451405145514",
-    "title": "moar snippets",
-    "text": "dflkjdlkfjdkfjdkfjd\n",
+    "id": "ID1451416607771",
+    "title": "javascript",
+    "text": "import {x, y} as p from 'point';\nconst ANSWER = 42;\n\nclass Car extends Vehicle {\n  constructor(speed, cost) {\n    super(speed);\n\n    var c = Symbol('cost');\n    this[c] = cost;\n\n    this.intro = `This is a car runs at\n      ${speed}.`;\n  }\n}\n\nfor (let num of [1, 2, 3]) {\n  console.log(num + 0b111110111);\n}\n\nfunction $initHighlight(block, flags) {\n  try {\n    if (block.className.search(/\\bno\\-highlight\\b/) != -1)\n      return processBlock(block.function, true, 0x0F) + ' class=\"\"';\n  } catch (e) {\n    /* handle exception */\n    var e4x =\n        <div>Example\n            <p>1234</p></div>;\n  }\n  for (var i = 0 / 2; i < classes.length; i++) { // \"0 / 2\" should not be parsed as regexp\n    if (checkCondition(classes[i]) === undefined)\n      return /\\d+[\\s/]/g;\n  }\n  console.log(Array.every(classes, Boolean));\n}\n\nexport  $initHighlight;",
     "tags": [
-      "tag1",
-      "dfkljdklfj"
-    ]
-  },
-  {
-    "id": "ID1451405214779",
-    "title": "how about another?aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "text": "This is some text\na",
-    "tags": [
-      "supppp"
-    ]
-  },
-  {
-    "id": "ID1451405907504",
-    "title": "test!",
-    "text": "this is for testing setmode in save snippet in App.js",
-    "tags": [
-      "hell"
-    ]
-  },
-  {
-    "id": "ID1451410955335",
-    "title": "thing",
-    "text": "kdjfalkdfjkladjflkdjf",
-    "tags": [
-      "dlkfjdlkfj"
-    ]
-  },
-  {
-    "id": "ID1451411060704",
-    "title": "here's a new one",
-    "text": "it works!",
-    "tags": [
-      "lets",
-      "hope"
-    ]
+      "javascript"
+    ],
+    "created": 1451416607771
   }
 ]

@@ -61,12 +61,14 @@ const SearchList = React.createClass({
 
   render() {
     let filteredList = this.state.filtered ? this.state.filtered : this.state.snippets;
+    let activeSnippet = this.props.activeSnippet;
 
     let snippets = filteredList.map((snippet, index) => {
       return (
         <SearchItem
           key={index}
           snippet={snippet}
+          isActive={activeSnippet && activeSnippet.id === snippet.id}
           setActive={this.props.setActive}/>
       );
     });
@@ -76,7 +78,13 @@ const SearchList = React.createClass({
         <SearchBar filterSnippets={this.filterSnippets} />
 
         <div className="list-container">
-          <ul className="snippet-ul">{snippets}</ul>
+          <ul className="snippet-ul">{
+            snippets.length ?
+            snippets :
+            <div className="no-snippets">
+              <p>No snippets...</p>
+            </div>
+          }</ul>
         </div>
       </div>
     );

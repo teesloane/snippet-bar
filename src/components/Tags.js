@@ -8,12 +8,14 @@ const Tags = React.createClass({
       React.PropTypes.number,
       React.PropTypes.string
     ]),
+    maxlength:   React.PropTypes.number,
     placeholder: React.PropTypes.string
   },
 
   getDefaultProps() {
     return {
-      placeholder: 'Add a tag...'
+      placeholder: 'Add a tag...',
+      maxlength:   20
     };
   },
 
@@ -63,6 +65,8 @@ const Tags = React.createClass({
 
     if (this.state.INVALID_CHARS.test(value)) {
       event.target.value = value.replace(this.state.INVALID_CHARS, '');
+    } else if (value.length > this.props.maxlength) {
+      event.target.value = value.substr(0, this.props.maxlength);
     }
   },
 

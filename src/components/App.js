@@ -13,14 +13,14 @@ const Panel      = require('./Panel');
 const App = React.createClass({
   getInitialState() {
     return {
-      snippets: [],
+      snippets:      [],
       activeSnippet: null,
-      activeMode: 'empty',
-      modes: {
-        empty: 'empty',
+      activeMode:    'empty',
+      modes:         {
+        empty:   'empty',
         preview: 'preview',
-        add:   'add',
-        edit:  'edit'
+        add:     'add',
+        edit:    'edit'
       }
     }
   },
@@ -113,8 +113,7 @@ const App = React.createClass({
             $push: [snippet]
           }
         )
-      },
-       () => {
+      }, () => {
         data.write(this.state.snippets, () => {
           this.showNotification("Snippet Saved");
 
@@ -125,19 +124,15 @@ const App = React.createClass({
         });
       });
     }
-
-
-
   },
 
   deleteSnippet(e) {
     let activeSnippet = this.state.activeSnippet;
-    let snippets = this.state.snippets;
-    let i = 0;
+    let snippets      = this.state.snippets;
+    let i             = 0;
 
     for (i; i < snippets.length; i++) {
       if (snippets[i].id === activeSnippet.id) {
-
         this.setState({
           snippets: update(
             snippets,
@@ -145,12 +140,10 @@ const App = React.createClass({
               $splice: [[i, 1]]
             }
           ),
-
           activeSnippet: null,
-          activeMode: 'empty'
+          activeMode:    'empty'
 
         }, () => {
-        //2nd parameter of this.setState - this updates state with one less snippet.
           data.write(this.state.snippets, () => {
             this.showNotification("Snippet Deleted");
           });
@@ -197,7 +190,6 @@ const App = React.createClass({
           saveSnippet={this.saveSnippet}
           showNotification={this.showNotification}
           deleteSnippet={this.deleteSnippet} />
-
       </div>
     );
   }

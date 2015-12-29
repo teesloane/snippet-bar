@@ -35,7 +35,8 @@ function snippetModel(title = 'untitled', text, tags = []) {
     id:      'ID' + now,
     title:   title,
     text:    text,
-    tags:    tags
+    tags:    tags,
+    created: now
   };
 
   return snippet;
