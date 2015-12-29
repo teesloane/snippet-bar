@@ -54,8 +54,6 @@ const App = React.createClass({
     this.setState({
       activeSnippet: activeSnippet,
       activeMode:    'preview'
-    }, function() {
-      console.log('app: ' + this.state.activeMode);
     });
   },
 
@@ -66,6 +64,36 @@ const App = React.createClass({
       this.setState({
         activeMode: availableMode
       });
+    }
+  },
+
+  updateSnippet(values) {
+    let userValues    = data.snippetModel(values.title, values.text, values.tags);
+    let snippets      = this.state.snippets;
+    let activeSnippet = this.state.activeSnippet;
+
+    if (!userValues) return;
+
+    for (let i = 0; i < snippets.length; i++) {
+      if (activeSnippet.id === snippets[i].id) {
+        this.setState({
+          snippets: update(
+            this.state.snippets,
+            {
+              [i]: {
+                title: { $set: userValues.title },
+                text:  { $set: userValues.text },
+                tags:  { $set: userValues.tags }
+              }
+            }
+          )
+        }, () => {
+          data.write(this.state.snippets, () => {
+            this.showNotification("Snippet Updated");
+          });
+        });
+        break;
+      }
     }
   },
 
@@ -82,14 +110,13 @@ const App = React.createClass({
         )
       }, () => {
         data.write(this.state.snippets, () => {
-          console.log('snippet saved');
+          this.showNotification("Snippet Saved");
         });
       });
     }
   },
 
   deleteSnippet(e) {
-
     let activeSnippet = this.state.activeSnippet;
     let snippets = this.state.snippets;
     let i = 0;
@@ -111,7 +138,6 @@ const App = React.createClass({
         }, () => {
         //2nd parameter of this.setState - this updates state with one less snippet.
           data.write(this.state.snippets, () => {
-            console.log('snippet deleted');
             this.showNotification("Snippet Deleted");
           });
         });
@@ -153,6 +179,7 @@ const App = React.createClass({
           modes={this.state.modes}
           activeSnippet={this.state.activeSnippet}
           setMode={this.setMode}
+          updateSnippet={this.updateSnippet}
           saveSnippet={this.saveSnippet}
           showNotification={this.showNotification}
           deleteSnippet={this.deleteSnippet} />

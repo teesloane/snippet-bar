@@ -9,7 +9,7 @@ const snippetsPath = __dirname + '/storage/snippets.json';
 function read(callback) {
   fs.readFile(snippetsPath, 'utf8', (err, data) => {
     if (err) throw err;
-    
+
     callback(JSON.parse(data));
   });
 }
@@ -26,20 +26,16 @@ function write(data, callback) {
   });
 }
 
-function snippetModel(title = "untitled", text, tags = []) {
+function snippetModel(title = 'untitled', text, tags = []) {
   if (!text) return null;
 
   let now = Date.now();
 
   let snippet = {
-    id:      "ID" + now,
+    id:      'ID' + now,
     title:   title,
     text:    text,
-    tags:    tags,
-    history: [],
-    rank:    0,
-    created: now,
-    updated: now
+    tags:    tags
   };
 
   return snippet;

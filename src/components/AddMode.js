@@ -33,18 +33,16 @@ const AddMode = React.createClass({
 
             <Tags max="5" ref="tags" />
 
-            <textarea 
-              id="new-snippet-text" 
-              className="add-textarea copy-text" 
-              placeholder="Add a Snippet..." 
+            <textarea
+              id="new-snippet-text"
+              className="add-textarea copy-text"
+              placeholder="Add a Snippet..."
               ref="text"></textarea>
 
-            <PanelControls 
-              mode="add" 
-              createSnippet={this.createSnippet} 
-              setMode={this.props.setMode} 
+            <PanelControls
+              mode="add"
+              setMode={this.props.setMode}
               showNotification={this.props.showNotification} />
-              
           </form>
         </div>
 

@@ -5,11 +5,12 @@ const PanelControls = require('./PanelControls');
 
 const EditMode = React.createClass({
   propTypes: {
-    setMode: React.PropTypes.func.isRequired,
-    activeSnippet: React.PropTypes.object
+    setMode:       React.PropTypes.func.isRequired,
+    activeSnippet: React.PropTypes.object,
+    updateSnippet: React.PropTypes.func.isRequired
   },
 
-  createSnippet(event) {
+  updateSnippet(event) {
     event.preventDefault();
 
     let title = this.refs.title.value.trim();
@@ -22,14 +23,14 @@ const EditMode = React.createClass({
     if (tags.length) values.tags  = tags;
     if (text)        values.text  = text;
 
-    this.props.saveSnippet(values);
+    this.props.updateSnippet(values);
   },
 
   render() {
     return(
       <div className="panel-mode">
         <div className="selected-mode">
-          <form className="add-snippet-mode" onSubmit={this.createSnippet}>
+          <form className="add-snippet-mode" onSubmit={this.updateSnippet}>
             <input
               id="new-snippet-title"
               className="add-field"
@@ -53,10 +54,8 @@ const EditMode = React.createClass({
 
             <PanelControls
               mode="edit"
-              createSnippet={this.createSnippet}
               setMode={this.props.setMode}
               showNotification={this.props.showNotification} />
-
           </form>
         </div>
       </div>

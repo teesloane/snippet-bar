@@ -5,11 +5,10 @@ const PanelButton = require('./PanelButton');
 
 const PanelControls = React.createClass({
   propTypes: {
-    mode             : React.PropTypes.string.isRequired,
-    setMode          : React.PropTypes.func.isRequired,
-    createSnippet    : React.PropTypes.func,
-    showNotification : React.PropTypes.func,
-    deleteSnippet    : React.PropTypes.func
+    mode:             React.PropTypes.string.isRequired,
+    setMode:          React.PropTypes.func.isRequired,
+    showNotification: React.PropTypes.func,
+    deleteSnippet:    React.PropTypes.func
   },
 
   componentDidUpdate(){
@@ -38,13 +37,12 @@ const PanelControls = React.createClass({
     let edit = <PanelButton kind="edit" click={this.props.setMode.bind(null, 'edit')} key="2"/>;
     let del  = <PanelButton kind="del" click={this.confirmDelete} key="3"/>;
     let add  = <PanelButton kind="add" click={this.props.setMode.bind(null, 'add')} key="4"/>;
-    let save = <PanelButton kind="save" type="submit" click={this.createSnippet} key="5" />;
-
-    console.log('panelControls: ' + mode);
+    let save = <PanelButton kind="save" type="submit" key="5" />;
+    let update = <PanelButton kind="update" type="submit" key="6" />;
 
     if (mode === 'empty')      return add;
     else if (mode === 'preview') return [copy, edit, del, add];
-    else if (mode === 'edit')  return [copy, save, del, add];
+    else if (mode === 'edit')  return [update, add];
     else if (mode === 'add')   return [copy, save];
   },
 

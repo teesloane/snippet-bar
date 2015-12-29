@@ -21,6 +21,11 @@ const PanelButton = React.createClass({
           icon: 'fa fa-pencil fa-2x',
           title: 'Edit Snippet'
         },
+        update: {
+          text: 'update',
+          icon: 'fa fa-floppy-o fa-2x',
+          title: 'Update Snippet'
+        },
         save: {
           text: 'save',
           icon: 'fa fa-floppy-o fa-2x',
@@ -69,7 +74,7 @@ const PanelButton = React.createClass({
     let dataClipboard = {};
 
     if (kind !== this.state.defaultKind) {
-      let kindObj = this.state.kinds[kind]; 
+      let kindObj = this.state.kinds[kind];
 
       text  = kindObj.text;
       icon  = kindObj.icon;
