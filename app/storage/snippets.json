@@ -1,22 +1,48 @@
 [
   {
-    "id": "ID1450744323158",
-    "title": "hi",
-    "text": "hellooooo?",
+    "id": "ID1451364846867",
+    "title": "Test Snippet 1",
+    "text": "TEST",
+    "tags": []
+  },
+  {
+    "id": "ID1451405145514",
+    "title": "moar snippets",
+    "text": "How about something understandeable?\n",
     "tags": [
-      "test"
-    ],
-    "history": [],
-    "rank": 0,
-    "created": 1450744323158,
-    "updated": 1450744323158
+      "tag1",
+      "dfkljdklfj"
+    ]
   },
   {
     "id": "ID1451364846867",
-    "title": "fsfds",
-    "text": "d",
+    "title": "Test Snippet 1",
+    "text": "TEST",
+    "tags": []
+  },
+  {
+    "id": "ID1451405145514",
+    "title": "moar snippets",
+    "text": "dflkjdlkfjdkfjdkfjd\n",
     "tags": [
-      "d"
+      "tag1",
+      "dfkljdklfj"
+    ]
+  },
+  {
+    "id": "ID1451405214779",
+    "title": "how about another?",
+    "text": "This is some text\n",
+    "tags": [
+      "supppp"
+    ]
+  },
+  {
+    "id": "ID1451405907504",
+    "title": "test!",
+    "text": "this is for testing setmode in save snippet in App.js",
+    "tags": [
+      "hell"
     ]
   }
 ]

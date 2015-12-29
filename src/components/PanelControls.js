@@ -1,3 +1,6 @@
+// TODO: Save Snippet - Change mode back to preview?
+//CHANGED: Refactored panelControls (got rid of function editSnippet())
+
 const React = require('react');
 const Clipboard = require('clipboard');
 
@@ -19,11 +22,6 @@ const PanelControls = React.createClass({
     this.props.showNotification("Snippet Copied!");
   },
 
-  editSnippet() {
-    console.log('placeholder: this function will make the text area editable');
-    this.props.showNotification("YOU ");
-  },
-
   confirmDelete() {
     if (confirm("You sure you want to delete this?")) {
       this.props.deleteSnippet();
@@ -37,7 +35,7 @@ const PanelControls = React.createClass({
     let edit = <PanelButton kind="edit" click={this.props.setMode.bind(null, 'edit')} key="2"/>;
     let del  = <PanelButton kind="del" click={this.confirmDelete} key="3"/>;
     let add  = <PanelButton kind="add" click={this.props.setMode.bind(null, 'add')} key="4"/>;
-    let save = <PanelButton kind="save" type="submit" key="5" />;
+    let save = <PanelButton kind="save" type="submit" click={this.saveSnippet} key="5" />;
     let update = <PanelButton kind="update" type="submit" key="6" />;
 
     if (mode === 'empty')      return add;

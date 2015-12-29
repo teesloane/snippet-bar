@@ -1,3 +1,5 @@
+//CHANGED: Remove blue outline of text area. 
+
 const React = require('react');
 
 const Tags          = require('./Tags');

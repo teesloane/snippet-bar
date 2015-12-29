@@ -2,8 +2,8 @@ $tag-y-spacing: 10px;
 $tag-x-spacing: 5px;
 $tag-button-width: 12px + $tag-x-spacing * 2;
 $tag-border-radius: 15px;
-$tag-background: #fff;
-$tag-color: #000;
+$tag-background: rgb(40, 40, 40);
+$tag-color: rgb(199, 199, 199);
 $tag-min-height: 31px;
 
 .tags {
@@ -14,11 +14,12 @@ $tag-min-height: 31px;
   min-height: $tag-min-height + 5px;
   line-height: 1;
   font-size: 1em;
-  border-bottom: $thin-black-border
+  border-bottom: $thin-black-border;
+
 }
 
 .tags-input {
-  display: inline-block;
+  display: flex;
   width: 33%;
   line-height: 1;
   min-height: $tag-min-height;
@@ -30,38 +31,27 @@ $tag-min-height: 31px;
 }
 
 .tag {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: $tag-x-spacing;
   margin-bottom: $tag-x-spacing;
   margin-left: $tag-x-spacing;
-  margin-right: $tag-button-width;
-  position: relative;
 
   .tag-value {
-    display: inline-block;
-    padding: $tag-x-spacing;
-    padding-left: $tag-y-spacing;
-    padding-right: $tag-y-spacing / 2;
     background: $tag-background;
-    color: $tag-color;
-    font-weight: bold;
     border-radius: $tag-border-radius 0 0 $tag-border-radius;
+    padding: 6px 0px 6px 10px;
   }
 
   .tag-delete-button {
-    background: $tag-background;
-    color: $tag-color;
+    text-align: center;
     border: 0;
-    // border-left: 1px solid $tag-color;
+    background: $tag-background;
+    padding: 6px 16px 6px 10px;
     border-radius: 0 $tag-border-radius $tag-border-radius 0;
-    padding: $tag-x-spacing $tag-x-spacing * 2;
-    padding-left: $tag-x-spacing;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    bottom: 3px;
-    right: -$tag-button-width;
-    line-height: 0.5;
-    font-weight: bold;
+    outline: none;
+    margin-right: 10px;
+    border: 0 solid $tag-background;
   }
 }

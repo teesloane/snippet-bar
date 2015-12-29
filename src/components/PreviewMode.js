@@ -1,3 +1,6 @@
+// CHANGED: Add padding for preview mode.
+// TODO: Add syntax highlighting
+
 const React = require('react');
 
 const PanelControls = require('./PanelControls');
@@ -20,7 +23,8 @@ const EditMode = React.createClass({
     return(
       <div className="panel-mode">
         <div className="selected-mode">
-          <div className="edit-snippet-mode">
+          <div className="preview-snippet-mode">
+
             <div className="copy-text">{text}</div>
           </div>
 
