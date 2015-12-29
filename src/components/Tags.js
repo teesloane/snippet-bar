@@ -125,7 +125,7 @@ const Tags = React.createClass({
       );
     });
 
-    let placeholder = tags.length < this.props.max ? this.props.placeholder : '';
+    let placeholder = !this.props.max || tags.length < this.props.max ? this.props.placeholder : '';
 
     return (
       <div className="tags" onClick={this.focusInput}>
