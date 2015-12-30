@@ -8,8 +8,8 @@
     height: $input-height;
     outline: none;
     border: 0;
-    border-bottom: 1px solid black;
-    padding-left: $input-padding;
+    border-bottom: $thin-black-border;
+    padding-left: $input-padding + 1;
     background: #2F3132;
   }
 
@@ -19,7 +19,7 @@
     background: #2A2B2C;
     border: 0;
     resize: none;
-    padding: $input-padding;
+    padding: $input-padding + 1;
   }
 }
 

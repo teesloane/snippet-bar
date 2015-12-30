@@ -4,7 +4,8 @@
   background: #2C2D2E;
   justify-content: space-between;
   height: 10vh;
-  border-top: 1px solid #38393A;
+  // border-top: 1px solid #38393A;
+  border-top: solid #585858 2px;
 
   button {
     width: 100%;
@@ -33,7 +34,10 @@
   }
 
   .copy-btn {
-    background: #444;
+    // background: #444;
+    i {
+      color: rgb(193, 141, 81);
+    }
   }
 }
 

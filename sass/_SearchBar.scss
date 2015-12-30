@@ -1,8 +1,8 @@
 .search-bar {
   display: flex;
   height: 11vh;
-  border-bottom: $thin-black-border;
   align-items: center;
+  border-right: $thin-black-border;
 
   .search-bar-field {
     width: 100%;
@@ -27,4 +27,3 @@
     vertical-align: middle;
   }
 }
-

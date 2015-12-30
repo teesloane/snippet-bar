@@ -75,17 +75,27 @@ const SearchList = React.createClass({
 
     return (
       <div className="searchlist-container">
-        <SearchBar filterSnippets={this.filterSnippets} />
 
-        <div className="list-container">
-          <ul className="snippet-ul">{
-            snippets.length ?
-            snippets :
-            <div className="no-snippets">
-              <p>No snippets...</p>
-            </div>
-          }</ul>
+        <div className="search-and-results">
+          <SearchBar filterSnippets={this.filterSnippets} />
+
+          <div className="list-container">
+            <ul className="snippet-ul">{
+              snippets.length ?
+              snippets :
+              <div className="no-snippets">
+                <p>No snippets...</p>
+              </div>
+            }
+            </ul>
+          </div>
         </div>
+
+        <div className="menu-controls">
+          <button><i className="fa fa-cog fa-2x"></i></button>
+        </div>
+
+
       </div>
     );
   }
