@@ -36,15 +36,38 @@ const App = React.createClass({
   },
 
   createElectronMenu() {
+
+    let cog = document.getElementById('cog')
     let menu = new Menu();
+
+    let separator = new MenuItem({
+      type: 'separator'
+    });
+
+    let preferences = new MenuItem({
+      label: 'Preferences',
+      click: mb.preferences
+    });
+
+    let about = new MenuItem({
+      label: "About Snippets"
+    });
+
     let quit = new MenuItem({
       label: 'Quit',
       click: mb.quit
     });
 
+
+
+    menu.append(about);
+    menu.append(separator);
+    menu.append(preferences)
+    menu.append(separator);
     menu.append(quit);
 
-    window.addEventListener('contextmenu', event => {
+
+    cog.addEventListener('click', event => {
       event.preventDefault();
       menu.popup(remote.getCurrentWindow());
     }, false);
@@ -196,7 +219,8 @@ const App = React.createClass({
         <SearchList
           snippets={this.state.snippets}
           activeSnippet={this.state.activeSnippet}
-          setActive={this.setActive} />
+          setActive={this.setActive}
+          appMenu={this.createElectronMenu} />
 
         <Panel
           activeMode={this.state.activeMode}

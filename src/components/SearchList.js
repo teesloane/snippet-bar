@@ -7,7 +7,8 @@ const SearchList = React.createClass({
   propTypes: {
     snippets: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     activeSnippet: React.PropTypes.object,
-    setActive: React.PropTypes.func
+    setActive: React.PropTypes.func,
+    appMenu: React.PropTypes.func
   },
 
   getInitialState() {
@@ -92,7 +93,7 @@ const SearchList = React.createClass({
         </div>
 
         <div className="menu-controls">
-          <button><i className="fa fa-cog fa-2x"></i></button>
+          <button id="cog"><i className="fa fa-cog fa-2x"></i></button>
         </div>
 
 
