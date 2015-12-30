@@ -11,7 +11,7 @@ const Tags = React.createClass({
     maxlength:   React.PropTypes.oneOfType([
       React.PropTypes.number,
       React.PropTypes.string
-    ]),,
+    ]),
     placeholder: React.PropTypes.string
   },
 
