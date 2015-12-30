@@ -49,16 +49,20 @@ mb.app.on('ready', () => {
 
   var prefsWindow = new BrowserWindow({
     width: 400,
-    height: 400,
-    show: false
+    height: 300,
+    show: false,
+    resizable: false,
+    alwaysOnTop: true,
+    title: "Preferences",
+    center: true
+
+
   })
 
-  prefsWindow.loadURL('file://' + __dirname + '/prefs.html')
-
+  prefsWindow.loadURL('file://' + __dirname + '/app/prefs.html')
 
   ipcMain.on('show-prefs', function() {
     prefsWindow.show()
-
 
   })
 });
