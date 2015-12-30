@@ -11,6 +11,7 @@
     border-bottom: $thin-black-border;
     padding-left: $input-padding + 1;
     background: #2F3132;
+    width: 100%;
   }
 
   .add-textarea {
@@ -25,4 +26,19 @@
 
 textarea:focus {
   outline: none;
+}
+
+
+.title-and-language{
+  display: flex;
+  justify-content: space-between;
+
+  .new-languages {
+    background: #2F3132;
+    outline: none;
+    border: 0;
+    border-bottom: $thin-black-border;
+    border-left: $thin-black-border;
+    padding-left: $input-padding;
+  }
 }

@@ -29,7 +29,18 @@ const AddMode = React.createClass({
       <div className="panel-mode">
         <div className="selected-mode">
           <form className="add-snippet-mode" onSubmit={this.createSnippet}>
-            <input id="new-snippet-title" className="add-field" type="text" ref="title" placeholder="Title" />
+
+            <div className="title-and-language">
+
+              <input id="new-snippet-title" className="add-field" type="text" ref="title" placeholder="Title" />
+
+              <input className="new-languages" list="new-languages" />
+                <datalist id="new-languages">
+                   <option value="Firefox" />
+                    <option value="poop" />
+                </datalist>
+            </div>
+
 
             <Tags max="5" ref="tags" />
 
