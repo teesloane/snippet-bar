@@ -16,12 +16,25 @@ const App = React.createClass({
       snippets:      [],
       activeSnippet: null,
       activeMode:    'empty',
-      languages:
-
-        ['Language', 'bash','clojure','coffeescript','cpp','cs','dart','django','dockerfile','elixir','elm','erlang','fsharp','go','groovy','haml','handlebars','haskell','java','javascript','json',
-        'julia','less','lisp','lua','makefile','markdown','objectivec','ocaml',
-        'perl','php','processing','prolog','python','r','ruby','rust','scala',
-        'scheme','scss','sql','swift','typescript','vim','xml','yaml'
+      languages:[
+        'Language',
+        'bash',
+        'csharp',
+        'c++',
+        'css',
+        'elm',
+        'go',
+        'html',
+        'haskell',
+        'java',
+        'javascript',
+        'json',
+        'markdown',
+        'obj-c',
+        'php',
+        'python',
+        'ruby',
+        'scss'
       ],
 
       syntax:        false,
