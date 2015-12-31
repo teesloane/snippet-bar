@@ -11,22 +11,26 @@ hljs.configure({
   ]
 });
 
-const EditMode = React.createClass({
+const PreviewMode = React.createClass({
   propTypes: {
     activeSnippet: React.PropTypes.object,
     setMode:       React.PropTypes.func.isRequired,
-    deleteSnippet: React.PropTypes.func
+    deleteSnippet: React.PropTypes.func,
+    syntax:        React.PropTypes.bool
   },
 
   render() {
     let activeSnippet = this.props.activeSnippet;
     let text          = null;
     let language      = '';
+    let syntax        = this.props.syntax;
 
-    if ( activeSnippet ) {
-      text     = activeSnippet.text;
-      language = ' ' + hljs.highlightAuto(activeSnippet.text).language;
-    }
+
+        if (activeSnippet) {
+          text     = activeSnippet.text;
+          language = ' ' + hljs.highlightAuto(activeSnippet.text).language;
+        }
+
 
     return(
       <div className="panel-mode">
@@ -34,7 +38,11 @@ const EditMode = React.createClass({
           <div className="preview-snippet-mode">
             <pre className={"snippet-text copy-text" + language}  ref={
               code => {
-                if (code) hljs.highlightBlock(code);
+                if (syntax){
+                  if (code) hljs.highlightBlock(code);                }
+                else if(!syntax) {
+                  return null;
+                }
               }
             }>
               <code>{text}</code>
@@ -52,4 +60,4 @@ const EditMode = React.createClass({
   }
 });
 
-module.exports = EditMode;
+module.exports = PreviewMode;

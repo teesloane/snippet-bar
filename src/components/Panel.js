@@ -13,6 +13,7 @@ const EmptyMode   = require('./EmptyMode');
 const AddMode     = require('./AddMode');
 const EditMode    = require('./EditMode');
 
+
 const Panel = React.createClass({
   propTypes: {
     activeMode:       React.PropTypes.string.isRequired,
@@ -21,8 +22,10 @@ const Panel = React.createClass({
     updateSnippet:    React.PropTypes.func.isRequired,
     saveSnippet:      React.PropTypes.func.isRequired,
     showNotification: React.PropTypes.func,
-    deleteSnippet:    React.PropTypes.func
+    deleteSnippet:    React.PropTypes.func,
+    syntax :          React.PropTypes.bool
   },
+
 
   setContent() {
     let activeMode = this.props.activeMode;
@@ -40,6 +43,7 @@ const Panel = React.createClass({
         activeSnippet={this.props.activeSnippet}
         setMode={this.props.setMode}
         showNotification={this.props.showNotification}
+        syntax={this.props.syntax}
         deleteSnippet={this.props.deleteSnippet} />;
     }
     else if (activeMode === 'add'){
@@ -51,6 +55,7 @@ const Panel = React.createClass({
   },
 
   render() {
+
     let panelContent = this.setContent();
 
     return(

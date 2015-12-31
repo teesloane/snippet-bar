@@ -16,11 +16,14 @@ const App = React.createClass({
       snippets:      [],
       activeSnippet: null,
       activeMode:    'empty',
+      syntax:        false,
       modes:         {
+
         empty:   'empty',
         preview: 'preview',
         add:     'add',
         edit:    'edit'
+
       }
     }
   },
@@ -53,9 +56,25 @@ const App = React.createClass({
       label: 'Syntax Highlighting',
       type: 'checkbox',
       checked: false,
-      click: function(){
-        syntax.checked = syntax.checked ? true: false; 
-        console.log(syntax.checked);
+      click: () =>{
+        //toggle the boolean on syntax.checked
+        syntax.checked = syntax.checked ? true: false;
+
+        // based on the boolean, set State accordingly
+        if (syntax.checked === false) {
+          this.setState({
+            syntax: false
+          });
+        console.log("the setState is " + this.state.syntax);
+        }
+
+        else if (syntax.checked === true) {
+          this.setState({
+            syntax: true
+          });
+        console.log("the setState is " + this.state.syntax);
+        }
+        console.log("the menu property is " + syntax.checked);
       }
     });
 
@@ -66,14 +85,11 @@ const App = React.createClass({
 
     console.log(syntax.checked);
 
-
-
     menu.append(about);
     menu.append(separator);
     menu.append(syntax);
     menu.append(separator);
     menu.append(quit);
-
 
     cog.addEventListener('click', event => {
       event.preventDefault();
@@ -233,6 +249,7 @@ const App = React.createClass({
         <Panel
           activeMode={this.state.activeMode}
           modes={this.state.modes}
+          syntax={this.state.syntax}
           activeSnippet={this.state.activeSnippet}
           setMode={this.setMode}
           updateSnippet={this.updateSnippet}
