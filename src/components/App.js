@@ -16,6 +16,14 @@ const App = React.createClass({
       snippets:      [],
       activeSnippet: null,
       activeMode:    'empty',
+      languages:
+
+        ['Language', 'bash','clojure','coffeescript','cpp','cs','dart','django','dockerfile','elixir','elm','erlang','fsharp','go','groovy','haml','handlebars','haskell','java','javascript','json',
+        'julia','less','lisp','lua','makefile','markdown','objectivec','ocaml',
+        'perl','php','processing','prolog','python','r','ruby','rust','scala',
+        'scheme','scss','sql','swift','typescript','vim','xml','yaml'
+      ],
+
       syntax:        false,
       modes:         {
 
@@ -23,7 +31,6 @@ const App = React.createClass({
         preview: 'preview',
         add:     'add',
         edit:    'edit'
-
       }
     }
   },
@@ -39,6 +46,8 @@ const App = React.createClass({
   },
 
   toggleSyntax() {
+// TODO: Show/Hide Language selector in Add / Edit mode
+
     this.setState({
     	syntax: !this.state.syntax,
       activeMode: 'empty'
@@ -54,7 +63,7 @@ const App = React.createClass({
 
   createElectronMenu() {
 
-    let cog = document.getElementById('cog')
+    let cog = document.getElementById('cog');
     let menu = new Menu();
 
     let about = new MenuItem({
@@ -77,7 +86,6 @@ const App = React.createClass({
       label: 'Quit',
       click: mb.quit
     });
-
 
     menu.append(about);
     menu.append(separator);
@@ -243,6 +251,7 @@ const App = React.createClass({
         <Panel
           activeMode={this.state.activeMode}
           modes={this.state.modes}
+          languages={this.state.languages}
           syntax={this.state.syntax}
           activeSnippet={this.state.activeSnippet}
           setMode={this.setMode}

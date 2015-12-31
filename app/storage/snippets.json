@@ -51,5 +51,21 @@
     "tags": [
       "javascript"
     ]
+  },
+  {
+    "id": "ID1451579477998",
+    "title": "gulp thing",
+    "text": "var gulp    = require('gulp');\nvar plumber = require('gulp-plumber');\nvar babel   = require('gulp-babel');\nvar nano    = require('gulp-cssnano');\nvar sass    = require('gulp-sass');\n\ngulp.task('js', function() {\n  gulp.src('src/**/*.js')\n    .pipe(plumber())\n    .pipe(babel())\n    .pipe(gulp.dest('app/'))\n});",
+    "tags": [
+      "gulp"
+    ]
+  },
+  {
+    "id": "ID1451579548904",
+    "title": "python fizz buzz",
+    "text": "count = 0\nwhile (count < 101):\n    if (count % 5) == 0 and (count % 3) == 0:\n        print \"FizzBuzz\"\n        count = count +1\n    elif (count % 3) == 0:\n        print \"Fizz\"\n        count = count + 1\n    elif (count % 5) == 0:\n        print \"Buzz\"\n        count = count +1\n    else:\n        print count\n        count = count + 1",
+    "tags": [
+      "python"
+    ]
   }
 ]

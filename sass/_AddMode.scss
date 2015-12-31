@@ -35,8 +35,13 @@ textarea:focus {
 
   .new-languages {
     background: #2F3132;
+    color: rgb(228, 228, 228);
     outline: none;
     border: 0;
+    border-radius: 0;
+    padding: 0 12px 0 0;
+    -webkit-appearance: none;
+    appearance: none;
     border-bottom: $thin-black-border;
     border-left: $thin-black-border;
     padding-left: $input-padding;

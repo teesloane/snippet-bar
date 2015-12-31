@@ -3,11 +3,11 @@ const hljs  = require('highlight.js');
 
 const PanelControls = require('./PanelControls');
 
+
 hljs.configure({
   languages: [
-    'xml', 'bash', 'clojure', 'coffeescript', 'cpp', 'cs', 'markdown', 'dart', 'django', 'dockerfile', 'elixir', 'elm', 'ruby', 'erlang', 'fsharp', 'go', 'groovy', 'haml', 'handlebars',
-    'haskell', 'java', 'javascript', 'json', 'julia', 'less', 'lisp', 'lua', 'makefile', 'perl', 'objectivec', 'ocaml', 'php', 'processing', 'prolog', 'python', 'r', 'rust', 'scala', 'scheme',
-    'scss', 'sql', 'swift', 'typescript', 'vim', 'yaml'
+    'bash','clojure','coffeescript','cpp','cs','dart','django','dockerfile','elixir','elm','erlang','fsharp','go','groovy','haml','handlebars','haskell','java','javascript','json','julia','less','lisp','lua','makefile'
+    ,'markdown','objectivec','ocaml','perl','php','processing','prolog','python','r','ruby','rust','scala','scheme','scss','sql','swift','typescript','vim','xml','yaml'
   ]
 });
 
@@ -39,7 +39,8 @@ const PreviewMode = React.createClass({
             <pre className={"snippet-text copy-text" + language}  ref={
               code => {
                 if (syntax){
-                  if (code) hljs.highlightBlock(code);                }
+                  if (code) hljs.highlightBlock(code);
+                }
                 else if(!syntax) {
                 }
               }

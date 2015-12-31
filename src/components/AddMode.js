@@ -1,12 +1,16 @@
+// TODO: Enable Tabbing in TextArea
+
 const React = require('react');
 
-const Tags          = require('./Tags');
-const PanelControls = require('./PanelControls');
+const Tags           = require('./Tags');
+const PanelControls  = require('./PanelControls');
+const LanguageSelect = require('./LanguageSelect');
 
 const AddMode = React.createClass({
   propTypes: {
-    setMode: React.PropTypes.func.isRequired,
-    saveSnippet: React.PropTypes.func
+    setMode:     React.PropTypes.func.isRequired,
+    saveSnippet: React.PropTypes.func,
+    languages:   React.PropTypes.array
   },
 
   createSnippet(event) {
@@ -32,13 +36,10 @@ const AddMode = React.createClass({
           <form className="add-snippet-mode" onSubmit={this.createSnippet}>
 
             <div className="title-and-language">
-
               <input id="new-snippet-title" className="add-field" type="text" ref="title" placeholder="Title" />
 
-              <input className="new-languages" list="new-languages" />
-                <datalist id="new-languages">
-                   <option value="Firefox" />
-                </datalist>
+              <LanguageSelect languages={this.props.languages} />
+
             </div>
 
             <Tags max="5" ref="tags" />
