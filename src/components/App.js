@@ -59,18 +59,25 @@ const App = React.createClass({
   },
 
   toggleSyntax() {
+
 // TODO: Show/Hide Language selector in Add / Edit mode
+
+// TODO: Syntax Toggling Mostly works, but prob needs to be componentShouldUpdate or Did Mount or something...
+
+    let previousMode = this.state.activeMode
 
     this.setState({
     	syntax: !this.state.syntax,
       activeMode: 'empty'
     }, () => {
+      console.log('after setting state once, mode is ' + previousMode);
+
       this.setState({
         activeSnippet: this.getSnippetById(this.state.activeSnippet.id),
-        activeMode:    'preview'
+        activeMode:    previousMode
       });
     });
-
+    
     console.log('syntax is ' + this.state.syntax);
   },
 
