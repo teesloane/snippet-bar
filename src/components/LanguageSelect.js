@@ -14,7 +14,6 @@ const LanguageSelect = React.createClass({
       return <option key={index}> {language} </option>;
     });
 
-
     return(
       <select className="new-languages">
         {languageChoices}

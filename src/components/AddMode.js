@@ -37,7 +37,9 @@ const AddMode = React.createClass({
 
             <div className="title-and-language">
               <input id="new-snippet-title" className="add-field" type="text" ref="title" placeholder="Title" />
-              <LanguageSelect languages={this.props.languages} />
+              <div className="show-hide-languages" ref="show-hide-languages">
+                <LanguageSelect languages={this.props.languages} />
+              </div>
             </div>
 
             <Tags max="5" ref="tags" />

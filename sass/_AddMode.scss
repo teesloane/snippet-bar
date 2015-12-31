@@ -32,17 +32,20 @@ textarea:focus {
   display: flex;
   justify-content: space-between;
 
+  .show-hide-languages {
+    display: flex;
+  }
+
   .new-languages {
     background: #2F3132;
     color: rgb(228, 228, 228);
     outline: none;
     border: 0;
     border-radius: 0;
-    padding: 0 15px 0 0;
+    padding: 0 10px;
     -webkit-appearance: none;
     appearance: none;
     border-bottom: $thin-black-border;
     border-left: $thin-black-border;
-    padding-left: $input-padding;
   }
 }
