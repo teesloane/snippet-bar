@@ -21,13 +21,6 @@
     "created": 1451415369457
   },
   {
-    "id": "ID1451416607771",
-    "title": "javascript",
-    "text": "class Car extends Vehicle {\n  constructor(speed, cost) {\n    super(speed);\n\n    var c = Symbol('cost');\n    this[c] = cost;\n\n    this.intro = `This is a car runs at\n      ${speed}.`;\n  }\n}\n\nfor (let num of [1, 2, 3]) {\n  console.log(num + 0b111110111);\n}\n\nfunction $initHighlight(block, flags) {\n  try {\n    if (block.className.search(/\\bno\\-highlight\\b/) != -1)\n      return processBlock(block.function, true, 0x0F) + ' class=\"\"';\n  } catch (e) {\n    /* handle exception */\n    var e4x =\n        <div>Example\n            <p>1234</p></div>;\n  }\n\n  for (var i = 0 / 2; i < classes.length; i++) { // \"0 / 2\" should not be parsed as regexp\n    if (checkCondition(classes[i]) === undefined)\n      return /\\d+[\\s/]/g;\n  }\n  console.log(Array.every(classes, Boolean));\n}\n\nexport  $initHighlight;",
-    "tags": [],
-    "created": 1451416607771
-  },
-  {
     "id": "ID1451437464668",
     "title": "another snippet",
     "text": "dlfjadl;kfj\n",
@@ -52,27 +45,11 @@
     ]
   },
   {
-    "id": "ID1451437926335",
-    "title": "MORE PLEASE",
-    "text": "dfdfadfa",
+    "id": "ID1451531586203",
+    "title": "createElectronMenu",
+    "text": "  createElectronMenu() {\n\n    let cog = document.getElementById('cog')\n    let menu = new Menu();\n\n    let about = new MenuItem({\n      label: \"About Snippets\",\n      click: mb.about\n    });\n\n    let separator = new MenuItem({\n      type: 'separator'\n    });\n\n    let syntax = new MenuItem({\n      label: 'Syntax Highlighting',\n      type: 'checkbox',\n      checked: false,\n      click: this.toggleSyntax\n    });\n\n    let quit = new MenuItem({\n      label: 'Quit',\n      click: mb.quit\n    });",
     "tags": [
-      "how"
-    ]
-  },
-  {
-    "id": "ID1451527715794",
-    "title": "new snippet!",
-    "text": "jaoeifjaeoi;fjaskldfjaslkdfj",
-    "tags": [
-      "test"
-    ]
-  },
-  {
-    "id": "ID1451530713539",
-    "title": "one ore",
-    "text": "ldkfjaldkfjaslkdfjalksdjfaf",
-    "tags": [
-      "dlkfjalkdfj"
+      "javascript"
     ]
   }
 ]
