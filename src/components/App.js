@@ -40,17 +40,23 @@ const App = React.createClass({
     let cog = document.getElementById('cog')
     let menu = new Menu();
 
+    let about = new MenuItem({
+      label: "About Snippets",
+      click: mb.about
+    });
+
     let separator = new MenuItem({
       type: 'separator'
     });
 
-    let preferences = new MenuItem({
-      label: 'Preferences',
-      click: mb.preferences
-    });
-
-    let about = new MenuItem({
-      label: "About Snippets"
+    let syntax = new MenuItem({
+      label: 'Syntax Highlighting',
+      type: 'checkbox',
+      checked: false,
+      click: function(){
+        syntax.checked = syntax.checked ? true: false; 
+        console.log(syntax.checked);
+      }
     });
 
     let quit = new MenuItem({
@@ -58,11 +64,13 @@ const App = React.createClass({
       click: mb.quit
     });
 
+    console.log(syntax.checked);
+
 
 
     menu.append(about);
     menu.append(separator);
-    menu.append(preferences)
+    menu.append(syntax);
     menu.append(separator);
     menu.append(quit);
 

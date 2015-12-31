@@ -4,12 +4,11 @@ function quit() {
   ipcRenderer.send('mb-app', 'quit');
 }
 
-function preferences() {
-  console.log('made it to mb');
-  ipcRenderer.send('show-prefs');
+function about() {
+  ipcRenderer.send('show-about');
 }
 
 module.exports = {
   quit,
-  preferences
+  about
 };

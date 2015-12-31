@@ -15,11 +15,9 @@ const mb = menubar({
   width:           600,
   height:          370,
   preloadWindow:   true,
-  'always-on-top': true
+  'always-on-top': true,
+  resizable:       false
 });
-
-// prevent window resizing
-mb.setOption('resizable', false);
 
 if (config.openDevTools) {
   mb.on('after-create-window', () => {
@@ -47,22 +45,25 @@ mb.app.on('ready', () => {
     }
   });
 
-  var prefsWindow = new BrowserWindow({
+  var aboutWindow = new BrowserWindow({
     width: 400,
     height: 300,
     show: false,
     resizable: false,
     alwaysOnTop: true,
     title: "Preferences",
-    center: true
+    center: true,
+    fullscreen: false
+  });
 
+  aboutWindow.loadURL('file://' + __dirname + '/app/about.html')
 
+  ipcMain.on('show-about', function() {
+    aboutWindow.show();
   })
 
-  prefsWindow.loadURL('file://' + __dirname + '/app/prefs.html')
+  aboutWindow.on('close', function() {
+    aboutWindow.hide();
+  });
 
-  ipcMain.on('show-prefs', function() {
-    prefsWindow.show()
-
-  })
 });
