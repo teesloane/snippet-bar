@@ -5,7 +5,8 @@ const PanelControls = require('./PanelControls');
 
 const AddMode = React.createClass({
   propTypes: {
-    setMode: React.PropTypes.func.isRequired
+    setMode: React.PropTypes.func.isRequired,
+    saveSnippet: React.PropTypes.func
   },
 
   createSnippet(event) {
@@ -37,10 +38,8 @@ const AddMode = React.createClass({
               <input className="new-languages" list="new-languages" />
                 <datalist id="new-languages">
                    <option value="Firefox" />
-                    <option value="poop" />
                 </datalist>
             </div>
-
 
             <Tags max="5" ref="tags" />
 

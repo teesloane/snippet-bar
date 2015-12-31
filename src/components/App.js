@@ -41,7 +41,14 @@ const App = React.createClass({
   toggleSyntax() {
     if(this.state.syntax) {
       this.setState({
-        syntax: false
+        syntax: false,
+// hacky - switching to empty mode before switching to preview in the callback set state... only way I could figure out to get the syntax highlighting to toggle on and off.
+        activeMode: 'empty'
+      }, function () {
+        this.setState({
+          activeSnippet: this.getSnippetById(this.state.activeSnippet.id),
+          activeMode: 'preview'
+        });
       });
 
       console.log('syntax is ' + this.state.syntax)
@@ -49,10 +56,14 @@ const App = React.createClass({
 
     else if(!this.state.syntax){
       this.setState({
-        syntax: true
+        syntax: true,
+        activeMode: 'empty'
+      }, function() {
+        this.setState({
+          activeSnippet: this.getSnippetById(this.state.activeSnippet.id),
+          activeMode: 'preview'
+        });
       });
-
-       console.log('syntax is ' + this.state.syntax)
     }
   },
 
