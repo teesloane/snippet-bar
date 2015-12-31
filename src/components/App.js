@@ -38,6 +38,24 @@ const App = React.createClass({
     });
   },
 
+  toggleSyntax() {
+    if(this.state.syntax) {
+      this.setState({
+        syntax: false
+      });
+
+      console.log('syntax is ' + this.state.syntax)
+    }
+
+    else if(!this.state.syntax){
+      this.setState({
+        syntax: true
+      });
+
+       console.log('syntax is ' + this.state.syntax)
+    }
+  },
+
   createElectronMenu() {
 
     let cog = document.getElementById('cog')
@@ -56,26 +74,7 @@ const App = React.createClass({
       label: 'Syntax Highlighting',
       type: 'checkbox',
       checked: false,
-      click: () =>{
-        //toggle the boolean on syntax.checked
-        syntax.checked = syntax.checked ? true: false;
-
-        // based on the boolean, set State accordingly
-        if (syntax.checked === false) {
-          this.setState({
-            syntax: false
-          });
-        console.log("the setState is " + this.state.syntax);
-        }
-
-        else if (syntax.checked === true) {
-          this.setState({
-            syntax: true
-          });
-        console.log("the setState is " + this.state.syntax);
-        }
-        console.log("the menu property is " + syntax.checked);
-      }
+      click: this.toggleSyntax
     });
 
     let quit = new MenuItem({
@@ -83,7 +82,6 @@ const App = React.createClass({
       click: mb.quit
     });
 
-    console.log(syntax.checked);
 
     menu.append(about);
     menu.append(separator);

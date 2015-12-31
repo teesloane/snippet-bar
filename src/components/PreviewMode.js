@@ -41,7 +41,6 @@ const PreviewMode = React.createClass({
                 if (syntax){
                   if (code) hljs.highlightBlock(code);                }
                 else if(!syntax) {
-                  return null;
                 }
               }
             }>
