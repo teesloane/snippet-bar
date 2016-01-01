@@ -24,12 +24,14 @@ const AddMode = React.createClass({
     let language = this.refs.languages.state.language;
     let values = {};
 
+    if (language === 'none') {
+      language = 'nohighlight'
+    }
+
     if (title)       values.title = title;
     if (tags.length) values.tags  = tags;
     if (text)        values.text  = text;
     if (language)    values.lang  = language;
-
-    console.log ('the passed in language is ' + values.lang)
 
     this.props.saveSnippet(values);
   },

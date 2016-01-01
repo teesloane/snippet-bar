@@ -1,97 +1,51 @@
 [
   {
-    "id": "ID1451414873923",
-    "title": "javascript iffe",
-    "text": "package com.me.silencedut.nbaplus.event;\nimport com.me.silencedut.nbaplus.data.Constant.Result;\n/**\n * Created by SilenceDut on 2015/11/28.\n */\npublic class Event {\n    protected Result mEventResult;\n\n    public void setEventResult(Result eventResult) {\n        this.mEventResult=eventResult;\n    }\n\n    public Result getEventResult() {\n        return mEventResult;\n    }\n}",
+    "id": "ID1451626190423",
+    "title": "Javascript Test",
+    "text": "  render() {\n    let languages = this.props.languages;\n    let display = null;\n\n    let languageChoices = languages.map((language, index) => {\n      return <option key={index}> {language} </option>;\n    });\n\n    /* Show or Hide the Language <Select> Element */\n    if (this.props.syntax) {\n      display = {\n        display: 'flex'\n      }\n    }\n\n    else if (!this.props.syntax) {\n      display = {\n        display: 'none'\n      }\n    }",
     "tags": [
-      "javascript",
-      "advanced"
+      "javascript"
     ],
-    "created": 1451414873923
+    "lang": "javascript"
   },
   {
-    "id": "ID1451415369457",
-    "title": "good movies",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id laoreet diam. Nulla vitae est interdum, gravida est interdum, dignissim elit. Maecenas vehicula risus eget est rutrum, eget elementum nibh sagittis. Vestibulum tristique lacinia metus a fringilla. Fusce luctus ipsum est, et rhoncus ligula porta in. Etiam non erat sagittis, tristique neque at, venenatis sem. Morbi at sem at lorem ullamcorper maximus. Aliquam sodales velit in nunc fermentum aliquet. Nullam mauris erat, sodales ac mattis eget, volutpat convallis nibh.\n\nDonec turpis nisi, blandit sed risus et, ultrices ultricies lacus. Aenean vehicula laoreet sagittis. Curabitur placerat gravida orci vel maximus. Fusce venenatis felis dui, et varius lectus congue eu. Sed vel massa magna. Praesent venenatis, ante vitae fermentum sagittis, leo ex tristique tellus, eget tempus orci ligula nec magna. Vestibulum vitae velit nec quam fringilla semper. Maecenas egestas quam eget feugiat varius. Aenean bibendum mi vitae ligula ultricies fringilla. Phasellus suscipit felis enim, sit amet tempor risus condimentum pulvinar. Vivamus in consequat eros. Donec convallis tempus nulla nec porttitor.\n\nDonec purus tortor, facilisis vel orci eget, commodo convallis dolor. Sed vehicula dolor sed erat vulputate, id pharetra magna posuere. In hac habitasse platea dictumst. Vivamus non vestibulum est, vulputate porttitor sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur eu tincidunt erat, at mollis ante. Cras velit mi, mollis non mauris non, suscipit varius erat. Curabitur at finibus eros, a ornare metus.\n\nNulla pharetra nibh a odio luctus, sit amet lobortis lorem sodales. In arcu nisi, auctor a tincidunt scelerisque, tempor vel nulla. Fusce id dignissim eros. Morbi tristique cursus elit, a tincidunt nunc rutrum eu. Suspendisse mattis malesuada sapien nec elementum. Quisque sollicitudin neque eu dui laoreet tempor. Nunc eget turpis ut mi commodo commodo sit amet vitae ipsum. Etiam sit amet facilisis massa, et interdum velit.\n\nDonec quis sollicitudin tellus. Suspendisse quis rhoncus turpis. Nunc luctus, metus sit amet mattis placerat, tortor nisl convallis sapien, eu tempor felis ex eu nisi. In fermentum dignissim condimentum. In mollis, massa sed facilisis viverra, turpis eros lacinia risus, in interdum nibh nisl sit amet est. Nam molestie malesuada ante, vitae commodo ligula sagittis ut. Sed nisl mi, sagittis a semper vulputate, sollicitudin ac orci. Quisque viverra suscipit ex et dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n",
+    "id": "ID1451626313948",
+    "title": "C++ Fizz Buzz",
+    "text": "  #include <iostream>\n  int main()\n  {\n    for(int i = 1; i <= 100; ++i)\n    {\n      std::cout << i << '\\r'; // return to beginning of line for overwriting with \"Fizz\" or \"Buzz\"\n      if(i % 3 == 0) std::cout << \"Fizz\";\n      if(i % 5 == 0) std::cout << \"Buzz\";\n      std::cout << '\\n';\n    }\n    return 0;\n  }",
     "tags": [
-      "movies",
-      "2015",
-      "comedy"
+      "fizzbuzz"
     ],
-    "created": 1451415369457
+    "lang": "c++"
   },
   {
-    "id": "ID1451437464668",
-    "title": "another snippet",
-    "text": "dlfjadl;kfj\n",
+    "id": "ID1451626345504",
+    "title": "Ruby Fizz Buzz",
+    "text": "    1.upto(100) do |i|\n      if i % 5 == 0 and i % 3 == 0\n        puts \"FizzBuzz\"\n      elsif i % 5 == 0\n        puts \"Buzz\"\n      elsif i % 3 == 0\n        puts \"Fizz\"\n      else\n        puts i\n      end\n    end",
     "tags": [
-      "test"
-    ]
-  },
-  {
-    "id": "ID1451624848072",
-    "title": "test",
-    "text": "test",
-    "tags": [
-      "tset"
+      "ruby",
+      "fizzbuzz"
     ],
-    "lang": ""
+    "lang": "ruby"
   },
   {
-    "id": "ID1451624915969",
-    "title": "another",
-    "text": "wnoather\n",
+    "id": "ID1451626404949",
+    "title": "Python FizzBuzz",
+    "text": "count = 0\nwhile count < 101:\n    if count % 5 == 0 and count % 3 == 0:\n        print \"FizzBuzz\"\n    elif count % 3 == 0:\n        print \"Fizz\"\n    elif count % 5 == 0:\n        print \"Buzz\"\n    else:\n        print count\n\n    count = count + 1    # this will get executed every loop",
     "tags": [
-      "another"
+      "python",
+      "fizzbuzz"
     ],
-    "lang": ""
+    "lang": "python"
   },
   {
-    "id": "ID1451625011726",
-    "title": "test",
-    "text": "dfa",
+    "id": "ID1451626904381",
+    "title": "A non code example",
+    "text": "This is a test\nfor\nif\nvar\n\nnone of the keywords above should be highlighted.",
     "tags": [
-      "test"
+      "none",
+      "test",
+      "woop"
     ],
-    "lang": ""
-  },
-  {
-    "id": "ID1451625076325",
-    "title": "test",
-    "text": "adfadf",
-    "tags": [],
-    "lang": ""
-  },
-  {
-    "id": "ID1451625218109",
-    "title": "test",
-    "text": "test",
-    "tags": [],
-    "lang": ""
-  },
-  {
-    "id": "ID1451625284393",
-    "title": "language test",
-    "text": "another",
-    "tags": [
-      "test"
-    ],
-    "lang": ""
-  },
-  {
-    "id": "ID1451625504781",
-    "title": "test",
-    "text": "test",
-    "tags": [],
-    "lang": null
-  },
-  {
-    "id": "ID1451625552559",
-    "title": "test",
-    "text": "dfadf",
-    "tags": [
-      "test`"
-    ],
-    "lang": "java"
+    "lang": "nohighlight"
   }
 ]

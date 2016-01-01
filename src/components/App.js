@@ -17,7 +17,7 @@ const App = React.createClass({
       activeSnippet: null,
       activeMode:    'empty',
       languages:[
-        'Language',
+        'none',
         'bash',
         'csharp',
         'c++',

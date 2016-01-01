@@ -25,14 +25,13 @@ const PreviewMode = React.createClass({
 
     if (activeSnippet) {
       text     = activeSnippet.text;
-      language = ' ' + hljs.highlightAuto(activeSnippet.text).language;
     }
 
     return(
       <div className="panel-mode">
         <div className="selected-mode">
           <div className="preview-snippet-mode">
-            <pre className={"snippet-text copy-text" + language}  ref={
+            <pre className={"snippet-text copy-text " + activeSnippet.lang}  ref={
               code => {
                 //if statement responds to whether highlighting is enabled or disabled
                 if (syntax){
