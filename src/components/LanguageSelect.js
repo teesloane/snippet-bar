@@ -16,62 +16,45 @@ const LanguageSelect = React.createClass({
 
   componentDidMount() {
     this.getSelectedLanguage();
-    this.setLang(this.props.editLang);
-    console.log (this.setLang);
+    this.setLanguage();
   },
 
 //copying setTags(tags) to try and make lang load saved selection in edit mode.
-  setLang(lang) {
-    if (lang && lang.length) this.setState({ language: lang });
+  setLanguage() {
+    let language = this.props.editLang;
+
+    if (language && language.length) this.setState({ language });
   },
 
 // Gets the selected Language from the <Select> element.
   getSelectedLanguage() {
-    let language = document.getElementById('choose-language');
-    let chosen = language.value;
+    let language = this.refs.chooseLanguage.value;
 
-    this.setState({
-      language: chosen
-    }, function() {console.log("The chosen language is: " + this.state.language);} )
+    this.setState({ language });
   },
 
   render() {
     let languages = this.props.languages;
-    console.log(languages);
     let display = null;
 
     let languageChoices = languages.map((language, index) => {
-      // sets the  "selected" lang in the <select> element when editing
-       if (language === this.props.editLang) {
-        return <option selected="selected" key={index}> {language} </option>;
-      }
-
-      else {
-        return <option key={index}> {language} </option>;
-      }
+      return <option key={index} value={language}>{language}</option>;
     });
 
     /* Show or Hide the Language <Select> Element */
-    if (this.props.syntax) {
-      display = {
-        display: 'flex'
-      }
-    }
-
-    else if (!this.props.syntax) {
-      display = {
-        display: 'none'
-      }
+    display = {
+      display: (this.props.syntax ? 'flex' : 'none')
     }
 
     return(
       <select
         id="choose-language"
-        default={this.props.editLang}
+        ref="chooseLanguage"
         style={display}
         className="new-languages"
-        onChange={this.getSelectedLanguage}>
-          {languageChoices}
+        onChange={this.getSelectedLanguage}
+        defaultValue={this.props.editLang}>
+        {languageChoices}
       </select>
     );
   }

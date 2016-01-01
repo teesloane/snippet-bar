@@ -123,7 +123,9 @@ const Tags = React.createClass({
       return (
         <span className="tag" key={index}>
           <span className="tag-value">{tag}</span>
-          <button type="button" className="tag-delete-button" onClick={this.deleteTag.bind(null, tag)}>x</button>
+          <button type="button" className="tag-delete-button" onClick={this.deleteTag.bind(null, tag)}>
+            <i className="fa fa-times-circle"></i>
+          </button>
         </span>
       );
     });

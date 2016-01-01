@@ -17,7 +17,7 @@ const App = React.createClass({
       activeSnippet: null,
       activeMode:    'empty',
       languages:[
-        'none',
+        'text',
         'bash',
         'csharp',
         'c++',
@@ -60,25 +60,13 @@ const App = React.createClass({
 
   // Enables / Disables Syntax Highlighing and resets State.
   toggleSyntax() {
-    let previousMode = this.state.activeMode
-
     this.setState({
-    	syntax: !this.state.syntax,
-      activeMode: 'empty'
-    }, () => {
-      console.log('after setting state once, mode is ' + previousMode);
-
-      this.setState({
-        activeSnippet: this.getSnippetById(this.state.activeSnippet.id),
-        activeMode:    previousMode
-      });
+    	syntax: !this.state.syntax
     });
-    console.log('syntax is ' + this.state.syntax);
   },
 
   // Creates a menu when clicking on the Cog Icon.
   createElectronMenu() {
-
     let cog = document.getElementById('cog');
     let menu = new Menu();
 

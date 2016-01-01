@@ -12,12 +12,14 @@ const PreviewMode = React.createClass({
 
   },
 
-  render() {
+  componentDidMount() {
     hljs.configure({
       // select which languages that HLJS can detect from:
       languages: this.props.languages
     });
+  },
 
+  render() {
     let activeSnippet = this.props.activeSnippet;
     let text          = null;
     let language      = '';
@@ -25,22 +27,20 @@ const PreviewMode = React.createClass({
 
     if (activeSnippet) {
       text     = activeSnippet.text;
+      language = activeSnippet.lang;
     }
 
     return(
       <div className="panel-mode">
         <div className="selected-mode">
           <div className="preview-snippet-mode">
-            <pre className={"snippet-text copy-text " + activeSnippet.lang}  ref={
-              code => {
-                //if statement responds to whether highlighting is enabled or disabled
-                if (syntax){
-                  if (code) hljs.highlightBlock(code);
+            <pre className={"snippet-text copy-text " + language}
+              ref={
+                preElement => {
+                  // checks whether syntax highlighting is enabled and code has content
+                  if (syntax && preElement) hljs.highlightBlock(preElement);
                 }
-                else if(!syntax) {
-                }
-              }
-            }>
+              }>
               <code>{text}</code>
             </pre>
           </div>

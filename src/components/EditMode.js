@@ -21,7 +21,7 @@ const EditMode = React.createClass({
     let text  = this.refs.text.value;
     let language = this.refs.languages.state.language
 
-    if (language === 'none') {
+    if (language === 'text') {
       language = 'nohighlight'
     }
 
@@ -50,8 +50,7 @@ const EditMode = React.createClass({
               ref="title"
               placeholder="Title" />
 
-            <div
-              className="show-hide-languages">
+            <div className="show-hide-languages">
               <LanguageSelect
                 languages={this.props.languages}
                 syntax={this.props.syntax}
@@ -70,7 +69,6 @@ const EditMode = React.createClass({
               className="add-textarea copy-text"
               placeholder="Add a Snippet..."
               defaultValue={this.props.activeSnippet.text}
-
               ref="text"></textarea>
 
             <PanelControls

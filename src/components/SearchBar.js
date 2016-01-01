@@ -29,7 +29,9 @@ const SearchBar = React.createClass({
 
     if (this.state.showClearButton) {
       clearButton = (
-        <button className="search-bar-clear-button" onClick={this.clearSearchBar}>x</button>
+        <button className="search-bar-clear-button" onClick={this.clearSearchBar}>
+          <i className="fa fa-times-circle"></i>
+        </button>
       );
     }
 
@@ -41,7 +43,7 @@ const SearchBar = React.createClass({
           className="search-bar-field"
           placeholder="Search..."
           onChange={this.toggleClearButton} />
-          
+
         {clearButton}
       </div>
     );

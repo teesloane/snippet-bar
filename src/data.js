@@ -22,7 +22,7 @@ function write(data, callback) {
   });
 }
 
-function snippetModel(title = 'untitled', text, tags = [], lang = 'Language') {
+function snippetModel(title = 'untitled', text, tags = [], lang = 'text') {
   if (!text) return null;
 
   let now = Date.now();
@@ -32,7 +32,7 @@ function snippetModel(title = 'untitled', text, tags = [], lang = 'Language') {
     title: title,
     text:  text,
     tags:  tags,
-    lang: lang
+    lang:  lang
   };
 
   return snippet;

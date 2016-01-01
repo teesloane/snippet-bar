@@ -3,15 +3,16 @@
   height: 11vh;
   align-items: center;
   border-right: $thin-black-border;
+  border-bottom: $thin-black-border;
+  background: #2F3132;
 
   .search-bar-field {
     width: 100%;
     height: 100%;
     outline: none;
     border: 0;
-    border-bottom: $thin-black-border;
     padding-left: 5%;
-    background: #2F3132;
+    background: none;
   }
 
   .search-bar-clear-button {
