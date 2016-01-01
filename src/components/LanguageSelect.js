@@ -51,7 +51,6 @@ const LanguageSelect = React.createClass({
       else {
         return <option key={index}> {language} </option>;
       }
-
     });
 
     /* Show or Hide the Language <Select> Element */
