@@ -61,11 +61,18 @@ const App = React.createClass({
 
   // Enables / Disables Syntax Highlighing and resets State.
   toggleSyntax() {
+    let previousMode = this.state.activeMode;
+    console.log(previousMode);
+
     this.setState({
-    	syntax: !this.state.syntax
+    	syntax: !this.state.syntax,
+      activeMode: 'empty'
+
     }, () => {
       let settings = data.settingsModel(this.state.syntax);
-
+      this.setState({
+        activeMode: previousMode
+      })
       if (settings) data.write('settings', settings);
     });
   },
@@ -90,7 +97,7 @@ const App = React.createClass({
       label: 'Quit',
       click: mb.quit
     });
-    
+
     menu.append(syntax);
     menu.append(separator);
     menu.append(quit);
@@ -254,6 +261,7 @@ const App = React.createClass({
         <div id="notification" ref="notification"></div>
 
         <SearchList
+          activeMode={this.state.activeMode}
           snippets={this.state.snippets}
           activeSnippet={this.state.activeSnippet}
           setActive={this.setActive}

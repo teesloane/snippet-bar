@@ -7,22 +7,7 @@
   // border-top: 1px solid #38393A;
   border-top: solid #585858 2px;
 
-  button {
-    width: 100%;
-    padding: 10px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 7px;
-
-    & + button {
-      border-left: 1px solid #38393A;
-    }
-  }
-
-  i {
-    transition: all 0.1s ease;
-
+  button, i {
     &:hover,
     &:focus {
       color: #6CBEFF;
@@ -33,11 +18,14 @@
     }
   }
 
-  .copy-btn {
-    // background: #444;
-    i {
-      color: rgb(193, 141, 81);
-    }
+  button {
+    transition: all 0.2s ease;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: rgb(221, 221, 221);
+    font-size: 7px;
   }
 }
 

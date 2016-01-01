@@ -1,5 +1,4 @@
 // TODO: Enable Tabbing in TextArea
-// TODO: Language Selection in Edit Mode
 
 const React = require('react');
 

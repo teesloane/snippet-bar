@@ -11,19 +11,19 @@
     margin-left: 5%;
   }
 
-  &.is-active:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background-color: #eee;
-  }
-
-  // &.is-active {
-  //   background: rgb(43, 43, 43);
+  // &.is-active:before {
+  //   content: '';
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   bottom: 0;
+  //   width: 3px;
+  //   background-color: #eee;
   // }
+
+  &.is-active {
+    background: rgb(43, 43, 43);
+  }
 
   .search-item-title {
     width: 200px;

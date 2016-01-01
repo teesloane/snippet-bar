@@ -8,7 +8,8 @@ const SearchList = React.createClass({
     snippets: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     activeSnippet: React.PropTypes.object,
     setActive: React.PropTypes.func,
-    appMenu: React.PropTypes.func
+    appMenu: React.PropTypes.func,
+    activeMode: React.PropTypes.string
   },
 
   getInitialState() {
@@ -68,6 +69,7 @@ const SearchList = React.createClass({
       return (
         <SearchItem
           key={index}
+          activeMode={this.props.activeMode}
           snippet={snippet}
           isActive={activeSnippet && activeSnippet.id === snippet.id}
           setActive={this.props.setActive}/>
