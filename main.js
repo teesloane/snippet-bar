@@ -44,26 +44,4 @@ mb.app.on('ready', () => {
       mb.app.quit();
     }
   });
-
-  var aboutWindow = new BrowserWindow({
-    width: 400,
-    height: 300,
-    show: false,
-    resizable: false,
-    alwaysOnTop: true,
-    title: "Preferences",
-    center: true,
-    fullscreen: false
-  });
-
-  aboutWindow.loadURL('file://' + __dirname + '/app/about.html')
-
-  ipcMain.on('show-about', function() {
-    aboutWindow.show();
-  })
-
-  aboutWindow.on('close', function() {
-    aboutWindow.hide();
-  });
-
 });

@@ -75,11 +75,6 @@ const App = React.createClass({
     let cog = document.getElementById('cog');
     let menu = new Menu();
 
-    let about = new MenuItem({
-      label: "About Snippets",
-      click: mb.about
-    });
-
     let separator = new MenuItem({
       type: 'separator'
     });
@@ -95,9 +90,7 @@ const App = React.createClass({
       label: 'Quit',
       click: mb.quit
     });
-
-    menu.append(about);
-    menu.append(separator);
+    
     menu.append(syntax);
     menu.append(separator);
     menu.append(quit);
