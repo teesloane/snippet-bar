@@ -141,7 +141,8 @@ const App = React.createClass({
     let availableMode = this.state.modes[mode];
 
     if (availableMode) {
-      let snippet = availableMode === 'add' ? {} : this.state.activeSnippet;
+      // clear the activeSnippet if entering 'add' mode
+      let snippet = availableMode === 'add' ? null : this.state.activeSnippet;
 
       this.setState({
         activeMode:    availableMode,
