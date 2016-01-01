@@ -37,15 +37,24 @@ const AddMode = React.createClass({
           <form className="add-snippet-mode" onSubmit={this.createSnippet}>
 
             <div className="title-and-language">
-              <input id="new-snippet-title" className="add-field" type="text" ref="title" placeholder="Title" />
-              <div className="show-hide-languages">
+              <input
+                id="new-snippet-title"
+                className="add-field"
+                type="text"
+                ref="title"
+                placeholder="Title" />
+
+              <div
+                className="show-hide-languages">
                 <LanguageSelect
                   languages={this.props.languages}
                   syntax={this.props.syntax} />
               </div>
             </div>
 
-            <Tags max="5" ref="tags" />
+            <Tags
+              max="5"
+              ref="tags" />
 
             <textarea
               id="new-snippet-text"

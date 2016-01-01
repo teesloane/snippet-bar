@@ -2,12 +2,15 @@ const React = require('react');
 
 const Tags          = require('./Tags');
 const PanelControls = require('./PanelControls');
+const LanguageSelect = require('./LanguageSelect');
 
 const EditMode = React.createClass({
   propTypes: {
     setMode:       React.PropTypes.func.isRequired,
     activeSnippet: React.PropTypes.object,
-    updateSnippet: React.PropTypes.func.isRequired
+    updateSnippet: React.PropTypes.func.isRequired,
+    languages:   React.PropTypes.array,
+    syntax:      React.PropTypes.bool
   },
 
   updateSnippet(event) {
@@ -31,6 +34,8 @@ const EditMode = React.createClass({
       <div className="panel-mode">
         <div className="selected-mode">
           <form className="add-snippet-mode" onSubmit={this.updateSnippet}>
+
+          <div className="title-and-language">
             <input
               id="new-snippet-title"
               className="add-field"
@@ -38,6 +43,14 @@ const EditMode = React.createClass({
               type="text"
               ref="title"
               placeholder="Title" />
+
+            <div
+              className="show-hide-languages">
+              <LanguageSelect
+                languages={this.props.languages}
+                syntax={this.props.syntax} />
+            </div>
+          </div>
 
             <Tags
               max="5"

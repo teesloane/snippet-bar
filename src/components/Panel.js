@@ -38,7 +38,9 @@ const Panel = React.createClass({
         showNotification={this.props.showNotification}
         deleteSnippet={this.props.deleteSnippet}
         languages={this.props.languages}
+        syntax={this.props.syntax}
         updateSnippet={this.props.updateSnippet} />;
+
     }
     else if (activeMode === 'preview') {
       return <PreviewMode

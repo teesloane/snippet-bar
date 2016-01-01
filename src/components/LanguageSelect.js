@@ -29,8 +29,6 @@ const LanguageSelect = React.createClass({
       }
     }
 
-
-
     return(
       <select style={display} className="new-languages">
         {languageChoices}
