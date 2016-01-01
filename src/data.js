@@ -7,7 +7,7 @@ const filePaths = {
 
 const noop = () => {};
 
-let localSnippets = {};
+let localSnippets = [];
 
 function read(file, callback = noop) {
   if (!file || !filePaths.hasOwnProperty(file)) return;
