@@ -193,7 +193,12 @@ const App = React.createClass({
   /*Saves Snippet, as triggered by the Submit Button (Save Icon) in Add Mode.
    The arg 'values' is passed in when called in AddMode.js by createSnippet */
   saveSnippet(values) {
+
+    console.log("incoming values are " + values);
+
     let snippet = data.snippetModel(values.title, values.text, values.tags, values.lang);
+
+    console.log(data.snippetModel);
 
     if (snippet) {
       this.setState({

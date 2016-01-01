@@ -15,7 +15,6 @@ const LanguageSelect = React.createClass({
     }
   },
 
-
   componentDidMount() {
     this.getSelectedLanguage();
   },

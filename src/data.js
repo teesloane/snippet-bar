@@ -22,7 +22,7 @@ function write(data, callback) {
   });
 }
 
-function snippetModel(title = 'untitled', text, tags = [], lang = '') {
+function snippetModel(title = 'untitled', text, tags = [], lang) {
   if (!text) return null;
 
   let now = Date.now();

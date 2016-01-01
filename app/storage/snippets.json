@@ -29,51 +29,53 @@
     ]
   },
   {
-    "id": "ID1451437475739",
-    "title": "hawww",
-    "text": "ok\n",
-    "tags": [
-      "yeah"
-    ]
-  },
-  {
-    "id": "ID1451437912474",
-    "title": "another!`",
-    "text": "test\n",
-    "tags": [
-      "woop"
-    ]
-  },
-  {
-    "id": "ID1451531586203",
-    "title": "createElectronMenu",
-    "text": "  createElectronMenu() {\n\n    let cog = document.getElementById('cog')\n    let menu = new Menu();\n\n    let about = new MenuItem({\n      label: \"About Snippets\",\n      click: mb.about\n    });\n\n    let separator = new MenuItem({\n      type: 'separator'\n    });\n\n    let syntax = new MenuItem({\n      label: 'Syntax Highlighting',\n      type: 'checkbox',\n      checked: false,\n      click: this.toggleSyntax\n    });\n\n    let quit = new MenuItem({\n      label: 'Quit',\n      click: mb.quit\n    });",
-    "tags": [
-      "javascript"
-    ]
-  },
-  {
-    "id": "ID1451579477998",
-    "title": "gulp thing",
-    "text": "var gulp    = require('gulp');\nvar plumber = require('gulp-plumber');\nvar babel   = require('gulp-babel');\nvar nano    = require('gulp-cssnano');\nvar sass    = require('gulp-sass');\n\ngulp.task('js', function() {\n  gulp.src('src/**/*.js')\n    .pipe(plumber())\n    .pipe(babel())\n    .pipe(gulp.dest('app/'))\n});",
-    "tags": [
-      "gulp"
-    ]
-  },
-  {
-    "id": "ID1451579548904",
-    "title": "python fizz buzz",
-    "text": "count = 0\nwhile (count < 101):\n    if (count % 5) == 0 and (count % 3) == 0:\n        print \"FizzBuzz\"\n        count = count +1\n    elif (count % 3) == 0:\n        print \"Fizz\"\n        count = count + 1\n    elif (count % 5) == 0:\n        print \"Buzz\"\n        count = count +1\n    else:\n        print count\n        count = count + 1",
-    "tags": [
-      "python"
-    ]
-  },
-  {
-    "id": "ID1451584440146",
+    "id": "ID1451624848072",
     "title": "test",
-    "text": "HELLO!",
+    "text": "test",
     "tags": [
-      "dfd"
-    ]
+      "tset"
+    ],
+    "lang": ""
+  },
+  {
+    "id": "ID1451624915969",
+    "title": "another",
+    "text": "wnoather\n",
+    "tags": [
+      "another"
+    ],
+    "lang": ""
+  },
+  {
+    "id": "ID1451625011726",
+    "title": "test",
+    "text": "dfa",
+    "tags": [
+      "test"
+    ],
+    "lang": ""
+  },
+  {
+    "id": "ID1451625076325",
+    "title": "test",
+    "text": "adfadf",
+    "tags": [],
+    "lang": ""
+  },
+  {
+    "id": "ID1451625218109",
+    "title": "test",
+    "text": "test",
+    "tags": [],
+    "lang": ""
+  },
+  {
+    "id": "ID1451625284393",
+    "title": "language test",
+    "text": "another",
+    "tags": [
+      "test"
+    ],
+    "lang": ""
   }
 ]

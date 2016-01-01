@@ -1,4 +1,5 @@
 // TODO: Enable Tabbing in TextArea
+// TODO: Bring Language into Create Snippet (and pass to )
 
 const React = require('react');
 
@@ -20,14 +21,15 @@ const AddMode = React.createClass({
     let title = this.refs.title.value.trim();
     let tags  = this.refs.tags.state.tags;
     let text  = this.refs.text.value;
-    // how do I get languages in here?
-    // let language = this.refs.languages.state.language
-
+    let language = this.refs.languages.state.language;
     let values = {};
 
     if (title)       values.title = title;
     if (tags.length) values.tags  = tags;
     if (text)        values.text  = text;
+    if (language)    values.lang  = language;
+
+    console.log ('the passed in language is ' + values.lang)
 
     this.props.saveSnippet(values);
   },
