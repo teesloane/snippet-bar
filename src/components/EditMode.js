@@ -21,10 +21,6 @@ const EditMode = React.createClass({
     let text  = this.refs.text.value;
     let language = this.refs.languages.state.language
 
-    if (language === 'text') {
-      language = 'nohighlight'
-    }
-
     let values = {};
 
     if (title)       values.title = title;

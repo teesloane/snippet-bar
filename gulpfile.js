@@ -22,7 +22,7 @@ gulp.task('sass', function() {
 
 gulp.task('normalize', function() {
   gulp.src('node_modules/normalize.css/normalize.css')
-    .pipe(nano())
+    // .pipe(nano())
     .pipe(gulp.dest('app/static/css/'));
 });
 

@@ -16,7 +16,14 @@ const App = React.createClass({
       snippets:      [],
       activeSnippet: null,
       activeMode:    'empty',
-      languages:[
+      modes:         {
+        empty:   'empty',
+        preview: 'preview',
+        add:     'add',
+        edit:    'edit'
+      },
+      syntax: false,
+      languages: [
         'text',
         'bash',
         'csharp',
@@ -35,25 +42,19 @@ const App = React.createClass({
         'python',
         'ruby',
         'scss'
-      ],
-
-      syntax:        false,
-      modes:         {
-
-        empty:   'empty',
-        preview: 'preview',
-        add:     'add',
-        edit:    'edit'
-      }
+      ]
     }
   },
 
   componentDidMount() {
-    this.createElectronMenu();
-
-    data.read(snippets => {
-      this.setState({
-        snippets
+    data.read('settings', settings => {
+      data.read('snippets', snippets => {
+        this.setState({
+          snippets,
+          syntax: settings.syntaxHighlighting
+        }, () => {
+          this.createElectronMenu();
+        });
       });
     });
   },
@@ -62,6 +63,10 @@ const App = React.createClass({
   toggleSyntax() {
     this.setState({
     	syntax: !this.state.syntax
+    }, () => {
+      let settings = data.settingsModel(this.state.syntax);
+
+      if (settings) data.write('settings', settings);
     });
   },
 
@@ -82,7 +87,7 @@ const App = React.createClass({
     let syntax = new MenuItem({
       label: 'Syntax Highlighting',
       type: 'checkbox',
-      checked: false,
+      checked: this.state.syntax,
       click: this.toggleSyntax
     });
 
@@ -164,7 +169,7 @@ const App = React.createClass({
           )
         }, () => {
           //Callback of set State to write the changes to the same Snippet.
-          data.write(this.state.snippets, () => {
+          data.write('snippets', this.state.snippets, () => {
             this.showNotification("Snippet Updated");
 
             this.setState({
@@ -194,7 +199,7 @@ const App = React.createClass({
           }
         )
       }, () => {
-        data.write(this.state.snippets, () => {
+        data.write('snippets', this.state.snippets, () => {
           this.showNotification("Snippet Saved");
 
           this.setState({
@@ -224,7 +229,7 @@ const App = React.createClass({
           activeMode:    'empty'
 
         }, () => {
-          data.write(this.state.snippets, () => {
+          data.write('snippets', this.state.snippets, () => {
             this.showNotification("Snippet Deleted");
           });
         });

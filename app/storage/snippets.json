@@ -46,7 +46,7 @@
       "test",
       "woop"
     ],
-    "lang": "nohighlight"
+    "lang": "text"
   },
   {
     "id": "ID1451662678939",
@@ -55,6 +55,6 @@
     "tags": [
       "json"
     ],
-    "lang": "nohighlight"
+    "lang": "json"
   }
 ]

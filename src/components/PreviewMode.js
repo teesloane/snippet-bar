@@ -27,7 +27,7 @@ const PreviewMode = React.createClass({
 
     if (activeSnippet) {
       text     = activeSnippet.text;
-      language = activeSnippet.lang;
+      language = (activeSnippet.lang === 'text' ? 'nohighlight' : activeSnippet.lang);
     }
 
     return(
