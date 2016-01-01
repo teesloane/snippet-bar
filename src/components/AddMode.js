@@ -20,6 +20,8 @@ const AddMode = React.createClass({
     let title = this.refs.title.value.trim();
     let tags  = this.refs.tags.state.tags;
     let text  = this.refs.text.value;
+    // how do I get languages in here?
+    // let language = this.refs.languages.state.language
 
     let values = {};
 
@@ -48,7 +50,8 @@ const AddMode = React.createClass({
                 className="show-hide-languages">
                 <LanguageSelect
                   languages={this.props.languages}
-                  syntax={this.props.syntax} />
+                  syntax={this.props.syntax}
+                  ref="languages"/>
               </div>
             </div>
 

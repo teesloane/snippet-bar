@@ -58,12 +58,8 @@ const App = React.createClass({
     });
   },
 
+  // Enables / Disables Syntax Highlighing and resets State.
   toggleSyntax() {
-
-// TODO: Show/Hide Language selector in Add / Edit mode
-
-// TODO: Syntax Toggling Mostly works, but prob needs to be componentShouldUpdate or Did Mount or something...
-
     let previousMode = this.state.activeMode
 
     this.setState({
@@ -77,10 +73,10 @@ const App = React.createClass({
         activeMode:    previousMode
       });
     });
-
     console.log('syntax is ' + this.state.syntax);
   },
 
+  // Creates a menu when clicking on the Cog Icon.
   createElectronMenu() {
 
     let cog = document.getElementById('cog');
@@ -119,6 +115,7 @@ const App = React.createClass({
     }, false);
   },
 
+  //Returns a snippet with a unique ID.
   getSnippetById(id) {
     let snippet = null;
     let len     = this.state.snippets.length;
@@ -134,6 +131,7 @@ const App = React.createClass({
     return snippet;
   },
 
+  // Determines the active Snippet to display
   setActive(id) {
     let activeSnippet = this.getSnippetById(id);
 
@@ -143,6 +141,7 @@ const App = React.createClass({
     });
   },
 
+  // Sets the mode in Panel.js
   setMode(mode) {
     let availableMode = this.state.modes[mode];
 
@@ -153,6 +152,7 @@ const App = React.createClass({
     }
   },
 
+  //Edits the snippet when in EditMode. Is trigged by the Save icon (a submit button)
   updateSnippet(values) {
     let userValues    = data.snippetModel(values.title, values.text, values.tags);
     let snippets      = this.state.snippets;
@@ -174,6 +174,7 @@ const App = React.createClass({
             }
           )
         }, () => {
+          //Callback of set State to write the changes to the same Snippet.
           data.write(this.state.snippets, () => {
             this.showNotification("Snippet Updated");
 
@@ -189,8 +190,10 @@ const App = React.createClass({
     }
   },
 
+  /*Saves Snippet, as triggered by the Submit Button (Save Icon) in Add Mode.
+   The arg 'values' is passed in when called in AddMode.js by createSnippet */
   saveSnippet(values) {
-    let snippet = data.snippetModel(values.title, values.text, values.tags);
+    let snippet = data.snippetModel(values.title, values.text, values.tags, values.lang);
 
     if (snippet) {
       this.setState({
