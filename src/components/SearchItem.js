@@ -4,19 +4,12 @@ const SearchItem = React.createClass({
   propTypes: {
     snippet:   React.PropTypes.object.isRequired,
     isActive:  React.PropTypes.bool,
-    setActive: React.PropTypes.func.isRequired,
-    activeMode:   React.PropTypes.string
+    setActive: React.PropTypes.func.isRequired
   },
 
   render() {
     let snippet = this.props.snippet;
-    let activeMode = this.props.activeMode;
-    let isActiveClass = '';
-
-/* CHANGED:  does not show selected snippet if in Add Mode. */
-    if (activeMode === 'preview' || activeMode === 'edit') {
-      isActiveClass = this.props.isActive ? ' is-active' : '';
-    }
+    let isActiveClass = this.props.isActive ? ' is-active' : '';
 
     return (
       <li className={"search-item" + isActiveClass} onClick={this.props.setActive.bind(null, snippet.id)}>

@@ -23,7 +23,7 @@ const Panel = React.createClass({
     saveSnippet:      React.PropTypes.func.isRequired,
     showNotification: React.PropTypes.func,
     deleteSnippet:    React.PropTypes.func,
-    syntax :          React.PropTypes.bool,
+    syntax:           React.PropTypes.bool,
     languages:        React.PropTypes.array
   },
 
@@ -69,7 +69,7 @@ const Panel = React.createClass({
 
     return(
       <div className="panel-container">
-        <div className="panel-mode">{panelContent}</div>
+        {panelContent}
       </div>
     );
   }

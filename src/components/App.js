@@ -61,18 +61,11 @@ const App = React.createClass({
 
   // Enables / Disables Syntax Highlighing and resets State.
   toggleSyntax() {
-    let previousMode = this.state.activeMode;
-    console.log(previousMode);
-
     this.setState({
-    	syntax: !this.state.syntax,
-      activeMode: 'empty'
-
+    	syntax: !this.state.syntax
     }, () => {
       let settings = data.settingsModel(this.state.syntax);
-      this.setState({
-        activeMode: previousMode
-      })
+
       if (settings) data.write('settings', settings);
     });
   },
@@ -126,12 +119,15 @@ const App = React.createClass({
 
   // Determines the active Snippet to display
   setActive(id) {
-    let activeSnippet = this.getSnippetById(id);
+    let activeSnippet = this.state.activeSnippet;
+    let snippet = this.getSnippetById(id);
 
-    this.setState({
-      activeSnippet: activeSnippet,
-      activeMode:    'preview'
-    });
+    if (!activeSnippet || activeSnippet.id !== snippet.id) {
+      this.setState({
+        activeSnippet: snippet,
+        activeMode:    'preview'
+      });
+    }
   },
 
   // Sets the mode in Panel.js
@@ -139,8 +135,11 @@ const App = React.createClass({
     let availableMode = this.state.modes[mode];
 
     if (availableMode) {
+      let snippet = availableMode === 'add' ? {} : this.state.activeSnippet;
+
       this.setState({
-        activeMode: availableMode
+        activeMode:    availableMode,
+        activeSnippet: snippet
       });
     }
   },
@@ -187,7 +186,6 @@ const App = React.createClass({
   /*Saves Snippet, as triggered by the Submit Button (Save Icon) in Add Mode.
    The arg 'values' is passed in when called in AddMode.js by createSnippet */
   saveSnippet(values) {
-
     let snippet = data.snippetModel(values.title, values.text, values.tags, values.lang);
 
     if (snippet) {
@@ -261,11 +259,9 @@ const App = React.createClass({
         <div id="notification" ref="notification"></div>
 
         <SearchList
-          activeMode={this.state.activeMode}
           snippets={this.state.snippets}
           activeSnippet={this.state.activeSnippet}
-          setActive={this.setActive}
-          appMenu={this.createElectronMenu} />
+          setActive={this.setActive} />
 
         <Panel
           activeMode={this.state.activeMode}

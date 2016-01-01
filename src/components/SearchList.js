@@ -7,9 +7,7 @@ const SearchList = React.createClass({
   propTypes: {
     snippets: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     activeSnippet: React.PropTypes.object,
-    setActive: React.PropTypes.func,
-    appMenu: React.PropTypes.func,
-    activeMode: React.PropTypes.string
+    setActive: React.PropTypes.func
   },
 
   getInitialState() {
@@ -69,7 +67,6 @@ const SearchList = React.createClass({
       return (
         <SearchItem
           key={index}
-          activeMode={this.props.activeMode}
           snippet={snippet}
           isActive={activeSnippet && activeSnippet.id === snippet.id}
           setActive={this.props.setActive}/>
@@ -78,7 +75,6 @@ const SearchList = React.createClass({
 
     return (
       <div className="searchlist-container">
-
         <div className="search-and-results">
           <SearchBar filterSnippets={this.filterSnippets} />
 
@@ -97,8 +93,6 @@ const SearchList = React.createClass({
         <div className="menu-controls">
           <button id="cog"><i className="fa fa-cog fa-2x"></i></button>
         </div>
-
-
       </div>
     );
   }

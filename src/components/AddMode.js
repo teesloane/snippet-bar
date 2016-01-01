@@ -22,11 +22,7 @@ const AddMode = React.createClass({
     let text  = this.refs.text.value;
     let language = this.refs.languages.state.language;
     let values = {};
-
-    if (language === 'none') {
-      language = 'nohighlight'
-    }
-
+    
     if (title)       values.title = title;
     if (tags.length) values.tags  = tags;
     if (text)        values.text  = text;

@@ -9,7 +9,6 @@ const PreviewMode = React.createClass({
     deleteSnippet: React.PropTypes.func,
     syntax:        React.PropTypes.bool,
     languages:     React.PropTypes.array
-
   },
 
   componentDidMount() {
@@ -27,7 +26,7 @@ const PreviewMode = React.createClass({
 
     if (activeSnippet) {
       text     = activeSnippet.text;
-      language = (activeSnippet.lang === 'text' ? 'nohighlight' : activeSnippet.lang);
+      language = (!syntax || activeSnippet.lang === 'text' ? 'nohighlight' : activeSnippet.lang);
     }
 
     return(
@@ -37,8 +36,7 @@ const PreviewMode = React.createClass({
             <pre className={"snippet-text copy-text " + language}
               ref={
                 preElement => {
-                  // checks whether syntax highlighting is enabled and code has content
-                  if (syntax && preElement) hljs.highlightBlock(preElement);
+                  if (preElement) hljs.highlightBlock(preElement);
                 }
               }>
               <code>{text}</code>

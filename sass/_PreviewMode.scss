@@ -20,4 +20,8 @@
   code {
     font-family: 'Monaco', monospace, Arial, sans-serif;
   }
+
+  .nohighlight [class^="hljs-"] {
+    color: inherit;
+  }
 }
