@@ -40,4 +40,3 @@ app/static/fonts
 app/js
 app/components
 app/*.js
-app/storage/*.json
