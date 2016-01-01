@@ -11,13 +11,6 @@ const PreviewMode = React.createClass({
     languages:     React.PropTypes.array
   },
 
-  componentDidMount() {
-    hljs.configure({
-      // select which languages that HLJS can detect from:
-      languages: this.props.languages
-    });
-  },
-
   render() {
     let activeSnippet = this.props.activeSnippet;
     let text          = null;

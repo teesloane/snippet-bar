@@ -64,7 +64,6 @@ const Panel = React.createClass({
   },
 
   render() {
-
     let panelContent = this.setContent();
 
     return(

@@ -1,5 +1,6 @@
 const React  = require('react');
 const update = require('react-addons-update');
+const hljs   = require('highlight.js');
 
 const remote   = require('electron').remote;
 const Menu     = remote.Menu;
@@ -10,9 +11,34 @@ const data       = require('../data');
 const SearchList = require('./SearchList');
 const Panel      = require('./Panel');
 
+const languages = [
+  'text',
+  'bash',
+  'csharp',
+  'c++',
+  'css',
+  'elm',
+  'go',
+  'html',
+  'haskell',
+  'java',
+  'javascript',
+  'json',
+  'markdown',
+  'obj-c',
+  'php',
+  'python',
+  'ruby',
+  'scss'
+];
+
+hljs.configure({ languages });
+
+
 const App = React.createClass({
   getInitialState() {
     return {
+      languages,
       snippets:      [],
       activeSnippet: null,
       activeMode:    'empty',
@@ -22,28 +48,8 @@ const App = React.createClass({
         add:     'add',
         edit:    'edit'
       },
-      syntax: false,
-      languages: [
-        'text',
-        'bash',
-        'csharp',
-        'c++',
-        'css',
-        'elm',
-        'go',
-        'html',
-        'haskell',
-        'java',
-        'javascript',
-        'json',
-        'markdown',
-        'obj-c',
-        'php',
-        'python',
-        'ruby',
-        'scss'
-      ]
-    }
+      syntax: false
+    };
   },
 
   componentDidMount() {
