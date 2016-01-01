@@ -152,9 +152,9 @@ const App = React.createClass({
     }
   },
 
-  //Edits the snippet when in EditMode. Is trigged by the Save icon (a submit button)
+  //Edits the snippet when in EditMode. Is triggered by the Save icon (a submit button)
   updateSnippet(values) {
-    let userValues    = data.snippetModel(values.title, values.text, values.tags);
+    let userValues    = data.snippetModel(values.title, values.text, values.tags, values.lang);
     let snippets      = this.state.snippets;
     let activeSnippet = this.state.activeSnippet;
 
@@ -169,7 +169,8 @@ const App = React.createClass({
               [i]: {
                 title: { $set: userValues.title },
                 text:  { $set: userValues.text },
-                tags:  { $set: userValues.tags }
+                tags:  { $set: userValues.tags },
+                lang:  { $set: userValues.lang }
               }
             }
           )
@@ -194,11 +195,7 @@ const App = React.createClass({
    The arg 'values' is passed in when called in AddMode.js by createSnippet */
   saveSnippet(values) {
 
-    console.log("incoming values are " + values);
-
     let snippet = data.snippetModel(values.title, values.text, values.tags, values.lang);
-
-    console.log(data.snippetModel);
 
     if (snippet) {
       this.setState({

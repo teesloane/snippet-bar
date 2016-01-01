@@ -19,12 +19,18 @@ const EditMode = React.createClass({
     let title = this.refs.title.value.trim();
     let tags  = this.refs.tags.state.tags;
     let text  = this.refs.text.value;
+    let language = this.refs.languages.state.language
+
+    if (language === 'none') {
+      language = 'nohighlight'
+    }
 
     let values = {};
 
     if (title)       values.title = title;
     if (tags.length) values.tags  = tags;
     if (text)        values.text  = text;
+    if (language)    values.lang  = language;
 
     this.props.updateSnippet(values);
   },
@@ -48,7 +54,9 @@ const EditMode = React.createClass({
               className="show-hide-languages">
               <LanguageSelect
                 languages={this.props.languages}
-                syntax={this.props.syntax} />
+                syntax={this.props.syntax}
+                editLang={this.props.activeSnippet.lang}
+                ref="languages" />
             </div>
           </div>
 

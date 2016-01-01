@@ -25,7 +25,7 @@
       "ruby",
       "fizzbuzz"
     ],
-    "lang": "ruby"
+    "lang": "go"
   },
   {
     "id": "ID1451626404949",
@@ -45,6 +45,15 @@
       "none",
       "test",
       "woop"
+    ],
+    "lang": "nohighlight"
+  },
+  {
+    "id": "ID1451662678939",
+    "title": "json test",
+    "text": "{\n    \"id\": \"ID1451626404949\",\n    \"title\": \"Python FizzBuzz\",\n    \"text\": \"count = 0\\nwhile count < 101:\\n    if count % 5 == 0 and count % 3 == 0:\\n        print \\\"FizzBuzz\\\"\\n    elif count % 3 == 0:\\n        print \\\"Fizz\\\"\\n    elif count % 5 == 0:\\n        print \\\"Buzz\\\"\\n    else:\\n        print count\\n\\n    count = count + 1    # this will get executed every loop\",\n    \"tags\": [\n      \"python\",\n      \"fizzbuzz\"\n    ],\n    \"lang\": \"python\"\n  },",
+    "tags": [
+      "json"
     ],
     "lang": "nohighlight"
   }

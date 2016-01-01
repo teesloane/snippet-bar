@@ -6,7 +6,8 @@ const update = require('react-addons-update');
 const LanguageSelect = React.createClass({
   propTypes: {
     languages: React.PropTypes.array,
-    syntax:    React.PropTypes.bool
+    syntax:    React.PropTypes.bool,
+    editLang:  React.PropTypes.string
   },
 
   getInitialState() {
@@ -17,6 +18,13 @@ const LanguageSelect = React.createClass({
 
   componentDidMount() {
     this.getSelectedLanguage();
+    this.setLang(this.props.editLang);
+    console.log (this.setLang);
+  },
+
+//copying setTags(tags) to try and make lang load saved selection in edit mode.
+  setLang(lang) {
+    if (lang && lang.length) this.setState({ language: lang });
   },
 
 // Gets the selected Language from the <Select> element.
@@ -31,10 +39,19 @@ const LanguageSelect = React.createClass({
 
   render() {
     let languages = this.props.languages;
+    console.log(languages);
     let display = null;
 
     let languageChoices = languages.map((language, index) => {
-      return <option key={index}> {language} </option>;
+      // sets the  "selected" lang in the <select> element when editing
+       if (language === this.props.editLang) {
+        return <option selected="selected" key={index}> {language} </option>;
+      }
+
+      else {
+        return <option key={index}> {language} </option>;
+      }
+
     });
 
     /* Show or Hide the Language <Select> Element */
@@ -53,6 +70,7 @@ const LanguageSelect = React.createClass({
     return(
       <select
         id="choose-language"
+        default={this.props.editLang}
         style={display}
         className="new-languages"
         onChange={this.getSelectedLanguage}>
@@ -60,7 +78,6 @@ const LanguageSelect = React.createClass({
       </select>
     );
   }
-
 });
 
 module.exports = LanguageSelect;

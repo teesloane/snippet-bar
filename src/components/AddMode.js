@@ -1,5 +1,5 @@
 // TODO: Enable Tabbing in TextArea
-// TODO: Bring Language into Create Snippet (and pass to )
+// TODO: Language Selection in Edit Mode
 
 const React = require('react');
 
