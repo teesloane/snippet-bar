@@ -77,7 +77,7 @@ const App = React.createClass({
         activeMode:    previousMode
       });
     });
-    
+
     console.log('syntax is ' + this.state.syntax);
   },
 

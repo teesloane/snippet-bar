@@ -45,12 +45,14 @@ const Panel = React.createClass({
         activeSnippet={this.props.activeSnippet}
         setMode={this.props.setMode}
         showNotification={this.props.showNotification}
+        languages={this.props.languages}
         syntax={this.props.syntax}
         deleteSnippet={this.props.deleteSnippet} />;
     }
     else if (activeMode === 'add'){
       return <AddMode
         saveSnippet={this.props.saveSnippet}
+        syntax={this.props.syntax}
         languages={this.props.languages}
         setMode={this.props.setMode} />;
     }

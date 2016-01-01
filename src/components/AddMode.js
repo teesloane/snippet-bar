@@ -10,7 +10,8 @@ const AddMode = React.createClass({
   propTypes: {
     setMode:     React.PropTypes.func.isRequired,
     saveSnippet: React.PropTypes.func,
-    languages:   React.PropTypes.array
+    languages:   React.PropTypes.array,
+    syntax:      React.PropTypes.bool
   },
 
   createSnippet(event) {
@@ -37,8 +38,10 @@ const AddMode = React.createClass({
 
             <div className="title-and-language">
               <input id="new-snippet-title" className="add-field" type="text" ref="title" placeholder="Title" />
-              <div className="show-hide-languages" ref="show-hide-languages">
-                <LanguageSelect languages={this.props.languages} />
+              <div className="show-hide-languages">
+                <LanguageSelect
+                  languages={this.props.languages}
+                  syntax={this.props.syntax} />
               </div>
             </div>
 
