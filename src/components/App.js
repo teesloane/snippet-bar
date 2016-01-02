@@ -193,6 +193,10 @@ const App = React.createClass({
   /*Saves Snippet, as triggered by the Submit Button (Save Icon) in Add Mode.
    The arg 'values' is passed in when called in AddMode.js by createSnippet */
   saveSnippet(values) {
+    let isDuplicate = data.snippetExists(values.text);
+
+    if (isDuplicate) return;
+
     let snippet = data.snippetModel(values.title, values.text, values.tags, values.lang);
 
     if (snippet) {

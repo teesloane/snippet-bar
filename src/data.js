@@ -37,8 +37,8 @@ function write(file, data, callback = noop) {
   });
 }
 
-function snippetExists(text) {
-  return localSnippets && localSnippets.some(snippet => text === snippet.text);
+function snippetExists(text = '') {
+  return text.length && localSnippets && localSnippets.some(snippet => text === snippet.text);
 }
 
 function settingsModel(syntaxHighlighting) {
@@ -49,8 +49,8 @@ function settingsModel(syntaxHighlighting) {
   };
 }
 
-function snippetModel(title = 'untitled', text, tags = []) {
-  if (!text || snippetExists(text)) return null;
+function snippetModel(title = 'untitled', text, tags = [], lang = 'text') {
+  if (!text) return null;
 
   let now = Date.now();
 
@@ -68,6 +68,7 @@ function snippetModel(title = 'untitled', text, tags = []) {
 module.exports = {
   read,
   write,
+  snippetExists,
   settingsModel,
   snippetModel
 };
