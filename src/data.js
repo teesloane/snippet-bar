@@ -17,7 +17,7 @@ function read(file, callback = noop) {
 
     let jData = JSON.parse(data);
 
-    localSnippets = jData;
+    if (file === 'snippets') localSnippets = jData;
 
     callback(jData);
   });
@@ -26,14 +26,14 @@ function read(file, callback = noop) {
 function write(file, data, callback = noop) {
   if (!data || !file || !filePaths.hasOwnProperty(file)) return;
 
-  let jData = JSON.stringify(data, null, 2);
+  let sData = JSON.stringify(data, null, 2);
 
-  fs.writeFile(filePaths[file], jData, (err) => {
+  fs.writeFile(filePaths[file], sData, (err) => {
     if (err) throw err;
 
-    localSnippets = data;
+    if (file === 'snippets') localSnippets = data;
 
-    callback(jData);
+    callback(sData);
   });
 }
 
