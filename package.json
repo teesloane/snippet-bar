@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/teesloane/snippetbar"
+    "url": "git+https://github.com/teesloane/snippet-bar"
   },
   "author": "Tyler and Bronek",
   "license": "",
   "bugs": {
-    "url": "https://github.com/teesloane/snippetbar/issues"
+    "url": "https://github.com/teesloane/snippet-bar/issues"
   },
-  "homepage": "https://github.com/teesloane/snippetbar#readme",
+  "homepage": "https://github.com/teesloane/snippet-bar#readme",
   "dependencies": {
     "clipboard": "^1.5.5",
     "font-awesome": "^4.4.0",
