@@ -14,6 +14,10 @@ const AddMode = React.createClass({
     syntax:      React.PropTypes.bool
   },
 
+  componentDidMount(){
+    this.props.enableTabbing();
+  },
+
   createSnippet(event) {
     event.preventDefault();
 
@@ -22,7 +26,7 @@ const AddMode = React.createClass({
     let text  = this.refs.text.value;
     let language = this.refs.languages.state.language;
     let values = {};
-    
+
     if (title)       values.title = title;
     if (tags.length) values.tags  = tags;
     if (text)        values.text  = text;
@@ -32,6 +36,8 @@ const AddMode = React.createClass({
   },
 
   render() {
+
+
     return(
       <div className="panel-mode">
         <div className="selected-mode">

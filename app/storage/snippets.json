@@ -20,7 +20,7 @@
   {
     "id": "ID1451626345504",
     "title": "Ruby Fizz Buzz",
-    "text": "    1.upto(100) do |i|\n      if i % 5 == 0 and i % 3 == 0\n        puts \"FizzBuzz\"\n      elsif i % 5 == 0\n        puts \"Buzz\"\n      elsif i % 3 == 0\n        puts \"Fizz\"\n      else\n        puts i\n      end\n    end",
+    "text": "    1.upto(100) do |i|\n      if i % 5 == 0 and i % 3 == 0\n        puts \"FizzBuzz\"\n      elsif i % 5 == 0\n        puts \"Buzz\"\n      elsif i % 3 == 0\n        puts \"Fizz\"\n      else\n        puts i\n      end\n    end\n\t\t\t",
     "tags": [
       "ruby",
       "fizzbuzz"

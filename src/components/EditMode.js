@@ -31,6 +31,10 @@ const EditMode = React.createClass({
     this.props.updateSnippet(values);
   },
 
+  componentDidMount(){
+    this.props.enableTabbing();
+  },
+
   render() {
     return(
       <div className="panel-mode">
