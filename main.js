@@ -1,16 +1,17 @@
 const ipcMain = require('electron').ipcMain;
 const menubar = require('menubar');
-const BrowserWindow = require('browser-window');
+
+const appPath = __dirname + '/app';
 
 const config = {
   openDevTools: false,
   title:        'snippets',
-  icon:         './app/static/img/brackets.png',
-  iconAlt:      './app/static/img/brackets-alt.png'
+  icon:         appPath + '/static/img/brackets.png',
+  iconAlt:      appPath + '/static/img/brackets-alt.png'
 };
 
 const mb = menubar({
-  dir:             './app',
+  dir:             appPath,
   icon:            config.icon,
   width:           600,
   height:          370,
