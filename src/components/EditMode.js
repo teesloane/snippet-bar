@@ -9,8 +9,9 @@ const EditMode = React.createClass({
     setMode:       React.PropTypes.func.isRequired,
     activeSnippet: React.PropTypes.object,
     updateSnippet: React.PropTypes.func.isRequired,
-    languages:   React.PropTypes.array,
-    syntax:      React.PropTypes.bool
+    languages:     React.PropTypes.array,
+    syntax:        React.PropTypes.bool,
+    enableTabbing: React.PropTypes.func
   },
 
   updateSnippet(event) {

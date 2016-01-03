@@ -8,10 +8,11 @@ const LanguageSelect = require('./LanguageSelect');
 
 const AddMode = React.createClass({
   propTypes: {
-    setMode:     React.PropTypes.func.isRequired,
-    saveSnippet: React.PropTypes.func,
-    languages:   React.PropTypes.array,
-    syntax:      React.PropTypes.bool
+    setMode:       React.PropTypes.func.isRequired,
+    saveSnippet:   React.PropTypes.func,
+    languages:     React.PropTypes.array,
+    syntax:        React.PropTypes.bool,
+    enableTabbing: React.PropTypes.func
   },
 
   componentDidMount(){
