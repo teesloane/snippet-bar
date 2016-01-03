@@ -1,11 +1,11 @@
 {
-  "name": "Snippet Bar",
+  "name": "snippet-bar",
   "version": "1.0.0",
   "description": "Menu-bar code-holder",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
-    "build": "electron-packager ./builds SnippetBar --platform=darwin --arch=x64 --version=0.35.1"
+    "build": "electron-packager . SnippetBar --platform=darwin --arch=x64 --out=./builds --version=0.35.1 --overwrite --ignore='node_modules/babel-*' --ignore='node_modules/gulp-*' --ignore='node_modules/gulp' --ignore='node_modules/gulp-*' "
   },
   "repository": {
     "type": "git",
