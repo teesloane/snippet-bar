@@ -1,7 +1,7 @@
 {
-  "name": "sniptor",
+  "name": "Snippet Bar",
   "version": "1.0.0",
-  "description": "build a menubar app!",
+  "description": "Menu-bar code-holder",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/teesloane/sniptor.git"
+    "url": "git+https://github.com/teesloane/snippetbar"
   },
   "author": "Tyler and Bronek",
-  "license": "ISC",
+  "license": "",
   "bugs": {
-    "url": "https://github.com/teesloane/sniptor/issues"
+    "url": "https://github.com/teesloane/snippetbar/issues"
   },
-  "homepage": "https://github.com/teesloane/sniptor#readme",
+  "homepage": "https://github.com/teesloane/snippetbar#readme",
   "dependencies": {
     "clipboard": "^1.5.5",
     "font-awesome": "^4.4.0",
