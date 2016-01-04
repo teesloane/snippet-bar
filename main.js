@@ -1,10 +1,12 @@
 const ipcMain = require('electron').ipcMain;
 const menubar = require('menubar');
 
+const Menu = require('menu');
+
 const appPath = __dirname + '/app';
 
 const config = {
-  openDevTools: false,
+  openDevTools: true,
   title:        'snippets',
   icon:         appPath + '/static/img/brackets.png',
   iconAlt:      appPath + '/static/img/brackets-alt.png'
@@ -19,6 +21,18 @@ const mb = menubar({
   'always-on-top': true,
   resizable:       false
 });
+
+var shortcuts = [{
+    submenu: [
+      { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+      { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+      { type: "separator" },
+      { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+      { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+      { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+      { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+    ]}
+  ];
 
 if (config.openDevTools) {
   mb.on('after-create-window', () => {
@@ -38,6 +52,8 @@ mb.app.on('window-all-closed', () => {
 mb.app.on('ready', () => {
   mb.tray.setToolTip(config.title);
   mb.tray.setPressedImage(config.iconAlt);
+
+  Menu.setApplicationMenu(Menu.buildFromTemplate(shortcuts));
 
   ipcMain.on('mb-app', (event, arg) => {
     if (arg === "quit") {
