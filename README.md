@@ -18,7 +18,7 @@ Snippet Bar works on Linux, Mac and Windows, but is still in it's testing phases
 
 ### What more?
 
-What if I want <insert feature request here>? 
+What if I want \< insert feature request here \>? 
 
 This is our first release. We have ideas for 2.0, but it might be a while before anything new happens. Suggestions / issues / pull requests are welcome though!
 
