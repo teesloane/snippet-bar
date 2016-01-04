@@ -32,4 +32,4 @@ Snippet Bar is built with React, Electron, and some other awesome packages:
 
 * * *
 
-Made with <3, and > 100 gmail-screenshares, by Bronek and Tyler. 
+Made with <3, and 100+ screenshares, by Bronek and Tyler. 
