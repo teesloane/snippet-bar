@@ -2,7 +2,7 @@
 
 > Menubar-based Snippet Manager
 
-## What Do?
+### What Do?
 
 Our goal is to provide a home for your snippets - code or otherwise. Snippet Bar aims to give quick access to your most used snippets:
 - easily copy a selected snippet to your clipboard
@@ -12,17 +12,17 @@ Our goal is to provide a home for your snippets - code or otherwise. Snippet Bar
 	
 ![](https://cloud.githubusercontent.com/assets/12987958/12094722/388dfffe-b2d8-11e5-81c6-d94321cb645b.gif)
 
-## What platforms?
+### What platforms?
 
 Snippet Bar works on Linux, Mac and Windows, but is still in it's testing phases. So far, we have packaged a Mac app, which you can download. 
 
-## What more?
+### What more?
 
 What if I want <insert feature request here>? 
 
 This is our first release. We have ideas for 2.0, but it might be a while before anything new happens. Suggestions / issues / pull requests are welcome though!
 
-## What made of?
+### What made of?
 
 Snippet Bar is build with React, Electron, and some other awesome packages:
 - [Hightlight.js](https://highlightjs.org/)
@@ -30,4 +30,6 @@ Snippet Bar is build with React, Electron, and some other awesome packages:
 - [Clipboard.js](https://zenorocha.github.io/clipboard.js/)
 - [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 
-made with <3, and > 100 gmail-screenshares, by Bronek and Tyler. 
+* * *
+
+Made with <3, and > 100 gmail-screenshares, by Bronek and Tyler. 
