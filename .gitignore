@@ -41,3 +41,4 @@ app/js
 app/components
 app/*.js
 builds
+docs
