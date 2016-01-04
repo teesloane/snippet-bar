@@ -6,7 +6,7 @@ const Menu = require('menu');
 const appPath = __dirname + '/app';
 
 const config = {
-  openDevTools: true,
+  openDevTools: false,
   title:        'snippets',
   icon:         appPath + '/static/img/brackets.png',
   iconAlt:      appPath + '/static/img/brackets-alt.png'
