@@ -1,30 +1,27 @@
 # Snippet Bar
 
-> Menubar-based Snippet Manager
-
-### What Do?
+> A desktop menubar app for copying, pasting and re-using text snippets
 
 Our goal is to provide a home for your snippets - code or otherwise. Snippet Bar aims to give quick access to your most used snippets:
-- easily copy a selected snippet to your clipboard
-- create / update / tag snippets
-- search snippets by title, text and tags
-- view code with toggle-able syntax highlighting
-	
+- create and manage your snippets by giving them titles and tags
+- search and select a snippet to copy to your clipboard
+- enable optional syntax highlighting for viewing code snippets
+
 ![](https://cloud.githubusercontent.com/assets/12987958/12094722/388dfffe-b2d8-11e5-81c6-d94321cb645b.gif)
 
-### What platforms?
+### Which platforms are supported?
 
-Snippet Bar works on Linux, Mac and Windows, but is still in it's testing phases. So far, we have packaged a Mac app, which you can download. 
+Snippet Bar works on Linux, Mac and Windows. But it's still in the testing phase. So far, we have only packaged a Mac app that's available for download.
 
-### What more?
+### Are more features on the horizon?
 
-What if I want \< insert feature request here \>? 
+This is our first release. We have future ideas on how to improve and expand Menu Bar, however it might be a while before we get started.
 
-This is our first release. We have ideas for 2.0, but it might be a while before anything new happens. Suggestions / issues / pull requests are welcome though!
+We welcome any pull requests, suggestions and logged issues!
 
-### What made of?
+### What technologies did you use?
 
-Snippet Bar is built with React, Electron, and some other awesome packages:
+Snippet Bar is built with React, Electron and some other awesome packages, including:
 - [Hightlight.js](https://highlightjs.org/)
 - [maxogden's menu-bar](https://github.com/maxogden/menubar)
 - [Clipboard.js](https://zenorocha.github.io/clipboard.js/)
@@ -32,4 +29,4 @@ Snippet Bar is built with React, Electron, and some other awesome packages:
 
 * * *
 
-Made with <3, and 100+ screenshares, by Bronek and Tyler. 
+Made with <3 and 100+ screenshares. By Tyler and Bronek.
