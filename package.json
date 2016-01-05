@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
-    "build": "electron-packager . SnippetBar --platform=darwin --arch=x64 --out=./builds --version=0.35.1 --overwrite --ignore='node_modules/babel-*' --ignore='node_modules/gulp-*' --ignore='node_modules/gulp' --ignore='node_modules/gulp-*' "
+    "build": "electron-packager . 'Snippet Bar' --platform=darwin --arch=x64 --out=./builds --version=0.35.1 --overwrite --icon='./app/static/img/icon' --ignore='./docs' --ignore='./builds' --ignore='node_modules/babel-*' --ignore='node_modules/gulp-*' --ignore='node_modules/gulp' --ignore='node_modules/gulp-*' "
   },
   "repository": {
     "type": "git",

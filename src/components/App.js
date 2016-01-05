@@ -94,7 +94,6 @@ const App = React.createClass({
 
     let quit = new MenuItem({
       label: 'Quit',
-      accelerator: "Command+Q",
       click: mb.quit
     });
 

@@ -19,7 +19,8 @@ const mb = menubar({
   height:          370,
   preloadWindow:   true,
   'always-on-top': true,
-  resizable:       false
+  resizable:       false,
+  icon:            appPath + '/static/img/obj-icon.png'
 });
 
 var shortcuts = [{
