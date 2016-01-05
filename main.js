@@ -22,7 +22,7 @@ const mb = menubar({
   resizable:       false
 });
 
-var shortcuts = [{
+let shortcuts = [{
     submenu: [
       { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
       { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
