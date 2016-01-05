@@ -1,6 +1,6 @@
 {
   "name": "snippet-bar",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Menu-bar code-holder",
   "main": "main.js",
   "scripts": {
