@@ -1,3 +1,5 @@
+'use strict';
+
 const ipcMain = require('electron').ipcMain;
 const menubar = require('menubar');
 
@@ -22,17 +24,17 @@ const mb = menubar({
   resizable:       false
 });
 
-let shortcuts = [{
-    submenu: [
-      { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
-      { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
-      { type: "separator" },
-      { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
-      { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
-      { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
-      { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
-    ]}
-  ];
+const shortcuts = [{
+  submenu: [
+    { label: "Undo", accelerator: "CmdOrCctrl+Z", selector: "undo:" },
+    { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+    { type: "separator" },
+    { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+    { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+    { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+    { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+  ]
+}];
 
 if (config.openDevTools) {
   mb.on('after-create-window', () => {
