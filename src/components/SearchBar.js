@@ -7,7 +7,10 @@ const SearchBar = React.createClass({
 
   getInitialState() {
     return {
-      showClearButton: false
+      showClearButton: false,
+      KEY: {
+        esc: 27
+      }
     };
   },
 
@@ -22,6 +25,12 @@ const SearchBar = React.createClass({
     this.state.showClearButton = false;
 
     this.props.filterSnippets();
+  },
+
+  onKeyDown(event) {
+    let keyPressed = event.which;
+
+    if (keyPressed === this.state.KEY.esc) this.clearSearchBar();
   },
 
   render() {
@@ -42,7 +51,8 @@ const SearchBar = React.createClass({
           ref="search"
           className="search-bar-field"
           placeholder="Search..."
-          onChange={this.toggleClearButton} />
+          onChange={this.toggleClearButton}
+          onKeyDown={this.onKeyDown} />
 
         {clearButton}
       </div>
