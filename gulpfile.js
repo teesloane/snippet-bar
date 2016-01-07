@@ -2,6 +2,8 @@ var gulp    = require('gulp');
 var plumber = require('gulp-plumber');
 var babel   = require('gulp-babel');
 var sass    = require('gulp-sass');
+var cssnano = require('gulp-cssnano');
+var uglify  = require('gulp-uglify');
 
 var paths = {
   app:  'app/',
@@ -22,6 +24,7 @@ gulp.task('js', function() {
   gulp.src('src/**/*.js')
     .pipe(plumber())
     .pipe(babel())
+    .pipe(uglify())
     .pipe(gulp.dest(paths.app))
 });
 
@@ -36,11 +39,13 @@ gulp.task('sass', function() {
 
 gulp.task('normalize', function() {
   gulp.src('node_modules/normalize.css/normalize.css')
+    .pipe(cssnano())
     .pipe(gulp.dest(paths.css));
 });
 
 gulp.task('highlightstyles', function() {
   gulp.src('node_modules/highlight.js/styles/monokai-sublime.css')
+    .pipe(cssnano())
     .pipe(gulp.dest(paths.css));
 });
 
