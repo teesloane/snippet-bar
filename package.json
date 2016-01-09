@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
-    "build-mac": "electron-packager . 'Snippet Bar' --platform=darwin --arch=x64 --out=./builds --version=0.36.2 --overwrite --icon='./app/static/img/icon' --prune --ignore='./docs' --ignore='./builds'"
+    "build-mac": "electron-packager . 'Snippet Bar' --platform=darwin --arch=x64 --out=./builds --version=0.36.2 --overwrite --icon='./app/static/img/icon' --prune --ignore='./docs' --ignore='./builds'",
+    "build-linux": "electron-packager . 'Snippet Bar' --platform=linux --arch=x64 --out=./builds --version=0.36.2 --overwrite --prune --ignore='./docs' --ignore='./builds'"
   },
   "repository": {
     "type": "git",
