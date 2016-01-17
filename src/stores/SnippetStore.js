@@ -31,13 +31,15 @@ function getActiveMode() {
   return _activeMode;
 }
 
-function setActiveMode(mode) {
+function setActiveMode(mode, callback) {
   let availableMode = MODES[mode];
 
   if (availableMode) {
     if (availableMode === 'add') resetActive();
 
     _activeMode = availableMode;
+
+    callback();
   }
 }
 
@@ -45,11 +47,13 @@ function getActiveSnippet() {
   return _activeSnippet;
 }
 
-function setActiveSnippet(id) {
+function setActiveSnippet(id, callback) {
   let snippet = getById(id);
 
   if (!_activeSnippet || _activeSnippet.id !== snippet.id) {
     _activeSnippet = snippet;
+
+    callback();
   }
 }
 
@@ -75,7 +79,7 @@ function getSnippetById(id) {
   return snippet;
 }
 
-function create(values) {
+function create(values, callback) {
   let isDuplicate = data.snippetExists(values.text);
 
   if (isDuplicate) return;
@@ -90,11 +94,13 @@ function create(values) {
 
       setActiveSnippet(snippet.id);
       setActiveMode(MODES.preview);
+
+      callback();
     });
   }
 }
 
-function update(values) {
+function update(values, callback) {
   let userValues = data.snippetModel(values.title, values.text, values.tags, values.lang);
 
   if (!userValues) return;
@@ -112,6 +118,8 @@ function update(values) {
 
         setActiveSnippet(_activeSnippet.id);
         setActiveMode(MODES.preview);
+
+        callback();
       });
 
       break;
@@ -119,7 +127,7 @@ function update(values) {
   }
 }
 
-function delete() {
+function destroy(callback) {
   let len = _snippets.length;
 
   for (let i = 0; i < len; i++) {
@@ -129,15 +137,23 @@ function delete() {
 
       data.write('snippets', _snippets, () => {
         // this.showNotification("Snippet Deleted");
+
+        callback();
       });
 
       break;
     }
   }
-},
+}
 
 
 let SnippetStore = assign({}, EventEmitter.prototype, {
+  getModes,
+  getActiveMode,
+  getActiveSnippet,
+  getSnippets,
+  getSnippetById,
+
   emitChange() {
     this.emit(CHANGE_EVENT);
   },
@@ -153,15 +169,31 @@ let SnippetStore = assign({}, EventEmitter.prototype, {
 
 SnippetStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType) {
+    case SnippetBarConstants.LOAD_SNIPPETS:
+      if (action.snippets) {
+        _snippets = action.snippets;
+        SnippetStore.emitChange();
+      }
+      break;
+
     case SnippetBarConstants.SNIPPET_CREATE:
+      create(action.values, SnippetStore.emitChange);
       break;
+
     case SnippetBarConstants.SNIPPET_UPDATE:
+      update(action.values, SnippetStore.emitChange);
       break;
+
     case SnippetBarConstants.SNIPPET_DELETE:
+      destroy(SnippetStore.emitChange);
       break;
+
     case SnippetBarConstants.SNIPPET_SET_ACTIVE:
+      update(action.id, SnippetStore.emitChange);
       break;
+
     case SnippetBarConstants.MODE_SET_ACTIVE:
+      setActiveMode(action.mode, SnippetStore.emitChange);
       break;
   }
 });

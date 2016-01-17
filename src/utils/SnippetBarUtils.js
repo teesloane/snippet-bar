@@ -1,13 +1,14 @@
 const data = require('../data');
 
-const noop = function(){};
+const SnippetActions = require('../actions/SnippetActions');
+const SettingsActions = require('../actions/SettingsActions');
 
 module.exports = {
-  readSnippets(callback = noop) {
-    data.read('snippets', callback);
+  readSnippets() {
+    data.read('snippets', SnippetActions.load);
   },
 
-  readSettings(callback = noop) {
-    data.read('settings', callback});
+  readSettings() {
+    data.read('settings', SettingsActions.load);
   }
 };

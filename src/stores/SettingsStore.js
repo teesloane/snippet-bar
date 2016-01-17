@@ -52,7 +52,10 @@ function toggleSyntax() {
 }
 
 
-let HighlightStore = assign({}, EventEmitter.prototype, {
+let SettingsStore = assign({}, EventEmitter.prototype, {
+  getLanguages,
+  getSyntax,
+
   emitChange() {
     this.emit(CHANGE_EVENT);
   },
@@ -66,11 +69,17 @@ let HighlightStore = assign({}, EventEmitter.prototype, {
   }
 });
 
-HighlightStore.dispatchToken = AppDispatcher.register(action => {
+SettingsStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType) {
+    case SnippetBarConstants.LOAD_SETTINGS:
+      if (action.settings) _syntax = action.settings.syntaxHighlighting;
+      break;
+
     case SnippetBarConstants.SYNTAX_TOGGLE:
+      toggleSyntax();
+      SettingsStore.emitChange();
       break;
   }
 });
 
-module.exports = HighlightStore;
+module.exports = SettingsStore;

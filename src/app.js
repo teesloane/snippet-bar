@@ -1,7 +1,13 @@
 const React    = require('react');
 const ReactDOM = require('react-dom');
 
-const App = require('./components/App');
+const SnippetBarUtils = require('./utils/SnippetBarUtils');
+
+// const App = require('./components/App');
+const App = require('./components/TestApp');
+
+SnippetBarUtils.readSnippets();
+SnippetBarUtils.readSettings();
 
 ReactDOM.render(
   <App />,
