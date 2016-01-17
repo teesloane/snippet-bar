@@ -1,1 +1,0 @@
-"use strict";var data=require("../data"),SnippetActions=require("../actions/SnippetActions"),SettingsActions=require("../actions/SettingsActions");module.exports={readSnippets:function(){data.read("snippets",SnippetActions.load)},readSettings:function(){data.read("settings",SettingsActions.load)}};

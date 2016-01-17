@@ -1,1 +1,0 @@
-"use strict";var AppDispatcher=require("../dispatcher/AppDispatcher"),SnippetBarConstants=require("../constants/SnippetBarConstants");module.exports={load:function(t){AppDispatcher.dispatch({actionType:SnippetBarConstants.LOAD_SETTINGS,settings:t})},syntaxToggle:function(){AppDispatcher.dispatch({actionType:SnippetBarConstants.SYNTAX_TOGGLE})}};
