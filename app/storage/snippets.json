@@ -37,5 +37,14 @@
     "text": "f",
     "tags": [],
     "lang": "text"
+  },
+  {
+    "id": "ID1453056182372",
+    "title": "for loop!",
+    "text": "for (var i = 0; i < arr.lengt; i++) {\n    // code\n}    ",
+    "tags": [
+      "javascript"
+    ],
+    "lang": "javascript"
   }
 ]

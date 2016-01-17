@@ -4,7 +4,15 @@ const assign = require('react/lib/Object.assign');
 const AppDispatcher = require('../dispatcher/AppDispatcher');
 const SnippetBarConstants = require('../constants/SnippetBarConstants');
 
+const SettingsActions = require('../actions/SettingsActions');
+
+const remote   = require('electron').remote;
+const Menu     = remote.Menu;
+const MenuItem = remote.MenuItem;
+const hljs     = require('highlight.js');
+
 const data = require('../data');
+const mb   = require('../mb');
 
 const CHANGE_EVENT = 'change';
 
@@ -51,10 +59,51 @@ function toggleSyntax() {
   if (settings) data.write('settings', settings);
 }
 
+function createElectronMenu() {
+  let cog = document.getElementById('cog');
+
+  if (!cog) return;
+
+  let menu = new Menu();
+
+  let separator = new MenuItem({
+    type: 'separator'
+  });
+
+  let syntax = new MenuItem({
+    label:   'Syntax Highlighting',
+    type:    'checkbox',
+    checked: _syntax,
+    click:   SettingsActions.syntaxToggle
+  });
+
+  let quit = new MenuItem({
+    label: 'Quit',
+    click: mb.quit
+  });
+
+  menu.append(syntax);
+  menu.append(separator);
+  menu.append(quit);
+
+  cog.addEventListener('click', event => {
+    event.preventDefault();
+    menu.popup(remote.getCurrentWindow());
+  }, false);
+}
+
 
 let SettingsStore = assign({}, EventEmitter.prototype, {
   getLanguages,
   getSyntax,
+
+  init() {
+    hljs.configure({
+      languages: _languages
+    });
+
+    createElectronMenu();
+  },
 
   emitChange() {
     SettingsStore.emit(CHANGE_EVENT);
@@ -72,7 +121,10 @@ let SettingsStore = assign({}, EventEmitter.prototype, {
 SettingsStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType) {
     case SnippetBarConstants.LOAD_SETTINGS:
-      if (action.settings) _syntax = action.settings.syntaxHighlighting;
+      if (action.settings) {
+        _syntax = action.settings.syntaxHighlighting;
+        SettingsStore.emitChange();
+      }
       break;
 
     case SnippetBarConstants.SYNTAX_TOGGLE:

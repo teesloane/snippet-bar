@@ -3,19 +3,18 @@ const React = require('react');
 const SearchList = require('./SearchList');
 const Panel      = require('./Panel');
 
-
 const App = React.createClass({
   showNotification(message) {
-    let overlay = this.refs.overlay;
+    let overlay      = this.refs.overlay;
     let notification = this.refs.notification;
 
-    overlay.style.zIndex = 10;
+    overlay.style.zIndex      = 10;
     notification.style.zIndex = 11;
 
     notification.textContent = message;
 
     setTimeout(() => {
-      overlay.style.zIndex = -1;
+      overlay.style.zIndex      = -1;
       notification.style.zIndex = -2;
     }, 1000);
   },
