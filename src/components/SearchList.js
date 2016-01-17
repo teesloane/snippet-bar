@@ -1,28 +1,35 @@
 const React = require('react');
 
+const SnippetStore = require('../stores/SnippetStore');
+
 const SearchBar  = require('./SearchBar');
 const SearchItem = require('./SearchItem');
 
-const SearchList = React.createClass({
-  propTypes: {
-    snippets: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    activeSnippet: React.PropTypes.object,
-    setActive: React.PropTypes.func
-  },
 
+const SearchList = React.createClass({
   getInitialState() {
     return {
-      snippets: [],
-      filtered: null
+      snippets:      SnippetStore.getSnippets(),
+      activeSnippet: SnippetStore.getActiveSnippet(),
+      filtered:      null
     }
   },
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.snippets) {
+  _onChange() {
+    if (this.isMounted()) {
       this.setState({
-        snippets: nextProps.snippets
+        snippets:      SnippetStore.getSnippets(),
+        activeSnippet: SnippetStore.getActiveSnippet()
       });
     }
+  },
+
+  componentDidMount() {
+    SnippetStore.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount() {
+    SnippetStore.removeChangeListener(this._onChange);
   },
 
   filterSnippets(event) {
@@ -61,15 +68,14 @@ const SearchList = React.createClass({
 
   render() {
     let filteredList = this.state.filtered ? this.state.filtered : this.state.snippets;
-    let activeSnippet = this.props.activeSnippet;
+    let activeSnippet = this.state.activeSnippet;
 
     let snippets = filteredList.map((snippet, index) => {
       return (
         <SearchItem
           key={index}
           snippet={snippet}
-          isActive={activeSnippet && activeSnippet.id === snippet.id}
-          setActive={this.props.setActive}/>
+          isActive={activeSnippet && activeSnippet.id === snippet.id} />
       );
     });
 

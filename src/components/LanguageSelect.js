@@ -1,32 +1,48 @@
 const React  = require('react');
-const update = require('react-addons-update');
+
+const SettingsStore = require('../stores/SettingsStore');
 
 const LanguageSelect = React.createClass({
   propTypes: {
-    languages: React.PropTypes.array,
-    syntax:    React.PropTypes.bool,
     editLang:  React.PropTypes.string
   },
 
   getInitialState() {
     return {
-      language: null
+      languages: SettingsStore.getLanguages(),
+      syntax:    SettingsStore.getSyntax(),
+      language:  null
+    }
+  },
+
+  _onChange() {
+    if (this.isMounted()) {
+      this.setState({
+        languages: SettingsStore.getLanguages(),
+        syntax:    SettingsStore.getSyntax()
+      });
     }
   },
 
   componentDidMount() {
     this.getSelectedLanguage();
     this.setLanguage();
+
+    SettingsStore.addChangeListener(this._onChange);
   },
 
-//copying setTags(tags) to try and make lang load saved selection in edit mode.
+  componentWillUnmount() {
+    SettingsStore.removeChangeListener(this._onChange);
+  },
+
+  //copying setTags(tags) to try and make lang load saved selection in edit mode.
   setLanguage() {
     let language = this.props.editLang;
 
     if (language && language.length) this.setState({ language });
   },
 
-// Gets the selected Language from the <Select> element.
+  // Gets the selected Language from the <Select> element.
   getSelectedLanguage() {
     let language = this.refs.chooseLanguage.value;
 
@@ -34,8 +50,8 @@ const LanguageSelect = React.createClass({
   },
 
   render() {
-    let languages = this.props.languages;
-    let display = null;
+    let languages = this.state.languages;
+    let display   = null;
 
     let languageChoices = languages.map((language, index) => {
       return <option key={index} value={language}>{language}</option>;
@@ -43,7 +59,7 @@ const LanguageSelect = React.createClass({
 
     /* Show or Hide the Language <Select> Element */
     display = {
-      display: (this.props.syntax ? 'flex' : 'none')
+      display: (this.state.syntax ? 'flex' : 'none')
     }
 
     return(

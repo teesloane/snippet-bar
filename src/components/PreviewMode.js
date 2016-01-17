@@ -1,21 +1,49 @@
 const React = require('react');
 const hljs  = require('highlight.js');
 
+const SnippetStore  = require('../stores/SnippetStore');
+const SettingsStore = require('../stores/SettingsStore');
+
 const PanelControls = require('./PanelControls');
+
 const PreviewMode = React.createClass({
   propTypes: {
-    activeSnippet: React.PropTypes.object,
-    setMode:       React.PropTypes.func.isRequired,
-    deleteSnippet: React.PropTypes.func,
-    syntax:        React.PropTypes.bool,
-    languages:     React.PropTypes.array
+    showNotification: React.PropTypes.func.isRequired
+  },
+
+  getInitialState() {
+    return {
+      activeSnippet: SnippetStore.getActiveSnippet(),
+      languages:     SettingsStore.getLanguages(),
+      syntax:        SettingsStore.getSyntax()
+    };
+  },
+
+  _onChange() {
+    if (this.isMounted()) {
+      this.setState({
+        activeSnippet: SnippetStore.getActiveSnippet(),
+        languages:     SettingsStore.getLanguages(),
+        syntax:        SettingsStore.getSyntax()
+      });
+    }
+  },
+
+  componentDidMount() {
+    SnippetStore.addChangeListener(this._onChange);
+    SettingsStore.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount() {
+    SnippetStore.removeChangeListener(this._onChange);
+    SettingsStore.removeChangeListener(this._onChange);
   },
 
   render() {
-    let activeSnippet = this.props.activeSnippet;
+    let activeSnippet = this.state.activeSnippet;
+    let syntax        = this.state.syntax;
     let text          = null;
     let language      = '';
-    let syntax        = this.props.syntax;
 
     if (activeSnippet) {
       text     = activeSnippet.text;
@@ -38,9 +66,7 @@ const PreviewMode = React.createClass({
 
           <PanelControls
             mode="preview"
-            setMode={this.props.setMode}
-            showNotification={this.props.showNotification}
-            deleteSnippet={this.props.deleteSnippet}/>
+            showNotification={this.props.showNotification} />
         </div>
       </div>
     );

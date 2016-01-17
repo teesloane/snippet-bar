@@ -38,7 +38,12 @@ npm-debug.log
 app/static/css
 app/static/fonts
 app/js
+app/actions
 app/components
+app/constants
+app/dispatcher
+app/stores
+app/utils
 app/*.js
 builds
 docs

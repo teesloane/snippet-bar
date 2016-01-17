@@ -1,6 +1,6 @@
-// TODO: Enable Tabbing in TextArea
-
 const React = require('react');
+
+const SnippetActions = require('../actions/SnippetActions');
 
 const Tags           = require('./Tags');
 const PanelControls  = require('./PanelControls');
@@ -8,11 +8,8 @@ const LanguageSelect = require('./LanguageSelect');
 
 const AddMode = React.createClass({
   propTypes: {
-    setMode:       React.PropTypes.func.isRequired,
-    saveSnippet:   React.PropTypes.func,
-    languages:     React.PropTypes.array,
-    syntax:        React.PropTypes.bool,
-    enableTabbing: React.PropTypes.func
+    showNotification: React.PropTypes.func.isRequired,
+    enableTabbing:    React.PropTypes.func.isRequired
   },
 
   componentDidMount(){
@@ -33,12 +30,12 @@ const AddMode = React.createClass({
     if (text)        values.text  = text;
     if (language)    values.lang  = language;
 
-    this.props.saveSnippet(values);
+    SnippetActions.create(values, () => {
+      this.props.showNotification('Snippet Created!');
+    });
   },
 
   render() {
-
-
     return(
       <div className="panel-mode">
         <div className="selected-mode">
@@ -52,12 +49,8 @@ const AddMode = React.createClass({
                 ref="title"
                 placeholder="Title" />
 
-              <div
-                className="show-hide-languages">
-                <LanguageSelect
-                  languages={this.props.languages}
-                  syntax={this.props.syntax}
-                  ref="languages"/>
+              <div className="show-hide-languages">
+                <LanguageSelect ref="languages"/>
               </div>
             </div>
 
@@ -73,7 +66,6 @@ const AddMode = React.createClass({
 
             <PanelControls
               mode="add"
-              setMode={this.props.setMode}
               showNotification={this.props.showNotification} />
           </form>
         </div>

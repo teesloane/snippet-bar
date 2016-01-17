@@ -1,17 +1,40 @@
 const React = require('react');
 
-const Tags          = require('./Tags');
-const PanelControls = require('./PanelControls');
+const SnippetActions = require('../actions/SnippetActions');
+const SnippetStore   = require('../stores/SnippetStore');
+
+const Tags           = require('./Tags');
+const PanelControls  = require('./PanelControls');
 const LanguageSelect = require('./LanguageSelect');
 
 const EditMode = React.createClass({
   propTypes: {
-    setMode:       React.PropTypes.func.isRequired,
-    activeSnippet: React.PropTypes.object,
-    updateSnippet: React.PropTypes.func.isRequired,
-    languages:     React.PropTypes.array,
-    syntax:        React.PropTypes.bool,
-    enableTabbing: React.PropTypes.func
+    showNotification: React.PropTypes.func.isRequired,
+    enableTabbing:    React.PropTypes.func.isRequired
+  },
+
+  getInitialState() {
+    return {
+      activeSnippet: SnippetStore.getActiveSnippet()
+    };
+  },
+
+  _onChange() {
+    if (this.isMounted()) {
+      this.setState({
+        activeSnippet: SnippetStore.getActiveSnippet()
+      });
+    }
+  },
+
+  componentDidMount() {
+    this.props.enableTabbing();
+
+    SnippetStore.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount() {
+    SnippetStore.removeChangeListener(this._onChange);
   },
 
   updateSnippet(event) {
@@ -29,11 +52,9 @@ const EditMode = React.createClass({
     if (text)        values.text  = text;
     if (language)    values.lang  = language;
 
-    this.props.updateSnippet(values);
-  },
-
-  componentDidMount(){
-    this.props.enableTabbing();
+    SnippetActions.update(values, () => {
+      this.props.showNotification('Snippet Updated!');
+    });
   },
 
   render() {
@@ -46,35 +67,30 @@ const EditMode = React.createClass({
             <input
               id="new-snippet-title"
               className="add-field"
-              defaultValue={this.props.activeSnippet.title}
+              defaultValue={this.state.activeSnippet.title}
               type="text"
               ref="title"
               placeholder="Title" />
 
             <div className="show-hide-languages">
-              <LanguageSelect
-                languages={this.props.languages}
-                syntax={this.props.syntax}
-                editLang={this.props.activeSnippet.lang}
-                ref="languages" />
+              <LanguageSelect ref="languages" />
             </div>
           </div>
 
             <Tags
               max="5"
               ref="tags"
-              tags={this.props.activeSnippet.tags} />
+              tags={this.state.activeSnippet.tags} />
 
             <textarea
               id="new-snippet-text"
               className="add-textarea copy-text"
               placeholder="Add a Snippet..."
-              defaultValue={this.props.activeSnippet.text}
+              defaultValue={this.state.activeSnippet.text}
               ref="text"></textarea>
 
             <PanelControls
               mode="edit"
-              setMode={this.props.setMode}
               showNotification={this.props.showNotification} />
           </form>
         </div>
