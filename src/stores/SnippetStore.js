@@ -33,10 +33,10 @@ function getActiveMode() {
 }
 
 function setActiveMode(mode, callback = noop) {
-  let availableMode = MODES[mode];
+  let availableMode = _modes[mode];
 
   if (availableMode) {
-    if (availableMode === 'add') resetActive();
+    if (availableMode === 'add') resetActiveSnippet();
 
     _activeMode = availableMode;
 
@@ -91,10 +91,8 @@ function create(values, callback = noop) {
     _snippets.push(snippet);
 
     data.write('snippets', _snippets, () => {
-      // this.showNotification("Snippet Saved");
-
       setActiveSnippet(snippet.id);
-      setActiveMode(MODES.preview);
+      setActiveMode(_modes.preview);
 
       callback();
     });
@@ -115,10 +113,8 @@ function update(values, callback) {
       _snippets[i].lang = userValues.lang;
 
       data.write('snippets', _snippets, () => {
-        // this.showNotification("Snippet Updated");
-
         setActiveSnippet(_activeSnippet.id);
-        setActiveMode(MODES.preview);
+        setActiveMode(_modes.preview);
 
         callback();
       });
@@ -134,13 +130,9 @@ function destroy(callback) {
   for (let i = 0; i < len; i++) {
     if (_snippets[i].id === _activeSnippet.id) {
       resetActiveSnippet();
-      setActiveMode(MODES.empty);
+      setActiveMode(_modes.empty);
 
-      data.write('snippets', _snippets, () => {
-        // this.showNotification("Snippet Deleted");
-
-        callback();
-      });
+      data.write('snippets', _snippets, callback);
 
       break;
     }
@@ -156,15 +148,15 @@ let SnippetStore = assign({}, EventEmitter.prototype, {
   getSnippetById,
 
   emitChange() {
-    this.emit(CHANGE_EVENT);
+    SnippetStore.emit(CHANGE_EVENT);
   },
 
   addChangeListener(callback) {
-    this.on(CHANGE_EVENT, callback);
+    SnippetStore.on(CHANGE_EVENT, callback);
   },
 
   removeChangeListener(callback) {
-    this.removeListener(CHANGE_EVENT, callback);
+    SnippetStore.removeListener(CHANGE_EVENT, callback);
   }
 });
 

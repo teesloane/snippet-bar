@@ -1,7 +1,7 @@
 const React = require('react');
 
 const SearchList = require('./SearchList');
-// const Panel      = require('./Panel');
+const Panel      = require('./Panel');
 
 
 const App = React.createClass({
@@ -27,10 +27,9 @@ const App = React.createClass({
         <div id="notification" ref="notification"></div>
 
         <SearchList />
+        <Panel showNotification={this.showNotification} />
       </div>
     );
-
-    // <Panel showNotification={this.showNotification} />
   }
 });
 

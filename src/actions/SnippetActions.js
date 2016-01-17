@@ -1,6 +1,8 @@
 const AppDispatcher = require('../dispatcher/AppDispatcher');
 const SnippetBarConstants = require('../constants/SnippetBarConstants');
 
+const noop = function(){};
+
 module.exports = {
   load(snippets) {
     AppDispatcher.dispatch({
@@ -9,7 +11,7 @@ module.exports = {
     });
   },
 
-  create(values, callback) {
+  create(values, callback = noop) {
     AppDispatcher.dispatch({
       actionType: SnippetBarConstants.SNIPPET_CREATE,
       values,
@@ -17,7 +19,7 @@ module.exports = {
     });
   },
 
-  update(values, callback) {
+  update(values, callback = noop) {
     AppDispatcher.dispatch({
       actionType: SnippetBarConstants.SNIPPET_UPDATE,
       values,
@@ -25,7 +27,7 @@ module.exports = {
     });
   },
 
-  destroy(callback) {
+  destroy(callback = noop) {
     AppDispatcher.dispatch({
       actionType: SnippetBarConstants.SNIPPET_DELETE,
       callback

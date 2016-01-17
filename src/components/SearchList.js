@@ -16,14 +16,20 @@ const SearchList = React.createClass({
   },
 
   _onChange() {
-    this.setState({
-      snippets:      SnippetStore.getSnippets(),
-      activeSnippet: SnippetStore.getActiveSnippet()
-    });
+    if (this.isMounted()) {
+      this.setState({
+        snippets:      SnippetStore.getSnippets(),
+        activeSnippet: SnippetStore.getActiveSnippet()
+      });
+    }
   },
 
   componentDidMount() {
     SnippetStore.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount() {
+    SnippetStore.removeChangeListener(this._onChange);
   },
 
   filterSnippets(event) {

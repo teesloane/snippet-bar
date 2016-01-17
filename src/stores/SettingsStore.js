@@ -57,15 +57,15 @@ let SettingsStore = assign({}, EventEmitter.prototype, {
   getSyntax,
 
   emitChange() {
-    this.emit(CHANGE_EVENT);
+    SettingsStore.emit(CHANGE_EVENT);
   },
 
   addChangeListener(callback) {
-    this.on(CHANGE_EVENT, callback);
+    SettingsStore.on(CHANGE_EVENT, callback);
   },
 
   removeChangeListener(callback) {
-    this.removeListener(CHANGE_EVENT, callback);
+    SettingsStore.removeListener(CHANGE_EVENT, callback);
   }
 });
 
