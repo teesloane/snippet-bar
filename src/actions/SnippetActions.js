@@ -9,23 +9,26 @@ module.exports = {
     });
   },
 
-  create(values) {
+  create(values, callback) {
     AppDispatcher.dispatch({
       actionType: SnippetBarConstants.SNIPPET_CREATE,
-      values
+      values,
+      callback
     });
   },
 
-  update(values) {
+  update(values, callback) {
     AppDispatcher.dispatch({
       actionType: SnippetBarConstants.SNIPPET_UPDATE,
-      values
+      values,
+      callback
     });
   },
 
-  destroy() {
+  destroy(callback) {
     AppDispatcher.dispatch({
-      actionType: SnippetBarConstants.SNIPPET_DELETE
+      actionType: SnippetBarConstants.SNIPPET_DELETE,
+      callback
     });
   },
 

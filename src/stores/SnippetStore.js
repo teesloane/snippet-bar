@@ -7,6 +7,7 @@ const SnippetBarConstants = require('../constants/SnippetBarConstants');
 const data = require('../data');
 
 const CHANGE_EVENT = 'change';
+const noop = function(){};
 
 
 //
@@ -31,7 +32,7 @@ function getActiveMode() {
   return _activeMode;
 }
 
-function setActiveMode(mode, callback) {
+function setActiveMode(mode, callback = noop) {
   let availableMode = MODES[mode];
 
   if (availableMode) {
@@ -47,8 +48,8 @@ function getActiveSnippet() {
   return _activeSnippet;
 }
 
-function setActiveSnippet(id, callback) {
-  let snippet = getById(id);
+function setActiveSnippet(id, callback = noop) {
+  let snippet = getSnippetById(id);
 
   if (!_activeSnippet || _activeSnippet.id !== snippet.id) {
     _activeSnippet = snippet;
@@ -79,7 +80,7 @@ function getSnippetById(id) {
   return snippet;
 }
 
-function create(values, callback) {
+function create(values, callback = noop) {
   let isDuplicate = data.snippetExists(values.text);
 
   if (isDuplicate) return;
@@ -177,19 +178,28 @@ SnippetStore.dispatchToken = AppDispatcher.register(action => {
       break;
 
     case SnippetBarConstants.SNIPPET_CREATE:
-      create(action.values, SnippetStore.emitChange);
+      create(action.values, () => {
+        action.callback();
+        SnippetStore.emitChange();
+      });
       break;
 
     case SnippetBarConstants.SNIPPET_UPDATE:
-      update(action.values, SnippetStore.emitChange);
+      update(action.values, () => {
+        action.callback();
+        SnippetStore.emitChange();
+      });
       break;
 
     case SnippetBarConstants.SNIPPET_DELETE:
-      destroy(SnippetStore.emitChange);
+      destroy(() => {
+        action.callback();
+        SnippetStore.emitChange();
+      });
       break;
 
     case SnippetBarConstants.SNIPPET_SET_ACTIVE:
-      update(action.id, SnippetStore.emitChange);
+      setActiveSnippet(action.id, SnippetStore.emitChange);
       break;
 
     case SnippetBarConstants.MODE_SET_ACTIVE:

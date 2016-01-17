@@ -3,8 +3,7 @@ const ReactDOM = require('react-dom');
 
 const SnippetBarUtils = require('./utils/SnippetBarUtils');
 
-// const App = require('./components/App');
-const App = require('./components/TestApp');
+const App = require('./components/App');
 
 SnippetBarUtils.readSnippets();
 SnippetBarUtils.readSettings();

@@ -27,7 +27,6 @@
     "menubar": "~3.0.0",
     "normalize.css": "^3.0.3",
     "react": "^0.14.3",
-    "react-addons-update": "^0.14.3",
     "react-dom": "^0.14.3"
   },
   "devDependencies": {

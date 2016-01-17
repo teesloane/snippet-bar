@@ -1,6 +1,5 @@
 const React = require('react');
 
-
 const SearchBar = React.createClass({
   propTypes: {
     filterSnippets: React.PropTypes.func.isRequired
