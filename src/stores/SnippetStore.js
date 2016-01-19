@@ -19,7 +19,7 @@ const _modes = {
   add:     'add',
   edit:    'edit'
 };
-let _activeMode = 'preview';
+let _activeMode = _modes.empty;
 let _activeSnippet = null;
 let _snippets = [];
 
@@ -52,6 +52,8 @@ function setActiveSnippet(id, callback = noop) {
   let snippet = getSnippetById(id);
 
   if (!_activeSnippet || _activeSnippet.id !== snippet.id) {
+    if (_activeMode !== _modes.preview) _activeMode = _modes.preview;
+
     _activeSnippet = snippet;
 
     callback();
@@ -127,10 +129,14 @@ function update(values, callback) {
 function destroy(callback) {
   let len = _snippets.length;
 
+  if (!_activeSnippet) return;
+
   for (let i = 0; i < len; i++) {
     if (_snippets[i].id === _activeSnippet.id) {
       resetActiveSnippet();
       setActiveMode(_modes.empty);
+
+      _snippets.splice(i, 1);
 
       data.write('snippets', _snippets, callback);
 
