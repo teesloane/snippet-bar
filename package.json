@@ -2,9 +2,9 @@
   "name": "snippet-bar",
   "version": "0.1.0",
   "description": "A desktop menubar app for copying, pasting and re-using text snippets",
-  "main": "main.js",
+  "main": "app/main.js",
   "scripts": {
-    "start": "electron main.js",
+    "start": "electron app/main.js",
     "build-mac": "electron-packager . 'Snippet Bar' --platform=darwin --arch=x64 --out=./builds --version=0.36.2 --overwrite --icon='./app/static/img/icon' --prune --ignore='./docs' --ignore='./builds'",
     "build-linux": "electron-packager . 'Snippet Bar' --platform=linux --arch=x64 --out=./builds --version=0.36.2 --overwrite --prune --ignore='./docs' --ignore='./builds'"
   },
