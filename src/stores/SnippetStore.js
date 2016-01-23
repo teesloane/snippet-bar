@@ -36,7 +36,7 @@ function setActiveMode(mode, callback = noop) {
   let availableMode = _modes[mode];
 
   if (availableMode) {
-    if (availableMode === 'add') resetActiveSnippet();
+    if (availableMode === _modes.add) resetActiveSnippet();
 
     _activeMode = availableMode;
 
