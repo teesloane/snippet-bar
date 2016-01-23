@@ -1,6 +1,6 @@
 {
   "name": "snippet-bar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A desktop menubar app for copying, pasting and re-using text snippets",
   "main": "app/main.js",
   "scripts": {
