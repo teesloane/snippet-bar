@@ -21,7 +21,7 @@ We welcome any pull requests, suggestions and logged issues!
 
 ### What technologies did you use?
 
-Snippet Bar is built with React, Electron and some other awesome packages, including:
+Snippet Bar is built with React, Flux, Electron and some other awesome packages including:
 - [Hightlight.js](https://highlightjs.org/)
 - [maxogden's menu-bar](https://github.com/maxogden/menubar)
 - [Clipboard.js](https://zenorocha.github.io/clipboard.js/)
