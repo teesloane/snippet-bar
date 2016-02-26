@@ -11,7 +11,7 @@ Our goal is to provide a home for your snippets - code or otherwise. Snippet Bar
 
 ### Which platforms are supported?
 
-Snippet Bar works on Linux, Mac and Windows. But it's still in the testing phase. So far, we have only packaged a Mac app that's available for download.
+Snippet Bar works on Linux, Mac and Windows. But it's still in the testing phase. So far, we have Mac and Linux packages available for download on the Releases page.
 
 ### Are more features on the horizon?
 
